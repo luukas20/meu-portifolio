@@ -16,7 +16,7 @@
         <div class="interface">
             <div class="logo">
                 <a href="">
-                    <img src="images/Foto Perfil.jpeg" alt="Fato Perfil">
+                    <img src="{{ url_for('static', filename='images/Foto Perfil.jpeg') }}" alt="" width="50" height="60">
                 </a>
             </div><!--logo-->
 
@@ -36,6 +36,33 @@
             </div><!--contato-->
         </div><!--interface-->
     </header>
+
+    <main>
+        <section class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1>
+                            TRANSFORMANDO DADOS COMPLEXOS EM DECISÕES ESTRATÉGICAS <span>.</span>
+                        </h1>
+                        <p>
+                            "O pensamento estatístico será um dia tão necessário para a cidadania eficiente quanto a capacidade de ler e escrever." <br><span>— H. G. Wells</span> 
+                        </p>
+                        <div class="contato">
+                            <a href="">
+                                <button>Entre em Contato</button>
+                            </a>
+                        </div><!--contato-->
+                    </div><!--txt-topo-do-site-->
+                    <div class="img-topo-site">
+                        <a href="">
+                            <img src="{{ url_for('static', filename='images/Foto Perfil.jpeg') }}" alt="" width="400" height="600">
+                        </a>
+                    </div><!--img-topo-do-site-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--topo-do-site-->
+    </main>
 
 </body>
 </html>
