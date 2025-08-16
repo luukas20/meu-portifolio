@@ -30,7 +30,7 @@ body{
     transition: .2s;
 }
 
-.contato button:hover{
+button:hover{
     box-shadow: 0px 0px 8px #00FF08;
     transform: scale(1.05);
 }
@@ -81,8 +81,6 @@ header nav li{
     display: inline-block;
     padding: 0 40px;
 }
-
-
 
 /* ESTILO DO TOPO DO SITE */
 
@@ -136,7 +134,7 @@ section.topo-do-site .flex{
 /* ESTILO ESPECIALIDADES */
 
 section.especialidades{
-    padding: 10px 4%;
+    padding: 80px 4%;
 }
 
 section.especialidades .flex{
@@ -160,4 +158,99 @@ section.especialidades .flex{
 .especialidades .especialidades-box h3{
     font-size: 24px;
     margin: 15px 0;
+}
+
+/* ESTILO SOBRE MIM */
+
+section.sobre-mim{
+    padding: 80px 4%;
+}
+
+section.sobre-mim .flex{
+    align-items: center;
+    gap: 60px;
+}
+
+.sobre-mim .txt-sobre-mim{
+    color: #fff;
+}
+
+.sobre-mim .txt-sobre-mim h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre-mim .txt-sobre-mim h2 span{
+    color: #00FF08;
+    display: block;
+    font-size: 40px;
+}
+
+.sobre-mim .txt-sobre-mim p{
+    margin: 10px 0;
+    text-align: justify;
+    text-indent: 2em;
+}
+
+.sobre-mim .txt-sobre-mim .rede-social button{
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    background-color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 6px;
+    transition: .2s;
+}
+
+/* ESTILO MEU PORTIFÓLIO */
+
+section.portifolio{
+    padding: 80px 4%;
+    box-shadow: 0px 0px 40px 10px #ffffff1d;
+}
+
+section.portifolio .flex{
+    justify-content: space-around;
+    margin-top: 60px;
+
+}
+
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 25px;
+    position: relative;
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b8;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transform: 0.5s;
+}
+
+.overlay:hover{
+    opacity: 1;
 }
