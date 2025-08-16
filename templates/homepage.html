@@ -7,7 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-     <!-- FIM GOOGLE FONTES -->
+    <!-- FIM GOOGLE FONTES -->
+    <!--BOOTSTRAP INCONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!--FIM BOOTSTRAP INCONS-->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Portifolio Lucas Costa</title>
 </head>
@@ -62,6 +65,28 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--topo-do-site-->
+        <section class="especialidades">
+            <div class="interface">
+                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+                <div class="flex">
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="100" height="100">
+                        <h3>Python</h3>
+                        <p>Desenvolvimento de pipelines de dados, modelagem preditiva e automação de processos para transformar dados brutos em valor.</p>
+                    </div><!--especialidades-box-->
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/R Core Team.png') }}" alt="" width="100" height="100">
+                        <h3>R Core Team</h3>
+                        <p>Análise estatística avançada, modelagem de risco e aplicação de técnicas de Machine Learning com rigor científico.</p>
+                    </div><!--especialidades-box-->
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/Power BI.png') }}" alt="" width="100" height="100">
+                        <h3>Power BI</h3>
+                        <p>Criação de dashboards interativos e relatórios gerenciais, transformando informações complexas em insights visuais claros e acionáveis.</p>
+                    </div><!--especialidades-box-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--especialidades-->
     </main>
 
 </body>
