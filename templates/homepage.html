@@ -18,22 +18,22 @@
     <header>
         <div class="interface">
             <div class="logo">
-                <a href="">
-                    <img src="{{ url_for('static', filename='images/Foto Perfil.jpeg') }}" alt="" width="50" height="60">
+                <a href="#topo-do-site">
+                    <img src="{{ url_for('static', filename='images/HomePage.png') }}" alt="" width="50" height="60">
                 </a>
             </div><!--logo-->
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#topo-do-site">Inicio</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#sobre-mim">Sobre</a></li>
+                    <li><a href="#portifolio">Projetos</a></li>
                 </ul>
             </nav>
 
             <div class="contato">
-                <a href="#">
+                <a href="mailto:lucas.estatistico@outlook.com">
                     <button>Contato</button>
                 </a>
             </div><!--contato-->
@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <section class="topo-do-site">
+        <section class="topo-do-site" id="topo-do-site">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
@@ -52,44 +52,50 @@
                             "O pensamento estatístico será um dia tão necessário para a cidadania eficiente quanto a capacidade de ler e escrever." <br><span>— H. G. Wells</span> 
                         </p>
                         <div class="contato">
-                            <a href="">
+                            <a href="mailto:lucas.estatistico@outlook.com">
                                 <button>Entre em Contato</button>
                             </a>
                         </div><!--contato-->
                     </div><!--txt-topo-do-site-->
                     <div class="img-topo-site">
                         <a href="">
-                            <img src="{{ url_for('static', filename='images/Foto Perfil.jpeg') }}" alt="" width="400" height="600">
+                            <img src="{{ url_for('static', filename='images/Eu Hexagonal.png') }}" alt="" width="400" height="600">
                         </a>
                     </div><!--img-topo-do-site-->
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--topo-do-site-->
         
-        <section class="especialidades">
+        <section class="especialidades" id="especialidades">
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="100" height="100">
-                        <h3>Python</h3>
-                        <p>Desenvolvimento de pipelines de dados, modelagem preditiva e automação de processos para transformar dados brutos em valor.</p>
-                    </div><!--especialidades-box-->
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/R Core Team.png') }}" alt="" width="100" height="100">
-                        <h3>R Core Team</h3>
-                        <p>Análise estatística avançada, modelagem de risco e aplicação de técnicas de Machine Learning com rigor científico.</p>
-                    </div><!--especialidades-box-->
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/Power BI.png') }}" alt="" width="100" height="100">
-                        <h3>Power BI</h3>
-                        <p>Criação de dashboards interativos e relatórios gerenciais, transformando informações complexas em insights visuais claros e acionáveis.</p>
-                    </div><!--especialidades-box-->
+                    <a href="#port-python" class="especialidades-link">
+                        <div class="especialidades-box">
+                            <img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="100" height="100">
+                            <h3>Python</h3>
+                            <p>Desenvolvimento de pipelines de dados, modelagem preditiva e automação de processos para transformar dados brutos em valor.</p>
+                        </div><!--especialidades-box-->
+                    </a>
+                    <a href="#port-r" class="especialidades-link">
+                        <div class="especialidades-box">
+                            <img src="{{ url_for('static', filename='images/R Core Team.png') }}" alt="" width="100" height="100">
+                            <h3>R Core Team</h3>
+                            <p>Análise estatística avançada, modelagem de risco e aplicação de técnicas de Machine Learning com rigor científico.</p>
+                        </div><!--especialidades-box-->
+                    </a>
+                    <a href="#port-power-by" class="especialidades-link">
+                        <div class="especialidades-box">
+                            <img src="{{ url_for('static', filename='images/Power BI.png') }}" alt="" width="100" height="100">
+                            <h3>Power BI</h3>
+                            <p>Criação de dashboards interativos e relatórios gerenciais, transformando informações complexas em insights visuais claros e acionáveis.</p>
+                        </div><!--especialidades-box-->
+                    </a>
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--especialidades-->
         
-        <section class="sobre-mim">
+        <section class="sobre-mim" id="sobre-mim">
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre-mim">
@@ -101,32 +107,68 @@
                         <p>Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL Server, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes 🎯.</p>
                         <p>Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência 🚀.</p>
                         <div class="rede-social">
-                            <a href=""><button><img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="20" height="20"></button></a>
-                            <a href=""><button><img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="20" height="20"></button></a>
-                            <a href=""><button><img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="20" height="20"></button></a>
+                            <a href="https://www.linkedin.com/in/luukas20/"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt="" width="45" height="45"></button></a>
+                            <a href="https://github.com/luukas20"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt="" width="45" height="45"></button></a>
+                            <a href="mailto:lucas.estatistico@outlook.com"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt="" width="45" height="45"></button></a>
                         </div><!--rede-social-->
                     </div><!--txt-sobre-mim-->
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--sobre-mim-->
 
-        <section class="portifolio">
+        <section class="portifolio" id="portifolio">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
-                <div class="flex">
-                    <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                        <div class="overlay">Power BI</div>
-                    </div>
-                    <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                        <div class="overlay">R Shiny</div>
-                    </div>
-                    <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                        <div class="overlay">Streamlit</div>
-                    </div>
-                </div><!--flex-->
+                <div class="subsecao">
+                    <h3 class="toggle" id="port-power-by">Power BI<span class="arrow">&#9656;</span></h3>
+                    <div class="flex">
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
+                            <div class="overlay">
+                                <h2>Faturamento vs Meta</h2>
+                                <p>Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket médio, notas emitidas e projeções de forecast para o fechamento anual. Desenvolvido em Power BI, ele une visualização estratégica e análise de dados para apoiar a tomada de decisão de forma ágil e precisa. 💼✨</p>
+                            </div>
+                        </div>
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
+                            <div class="overlay">
+                                <h2>Previsão BOVA11</h2>
+                                <p>Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da inteligência artificial, representada por uma rede neural LSTM, e da estatística, através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de tecnologia e análise de dados. 💹🤖</p>
+                            </div>
+                        </div>
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
+                            <div class="overlay">
+                                <h2>Controle de Gastos Pessoais</h2>
+                                <p>Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas. 📉✨</p>
+                            </div>
+                        </div>
+                    </div><!--flex-->
+                </div><!--subsecao Power BI--> 
+                <div class="subsecao">
+                    <h3 class="toggle" id="port-python">Python<span class="arrow">&#9656;</span></h3>
+                    <div class="flex">
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Dashboard Streamlit.png') }}');">
+                            <div class="overlay">Previsão Ações Streamlit</div>
+                        </div>
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
+                            <div class="overlay">Risco de Crédito</div>
+                        </div>
+                    </div><!--flex-->
+                </div><!--subsecao Python-->
+                <div class="subsecao">
+                    <h3 class="toggle" id="port-r">R Core Team<span class="arrow">&#9656;</span></h3>
+                    <div class="flex">
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
+                            <div class="overlay">Dashboard Vendas</div>
+                        </div>
+                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
+                            <div class="overlay">Risco de Crédito</div>
+                        </div>
+                    </div><!--flex-->
+                </div><!--subsecao R Core Team-->
             </div><!--interface-->
         </section><!--portifolio-->
     </main>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 
 </body>
 </html>
