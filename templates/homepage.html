@@ -18,17 +18,17 @@
     <header>
         <div class="interface">
             <div class="logo">
-                <a href="#topo-do-site">
+                <a href="{{ url_for('pagina_home') }}">
                     <img src="{{ url_for('static', filename='images/HomePage.png') }}" alt="" width="50" height="60">
                 </a>
             </div><!--logo-->
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#topo-do-site">Inicio</a></li>
+                    <li><a href="{{ url_for('pagina_home') }}">Inicio</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
                     <li><a href="#sobre-mim">Sobre</a></li>
-                    <li><a href="#portifolio">Projetos</a></li>
+                    <li><a href="{{ url_for('pagina_projetos') }}">Projetos</a></li>
                 </ul>
             </nav>
 
@@ -122,24 +122,54 @@
                 <div class="subsecao">
                     <h3 class="toggle" id="port-power-by">Power BI<span class="arrow">&#9656;</span></h3>
                     <div class="flex">
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                            <div class="overlay">
-                                <h2>Faturamento vs Meta</h2>
-                                <p>Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket médio, notas emitidas e projeções de forecast para o fechamento anual. Desenvolvido em Power BI, ele une visualização estratégica e análise de dados para apoiar a tomada de decisão de forma ágil e precisa. 💼✨</p>
+                         <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
+                                <div class="overlay">
+                                    <h2>Faturamento vs Meta</h2>
+                                    <p>Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket médio, notas emitidas e projeções de forecast para o fechamento anual. Desenvolvido em Power BI, ele une visualização estratégica e análise de dados para apoiar a tomada de decisão de forma ágil e precisa. 💼✨</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                            <div class="overlay">
-                                <h2>Previsão BOVA11</h2>
-                                <p>Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da inteligência artificial, representada por uma rede neural LSTM, e da estatística, através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de tecnologia e análise de dados. 💹🤖</p>
+                        </a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlN2JmZGMtMjViOS00OGNiLWFlYzMtZjIzOGI1ODhmM2ZiIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
+                                <div class="overlay">
+                                    <h2>Previsão BOVA11</h2>
+                                    <p>Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da inteligência artificial, representada por uma rede neural LSTM, e da estatística, através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de tecnologia e análise de dados. 💹🤖</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                            <div class="overlay">
-                                <h2>Controle de Gastos Pessoais</h2>
-                                <p>Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas. 📉✨</p>
+                        </a>
+                        <a href="#" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
+                                <div class="overlay">
+                                    <h2>Controle de Gastos Pessoais</h2>
+                                    <p>Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas. 📉✨</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMmMwNzdmYTItZTNhNC00Y2E0LWI2M2ItM2FjYTFiNDI5ZTdkIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
+                                <div class="overlay">
+                                    <h2>Impulsionando Inovação com Dados</h2>
+                                    <p>🚀📊 Este painel em Power BI apresenta os impactos e resultados do programa INOVATIVA, mostrando faturamento, número de startups, empregos gerados e métricas de satisfação. Com gráficos claros e interativos, você acompanha performance por turma, escolaridade, gênero e fase de operação das startups. Uma análise completa que combina storytelling visual e dados estratégicos para transformar informações complexas em decisões inteligentes. 💡📈✨</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiM2MyNDYzMzQtMGQxMC00MDIzLWFiNWYtZDZhNDEyOWVkNmRlIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
+                                <div class="overlay">
+                                    <h2>Performance Comercial com Clareza</h2>
+                                    <p>📊✨ Este painel de vendas apresenta uma análise completa da produção, custos e faturamento, detalhando métricas por vendedor, produto e período. Com gráficos dinâmicos, mapas e tabelas interativas, conseguimos acompanhar tendências, identificar oportunidades e otimizar estratégias de vendas. 💼🚀</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank">
+                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
+                                <div class="overlay">
+                                    <h2></h2>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </a>
                     </div><!--flex-->
                 </div><!--subsecao Power BI--> 
                 <div class="subsecao">
