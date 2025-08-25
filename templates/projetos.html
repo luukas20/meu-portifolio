@@ -50,243 +50,97 @@
 
     <main>
         <!-- Projetos Técnicos com Galeria -->
-        <section id="projetos" class="py-20">
-            <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="project-card glass-effect">
-                    <!-- Projeto 1: Faturamento vs Meta -->
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9"
-                        target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                            <div class="overlay">
-                                <h2>Faturamento vs Meta</h2>
-                                <p>Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o
-                                    faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução
-                                    mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket
-                                    médio, notas emitidas e projeções de forecast para o fechamento anual. Desenvolvido
-                                    em Power BI, ele une visualização estratégica e análise de dados para apoiar a
-                                    tomada de decisão de forma ágil e precisa. 💼✨</p>
-                            </div>
+        <section class="portifolio" id="portifolio">
+            <div class="interface">
+                <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
+                <div class="project-container">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Faturamento vs Meta</h3>
+                            <span class="project-tag">POWER BI</span>
+                            <span class="project-tag">PYTHON</span>
                         </div>
-                    </a>
-                </div>
-                <div class="project-card glass-effect">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlN2JmZGMtMjViOS00OGNiLWFlYzMtZjIzOGI1ODhmM2ZiIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9"
-                        target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                            <div class="overlay">
-                                <h2>Previsão BOVA11</h2>
-                                <p>Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da
-                                    inteligência artificial, representada por uma rede neural LSTM, e da estatística,
-                                    através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para
-                                    treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de
-                                    tecnologia e análise de dados. 💹🤖</p>
-                            </div>
+                        <div class="card-content">
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
+                                    
+                                </div>
+                            </a>
+                            <p class="project-description">Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o
+                                faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução
+                                mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket
+                                médio, notas emitidas e projeções de forecast para o fechamento anual. 💼✨</p>
                         </div>
-                    </a>
-                </div>
-                <div class="project-card glass-effect">
-                    <a href="#" target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                            <div class="overlay">
-                                <h2>Controle de Gastos Pessoais</h2>
-                                <p>Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel
-                                    acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média
-                                    mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre
-                                    despesas por categoria, distribuição das transações e comparativos entre metas e
-                                    valores realizados. Oferece uma visão completa para tomada de decisões financeiras
-                                    mais conscientes e estratégicas. 📉✨</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-card glass-effect">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmMwNzdmYTItZTNhNC00Y2E0LWI2M2ItM2FjYTFiNDI5ZTdkIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9"
-                        target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                            <div class="overlay">
-                                <h2>Impulsionando Inovação com Dados</h2>
-                                <p>🚀📊 Este painel em Power BI apresenta os impactos e resultados do programa
-                                    INOVATIVA, mostrando faturamento, número de startups, empregos gerados e métricas de
-                                    satisfação. Com gráficos claros e interativos, você acompanha performance por turma,
-                                    escolaridade, gênero e fase de operação das startups. Uma análise completa que
-                                    combina storytelling visual e dados estratégicos para transformar informações
-                                    complexas em decisões inteligentes. 💡📈✨</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-card glass-effect">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiM2MyNDYzMzQtMGQxMC00MDIzLWFiNWYtZDZhNDEyOWVkNmRlIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9"
-                        target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                            <div class="overlay">
-                                <h2>Performance Comercial com Clareza</h2>
-                                <p>📊✨ Este painel de vendas apresenta uma análise completa da produção, custos e
-                                    faturamento, detalhando métricas por vendedor, produto e período. Com gráficos
-                                    dinâmicos, mapas e tabelas interativas, conseguimos acompanhar tendências,
-                                    identificar oportunidades e otimizar estratégias de vendas. 💼🚀</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-card glass-effect">
-                    <a href="#" target="_blank">
-                        <div class="img-port"
-                            style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                            <div class="overlay">
-                                <h2></h2>
-                                <p></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
 
-                <!-- Projeto 2: Luna IA -->
-                <div
-                    class="project-card glass-effect rounded-lg p-6 transition duration-300 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold highlight-text mb-2">Luna IA - Automação e Redução de Custos</h3>
-                        <p class="text-gray-400 mb-4">Criação de uma automação inteligente (RPA) para processos
-                            internos, otimizando tarefas repetitivas e liberando a equipe para atividades de maior valor
-                            estratégico.</p>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-300">Resultados e Ganhos:</h4>
-                            <ul class="list-disc list-inside text-gray-400 mt-2">
-                                <li><strong class="highlight-text">Redução de custos operacionais em 35%</strong> na
-                                    área atendida.</li>
-                                <li>Aumento da produtividade da equipe em mais de 50%.</li>
-                            </ul>
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Previsão BOVA11</h3>
+                            <span class="project-tag">POWER BI</span>
+                            <span class="project-tag">PYTHON</span>
+                            <span class="project-tag">ARMA-GARCH</span>
+                            <span class="project-tag">REDE LSTM</span>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Python</span><span class="skill-tag">Selenium</span><span
-                                class="skill-tag">Webscraping</span>
+                        
+                        <div class="card-content">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlN2JmZGMtMjViOS00OGNiLWFlYzMtZjIzOGI1ODhmM2ZiIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
+                            
+                            </div>
+                        </a>
+                            <p class="project-description">Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da
+                                inteligência artificial, representada por uma rede neural LSTM, e da estatística,
+                                através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para
+                                treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de
+                                tecnologia e análise de dados. 💹🤖</p>
                         </div>
                     </div>
-                    <button onclick="openModal('proj2')"
-                        class="mt-4 w-full bg-green-500/20 text-green-300 font-bold py-2 px-4 rounded-lg hover:bg-green-500/40 transition duration-300">Ver
-                        Galeria</button>
-                </div>
 
-                <!-- Projeto 3: CSLX -->
-                <div
-                    class="project-card glass-effect rounded-lg p-6 transition duration-300 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold highlight-text mb-2">CSLX - Collection Score LX</h3>
-                        <p class="text-gray-400 mb-4">Desenvolvimento de um modelo de Ensemble Learning para prever a
-                            probabilidade de pagamento de clientes inadimplentes nos próximos 60 dias.</p>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-300">Resultados e Ganhos:</h4>
-                            <ul class="list-disc list-inside text-gray-400 mt-2">
-                                <li>Modelo com <strong class="highlight-text">97% de acurácia</strong>, superando
-                                    soluções de mercado.</li>
-                                <li>Aumento significativo na recuperação de crédito, gerando um ganho médio de <strong
-                                        class="highlight-text">133 mil por mês</strong>.</li>
-                            </ul>
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Controle de Gastos Pessoais</h3>
+                            <span class="project-tag">POWER BI</span>
+                            <span class="project-tag">FORMS</span>
+                            <span class="project-tag">POWER ATOMATE</span>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Python (SkLearn)</span><span class="skill-tag">Ensemble
-                                Learning</span><span class="skill-tag">SQL</span>
+                        
+                        <div class="card-content">
+                        <a href="#" target="_blank">
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
+                                
+                            </div>
+                        </a>
+                            <p class="project-description">Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel
+                                acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média
+                                mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre
+                                despesas por categoria, distribuição das transações e comparativos entre metas e
+                                valores realizados. Oferece uma visão completa para tomada de decisões financeiras
+                                mais conscientes e estratégicas. 📉✨</p>
                         </div>
                     </div>
-                    <button onclick="openModal('proj3')"
-                        class="mt-4 w-full bg-green-500/20 text-green-300 font-bold py-2 px-4 rounded-lg hover:bg-green-500/40 transition duration-300">Ver
-                        Galeria</button>
-                </div>
 
-                <!-- Projeto 4: Data Fake -->
-                <div
-                    class="project-card glass-effect rounded-lg p-6 transition duration-300 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold highlight-text mb-2">Data Fake - Plataforma de Dados Sintéticos
-                        </h3>
-                        <p class="text-gray-400 mb-4">Criação de uma plataforma para geração de dados fakes realistas
-                            para testes, desenvolvimento e estudos acadêmicos, respeitando a privacidade e a LGPD.</p>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-300">Resultados e Ganhos:</h4>
-                            <ul class="list-disc list-inside text-gray-400 mt-2">
-                                <li><strong class="highlight-text">Reconhecimento e uso nacional</strong> por estudantes
-                                    e profissionais.</li>
-                                <li>Adotada por alunos de instituições como USP e universidades federais.</li>
-                            </ul>
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Previsão Ações Streamlit</h3>
+                            <span class="project-tag">PYTHON</span>
+                            <span class="project-tag">STREAMLIT</span>
+                            <span class="project-tag">ARMA-GARCH</span>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Python</span><span class="skill-tag">HTML</span><span
-                                class="skill-tag">CSS</span><span class="skill-tag">Firebase</span>
+                        
+                        <div class="card-content">
+                        <a href="https://lucas-estatistico-acoes.streamlit.app/" target="_blank">
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Dashboard Streamlit.png') }}');">
+                                
+                            </div>
+                        </a>
+                        <p class="project-description">
+                            📈✨ Este painel interativo, desenvolvido com Streamlit, oferece uma análise aprofundada do desempenho de qualquer ação de sua escolha. Digite o ticker desejado para explorar dados históricos, visualizar gráficos de preços e acompanhar as previsões geradas pelo modelo ARMA-GARCH. Uma ferramenta poderosa e flexível para suas análises e projeções no mercado financeiro. 💹💻
+                        </p>
                         </div>
                     </div>
-                    <div class="mt-4 flex gap-2">
-                        <button onclick="openModal('proj4')"
-                            class="w-1/2 bg-green-500/20 text-green-300 font-bold py-2 px-4 rounded-lg hover:bg-green-500/40 transition duration-300">Ver
-                            Galeria</button>
-                        <a href="https://gerador-dados-falsos.streamlit.app/" target="_blank"
-                            class="w-1/2 text-center bg-blue-500/20 text-blue-300 font-bold py-2 px-4 rounded-lg hover:bg-blue-500/40 transition duration-300">Ver
-                            App</a>
-                    </div>
-                </div>
-
-                <!-- Projeto 5: PDI Agente -->
-                <div
-                    class="project-card glass-effect rounded-lg p-6 transition duration-300 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold highlight-text mb-2">PDI Agente - IA para Desenvolvimento
-                            Individual</h3>
-                        <p class="text-gray-400 mb-4">Desenvolvimento de um agente de IA que auxilia usuários na criação
-                            e acompanhamento de seu Plano de Desenvolvimento Individual (PDI).</p>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-300">Resultados e Ganhos:</h4>
-                            <ul class="list-disc list-inside text-gray-400 mt-2">
-                                <li><strong class="highlight-text">Engajamento 3x maior</strong> dos colaboradores com
-                                    seus PDIs.</li>
-                                <li>Personalização do desenvolvimento profissional em escala.</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">IA Generativa</span><span class="skill-tag">Python</span><span
-                                class="skill-tag">Web</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex gap-2">
-                        <button onclick="openModal('proj5')"
-                            class="w-1/2 bg-green-500/20 text-green-300 font-bold py-2 px-4 rounded-lg hover:bg-green-500/40 transition duration-300">Ver
-                            Galeria</button>
-                        <a href="https://pdi-agente.streamlit.app/" target="_blank"
-                            class="w-1/2 text-center bg-blue-500/20 text-blue-300 font-bold py-2 px-4 rounded-lg hover:bg-blue-500/40 transition duration-300">Ver
-                            App</a>
-                    </div>
-                </div>
-
-                <!-- Projeto 6: Modelos Bacen 4966/21 -->
-                <div
-                    class="project-card glass-effect rounded-lg p-6 transition duration-300 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold highlight-text mb-2">Modelos Regulatórios Bacen (IFRS 9)</h3>
-                        <p class="text-gray-400 mb-4">Construção dos modelos de provisionamento de perdas esperadas (PD,
-                            LGD, EAD) para atender à nova norma do Banco Central (Res. 4966/21).</p>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-300">Resultados e Ganhos:</h4>
-                            <ul class="list-disc list-inside text-gray-400 mt-2">
-                                <li><strong class="highlight-text">Garantia de conformidade</strong> com as novas
-                                    exigências do Bacen.</li>
-                                <li>Melhora na gestão de risco de crédito da instituição.</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Modelagem Estatística</span><span
-                                class="skill-tag">Python</span><span class="skill-tag">SQL</span><span
-                                class="skill-tag">Regulação</span>
-                        </div>
-                    </div>
-                    <button onclick="openModal('proj6')"
-                        class="mt-4 w-full bg-green-500/20 text-green-300 font-bold py-2 px-4 rounded-lg hover:bg-green-500/40 transition duration-300">Ver
-                        Galeria</button>
                 </div>
             </div>
+            
         </section>
 
     </main>

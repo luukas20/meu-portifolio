@@ -353,7 +353,118 @@ section.portifolio .flex {
     width: 85%;
 }
 
-/* Estrutura principal do card */
+/* Container principal que alinha os cards de projeto */
+.project-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    justify-content: center;
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+/* Estilo individual de cada card de projeto */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px);
+    color: var(--text-100);
+    background-color: var(--bg-200); /* Cor de fundo para os cards */
+    padding: 10px;
+    border-radius: 25px;
+    margin-top: 45px;
+    transition: 0.2s;
+    position: relative;
+}
+
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px var(--primary-200); /* Sombra com cor primária */
+}
+
+/* Container de cabeçalho */
+.card-header {
+    display: flex;
+    justify-content: space-between; /* Coloca o título na esquerda e a tag na direita */
+    align-items: center;
+    margin-bottom: 20px; /* Espaço entre o cabeçalho e o corpo */
+    width: 98%;
+}
+
+/* Título do projeto */
+.project-title {
+    color: var(--text-100);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* Etiqueta/Tag do projeto */
+.project-tag {
+    background-color: var(--accent-100);
+    color: var(--text-100);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Conteúdo de texto à direita */
+.card-content {
+    display: flex;
+    gap: 10px; /* Espaço entre a imagem e a descrição */
+    flex-grow: 1;
+}
+
+/* Container da imagem à esquerda */
+.card-image {
+    width: 360px;
+    height: 260px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 25px;
+    position: relative;
+}
+
+.card-image:hover{
+    background-position: 100% 100%;
+}
+
+/* Descrição do projeto */
+.project-description {
+    flex-basis: 40%;
+    color: var(--text-200);
+    text-align: justify;
+    font-size: 12px;
+    text-indent: 2em;
+    padding: 0px 0px 0px 10px; 
+}
+
+
+/* Botão para visitar o projeto */
+.project-button {
+    background-color: var(--primary-100);
+    color: var(--text-100);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto; 
+    align-self: flex-start; 
+    transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: var(--primary-200);
+}
+
+/* Estrutura principal do card
 .project-card {
     display: flex;
     flex-direction: column;
@@ -368,11 +479,11 @@ section.portifolio .flex {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-/* Efeito visual de vidro (glassmorphism) */
+Efeito visual de vidro (glassmorphism)
 .glass-effect {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); 
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
+} */
