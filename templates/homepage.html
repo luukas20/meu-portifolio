@@ -28,7 +28,7 @@
                     <li><a href="{{ url_for('pagina_home') }}">Inicio</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
                     <li><a href="#sobre-mim">Sobre</a></li>
-                    <li><a href="{{ url_for('pagina_projetos') }}">Projetos</a></li>
+                    <li><a href="#portifolio">Projetos</a></li>
                 </ul>
             </nav>
 
@@ -70,27 +70,31 @@
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
-                    <a href="#port-python" class="especialidades-link">
-                        <div class="especialidades-box">
-                            <img src="{{ url_for('static', filename='images/Python.png') }}" alt="" width="100" height="100">
-                            <h3>Python</h3>
-                            <p>Desenvolvimento de pipelines de dados, modelagem preditiva e automação de processos para transformar dados brutos em valor.</p>
-                        </div><!--especialidades-box-->
-                    </a>
-                    <a href="#port-r" class="especialidades-link">
-                        <div class="especialidades-box">
-                            <img src="{{ url_for('static', filename='images/R Core Team.png') }}" alt="" width="100" height="100">
-                            <h3>R Core Team</h3>
-                            <p>Análise estatística avançada, modelagem de risco e aplicação de técnicas de Machine Learning com rigor científico.</p>
-                        </div><!--especialidades-box-->
-                    </a>
-                    <a href="#port-power-by" class="especialidades-link">
-                        <div class="especialidades-box">
-                            <img src="{{ url_for('static', filename='images/Power BI.png') }}" alt="" width="100" height="100">
-                            <h3>Power BI</h3>
-                            <p>Criação de dashboards interativos e relatórios gerenciais, transformando informações complexas em insights visuais claros e acionáveis.</p>
-                        </div><!--especialidades-box-->
-                    </a>
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/Estatistica.png') }}" alt="" width="100" height="100">
+                        <h3>Data Science</h3>
+                        <p>Aplicando algoritmos de Machine Learning para solucionar desafios complexos e impulsionar a eficiência operacional.</p>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/R Core Team.png') }}"> R/RStudio</span>
+                    </div><!--especialidades-box-->
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/Busines Inteligence.png') }}" alt="" width="100" height="100">
+                        <h3>Busines Inteligence</h3>
+                        <p>Capacitando líderes com dashboards interativos e relatórios inteligentes para uma tomada de decisão baseada em dados.</p>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
+                    </div><!--especialidades-box-->
+                    <div class="especialidades-box">
+                        <img src="{{ url_for('static', filename='images/Serviços Financeiros.png') }}" alt="" width="100" height="100">
+                        <h3>Risco de Crédito</h3>
+                        <p>Desenvolvendo e validando modelos de score de crédito que garantem uma concessão de crédito mais segura e eficiente. Em conformidade com a CMN 4966/21.</p>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/R Core Team.png') }}"> R/RStudio</span>
+                    </div><!--especialidades-box-->
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--especialidades-->
@@ -119,81 +123,92 @@
         <section class="portifolio" id="portifolio">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
-                <div class="subsecao">
-                    <h3 class="toggle" id="port-power-by">Power BI<span class="arrow">&#9656;</span></h3>
-                    <div class="flex">
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                                <div class="overlay">
-                                    <h2>Faturamento vs Meta</h2>
-                                    <p>Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket médio, notas emitidas e projeções de forecast para o fechamento anual. Desenvolvido em Power BI, ele une visualização estratégica e análise de dados para apoiar a tomada de decisão de forma ágil e precisa. 💼✨</p>
+                <div class="project-container">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Faturamento vs Meta</h3>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
+                        </div>
+                        <div class="card-content">
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
+                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
+                                    
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                            <p class="project-description">Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o
+                                faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução
+                                mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket
+                                médio, notas emitidas e projeções de forecast para o fechamento anual. 💼✨</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Previsão BOVA11</h3>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/GARCH.png') }}"> ARMA-GARCH</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Rede LSTM.png') }}"> REDE LSTM</span>
+                        </div>
+                        
+                        <div class="card-content">
                         <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlN2JmZGMtMjViOS00OGNiLWFlYzMtZjIzOGI1ODhmM2ZiIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                                <div class="overlay">
-                                    <h2>Previsão BOVA11</h2>
-                                    <p>Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da inteligência artificial, representada por uma rede neural LSTM, e da estatística, através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de tecnologia e análise de dados. 💹🤖</p>
-                                </div>
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
+                            
                             </div>
                         </a>
+                            <p class="project-description">Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da
+                                inteligência artificial, representada por uma rede neural LSTM, e da estatística,
+                                através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para
+                                treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de
+                                tecnologia e análise de dados. 💹🤖</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Controle de Gastos Pessoais</h3>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
+                            <span class="project-tag">FORMS</span>
+                            <span class="project-tag">POWER ATOMATE</span>
+                        </div>
+                        
+                        <div class="card-content">
                         <a href="#" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                                <div class="overlay">
-                                    <h2>Controle de Gastos Pessoais</h2>
-                                    <p>Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas. 📉✨</p>
-                                </div>
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
+                                
                             </div>
                         </a>
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMmMwNzdmYTItZTNhNC00Y2E0LWI2M2ItM2FjYTFiNDI5ZTdkIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                                <div class="overlay">
-                                    <h2>Impulsionando Inovação com Dados</h2>
-                                    <p>🚀📊 Este painel em Power BI apresenta os impactos e resultados do programa INOVATIVA, mostrando faturamento, número de startups, empregos gerados e métricas de satisfação. Com gráficos claros e interativos, você acompanha performance por turma, escolaridade, gênero e fase de operação das startups. Uma análise completa que combina storytelling visual e dados estratégicos para transformar informações complexas em decisões inteligentes. 💡📈✨</p>
-                                </div>
+                            <p class="project-description">Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel
+                                acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média
+                                mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre
+                                despesas por categoria, distribuição das transações e comparativos entre metas e
+                                valores realizados. Oferece uma visão completa para tomada de decisões financeiras
+                                mais conscientes e estratégicas. 📉✨</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">Previsão Ações Streamlit</h3>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Dev Streamlit.png') }}"> STREAMLIT</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/GARCH.png') }}"> ARMA-GARCH</span>
+                        </div>
+                        
+                        <div class="card-content">
+                        <a href="https://lucas-estatistico-acoes.streamlit.app/" target="_blank">
+                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Dashboard Streamlit.png') }}');">
+                                
                             </div>
                         </a>
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiM2MyNDYzMzQtMGQxMC00MDIzLWFiNWYtZDZhNDEyOWVkNmRlIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                                <div class="overlay">
-                                    <h2>Performance Comercial com Clareza</h2>
-                                    <p>📊✨ Este painel de vendas apresenta uma análise completa da produção, custos e faturamento, detalhando métricas por vendedor, produto e período. Com gráficos dinâmicos, mapas e tabelas interativas, conseguimos acompanhar tendências, identificar oportunidades e otimizar estratégias de vendas. 💼🚀</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" target="_blank">
-                            <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                                <div class="overlay">
-                                    <h2></h2>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div><!--flex-->
-                </div><!--subsecao Power BI--> 
-                <div class="subsecao">
-                    <h3 class="toggle" id="port-python">Python<span class="arrow">&#9656;</span></h3>
-                    <div class="flex">
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Dashboard Streamlit.png') }}');">
-                            <div class="overlay">Previsão Ações Streamlit</div>
+                        <p class="project-description">
+                            📈✨ Este painel interativo, desenvolvido com Streamlit, oferece uma análise aprofundada do desempenho de qualquer ação de sua escolha. Digite o ticker desejado para explorar dados históricos, visualizar gráficos de preços e acompanhar as previsões geradas pelo modelo ARMA-GARCH. Uma ferramenta poderosa e flexível para suas análises e projeções no mercado financeiro. 💹💻
+                        </p>
                         </div>
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                            <div class="overlay">Risco de Crédito</div>
-                        </div>
-                    </div><!--flex-->
-                </div><!--subsecao Python-->
-                <div class="subsecao">
-                    <h3 class="toggle" id="port-r">R Core Team<span class="arrow">&#9656;</span></h3>
-                    <div class="flex">
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                            <div class="overlay">Dashboard Vendas</div>
-                        </div>
-                        <div class="img-port" style="background-image: url('{{ url_for('static', filename='images/Foto Perfil.jpeg') }}');">
-                            <div class="overlay">Risco de Crédito</div>
-                        </div>
-                    </div><!--flex-->
-                </div><!--subsecao R Core Team-->
+                    </div>
+                </div>
             </div><!--interface-->
         </section><!--portifolio-->
     </main>
