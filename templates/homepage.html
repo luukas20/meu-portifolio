@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!--FIM BOOTSTRAP INCONS-->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Portifolio Lucas Costa</title>
+    <title>Lucas Costa | Portifólio de Dados</title>
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@
             </nav>
 
             <div class="contato">
-                <a href="mailto:lucas.estatistico@outlook.com">
+                <a href="#contato">
                     <button>Contato</button>
                 </a>
             </div><!--contato-->
@@ -111,9 +111,9 @@
                         <p>Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL Server, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes 🎯.</p>
                         <p>Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência 🚀.</p>
                         <div class="rede-social">
-                            <a href="https://www.linkedin.com/in/luukas20/"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt="" width="45" height="45"></button></a>
-                            <a href="https://github.com/luukas20"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt="" width="45" height="45"></button></a>
-                            <a href="mailto:lucas.estatistico@outlook.com"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt="" width="45" height="45"></button></a>
+                            <a href="https://www.linkedin.com/in/luukas20/"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt=""></button></a>
+                            <a href="https://github.com/luukas20"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt=""></button></a>
+                            <a href="mailto:lucas.estatistico@outlook.com"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt=""></button></a>
                         </div><!--rede-social-->
                     </div><!--txt-sobre-mim-->
                 </div><!--flex-->
@@ -128,6 +128,7 @@
                         <div class="card-header">
                             <h3 class="project-title">Faturamento vs Meta</h3>
                             <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power Automate</span>
                             <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
                         </div>
                         <div class="card-content">
@@ -211,7 +212,58 @@
                 </div>
             </div><!--interface-->
         </section><!--portifolio-->
+
+        <!-- Contato -->
+        <section class="contato" id="contato">
+            <div class="interface">
+                <h2 class="titulo">VAMOS <span>CONVERSAR.</span></h2>
+                <p class="txt-contato">Estou sempre aberto a novos desafios e oportunidades. Se você tem um projeto em mente ou quer saber mais sobre meu trabalho, entre em contato!</p>
+                <a href="https://wa.me/5579999365991?text=Olá" class="wpp-contato">
+                    <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Manda "Oi" no Whats.</button>
+                </a>
+                <div class="rede-social">
+                    <a href="https://www.linkedin.com/in/luukas20/"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt=""></button></a>
+                    <a href="https://github.com/luukas20"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt=""></button></a>
+                    <a href="mailto:lucas.estatistico@outlook.com"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt=""></button></a>
+                </div><!--rede-social-->
+            </div>
+                
+       </section>
+
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="interface">
+            <p>&copy; 2025 Lucas da Silva Costa. Todos os direitos reservados.</p>
+            <p>Construído com HTML, CSS e muito café.</p>
+        </div>
+    </footer>
+
+    <!-- Botão e Janela do Chatbot -->
+    <button  class="chat-button" id="chat-button">
+        <img src="{{ url_for('static', filename='images/ChartBot.png') }}">
+    </button>
+    <div class="chat-container" id="chat-container" >
+        <div class="chat-cabecalho">
+            <h3 class="chat-nome">Puxa Saco</h3>
+            <button class="close-chat" id="close-chat" >&times;</button>
+        </div>
+        <div class="chat-box" id="chat-box">
+             <div class="chat-message bot-message">
+                Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
+             </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta...">
+            <button class="send-chat" id="send-chat">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    
 
     <script src="{{ url_for('static', filename='main.js') }}"></script>
 

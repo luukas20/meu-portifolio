@@ -41,7 +41,7 @@ body{
     color: var(--text-100); /* Adicionado para garantir legibilidade */
 }
 
-button:hover{
+button:hover, form .btn-enviar input:hover{
     box-shadow: 0px 0px 8px var(--accent-100); /* Sombra com cor de destaque */
     transform: scale(1.05);
 }
@@ -107,6 +107,11 @@ header nav ul{
 header nav li{
     display: inline-block;
     padding: 0 40px;
+}
+
+.rede-social img {
+    width: 28px; 
+    height: 28px;
 }
 
 /* ESTILO DO TOPO DO SITE */
@@ -396,4 +401,224 @@ section.portifolio .interface h2{
 
 .project-button:hover {
     background-color: var(--primary-200);
+}
+
+/* ESTILO MEU CONTATO */
+
+section.contato{
+    padding: 80px 4%;
+}
+
+section.contato .interface{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.txt-contato{
+    text-align: center;
+    color: var(--text-100);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
+}
+
+.wpp-contato{
+    padding: 10px 20px;
+    display: inline-flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--primary-100);
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .2s;
+    color: var(--text-100); /* Adicionado para garantir legibilidade */
+}
+
+.wpp-contato:hover{
+    box-shadow: 0px 0px 8px var(--primary-100); /* Sombra com cor de destaque */
+    transform: scale(1.05);
+}
+
+
+.wpp-contato img {
+    width: 28px; 
+    height: 28px;
+}
+
+/* ESTILO RODAPÉ */
+
+footer{
+    padding: 10px 4%;
+    background-color: var(--bg-200);
+    text-align: center;
+    color: var(--text-100);
+}
+
+/* --- ESTILO GERAL DO CHATBOT --- */
+
+/* Botão flutuante para abrir o chat */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-200);
+    border-radius: 20%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: transform 0.2s ease;
+}
+
+.chat-button:hover {
+    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
+    transform: scale(1.05);
+}
+
+.chat-button img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Container principal da janela do chat */
+.chat-container {
+    position: fixed;
+    padding: 2px 2px 2px 2px;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    max-height: 80vh;
+    background-color: var(--bg-200);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: none; /* Inicia escondido */
+    flex-direction: column;
+    overflow: hidden; /* Garante que os cantos arredondados sejam aplicados a tudo */
+    z-index: 1000;
+}
+
+/* --- CABEÇALHO DO CHAT --- */
+.chat-cabecalho {
+    background-color: var(--bg-200);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-nome {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-100);
+}
+
+.close-chat {
+    background: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--accent-100);
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-100);
+}
+
+.close-chat:hover {
+    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
+    transform: scale(1.05);
+    color: var(--accent-100);
+}
+
+/* --- CAIXA DE MENSAGENS --- */
+.chat-box {
+    flex-grow: 1; /* Faz a caixa de mensagens ocupar todo o espaço disponível */
+    padding: 15px;
+    overflow-y: auto; /* Adiciona scroll quando as mensagens ultrapassam o limite */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaçamento entre as bolhas de mensagem */
+    background-color: var(--bg-200);
+}
+
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    line-height: 1.4;
+    word-wrap: break-word; /* Garante que palavras longas quebrem a linha */
+}
+
+/* Bolha de mensagem do usuário (direita) */
+.user-message {
+    background-color: var(--primary-100);
+    color: var(--primary-300);
+    align-self: flex-end; /* Alinha à direita */
+    border-bottom-right-radius: 5px;
+}
+
+/* Bolha de mensagem do bot (esquerda) */
+.bot-message {
+    background-color: var(--bg-300);
+    color: var(--primary-300);
+    align-self: flex-start; /* Alinha à esquerda */
+    border-bottom-left-radius: 5px;
+}
+
+/* --- ÁREA DE INPUT --- */
+.chat-input-area {
+    padding: 10px;
+    border-top: 1px solid var(--accent-100);
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    background-color: var(--bg-200);
+}
+
+.chat-input {
+    flex-grow: 1;
+    border: 1px solid var(--bg-300);
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: var(--primary-100);
+}
+
+.send-chat {
+    background-color: var(--primary-100);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-100);
+    transition: background-color 0.2s ease;
+}
+
+.send-chat:hover {
+    box-shadow: 0px 0px 4px var(--primary-100); /* Sombra com cor de destaque */
+    transform: scale(1.05);
 }

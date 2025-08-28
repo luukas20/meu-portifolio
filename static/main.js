@@ -16,6 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // --- LÓGICA DO CHATBOT ---
+    const chatContainer = document.getElementById('chat-container');
+    const chatButton = document.getElementById('chat-button');
+    const closeChat = document.getElementById('close-chat');
+    const sendChat = document.getElementById('send-chat');
+    const chatInput = document.getElementById('chat-input');
+    const chatBox = document.getElementById('chat-box');
+
+    // **MODIFICADO** A URL agora aponta para o nosso próprio back-end
+    const API_URL = '/api/chat'; 
+    
+    chatButton.addEventListener('click', () => chatContainer.style.display = 'block');
+    closeChat.addEventListener('click', () => chatContainer.style.display = 'none');
+    sendChat.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    async function sendMessage() {
+        const userMessage = chatInput.value.trim();
+        if (!userMessage) return;
+
+        appendMessage(userMessage, 'user');
+        chatInput.value = '';
+        
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                // **MODIFICADO** Enviamos apenas a mensagem do usuário
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            // **MODIFICADO** A resposta agora vem em 'data.reply'
+            const botMessage = data.reply;
+            appendMessage(botMessage, 'bot');
+
+        } catch (error) {
+            console.error("Erro ao contatar o back-end:", error);
+            appendMessage("Desculpe, estou com problemas para me conectar no momento. Tente novamente mais tarde.", 'bot');
+        }
+    }
+
+    function appendMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        // Sanitize message to prevent HTML injection
+        messageDiv.textContent = message;
+        messageDiv.className = `chat-message ${sender}-message`;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll
+    }
+    
     // ---------- Outras funções do site podem ir aqui ----------
     // exemplo: sliders, modais, filtros, etc.
 
