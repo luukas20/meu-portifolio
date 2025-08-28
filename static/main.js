@@ -24,17 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendChat = document.getElementById('send-chat');
     const chatInput = document.getElementById('chat-input');
     const chatBox = document.getElementById('chat-box');
-
-    // **MODIFICADO** A URL agora aponta para o nosso próprio back-end
-    const API_URL = '/api/chat'; 
     
-    chatButton.addEventListener('click', () => chatContainer.style.display = 'block');
+    // Este botão agora abre E fecha o chat
+    chatButton.addEventListener('click', () => {
+        const isChatVisible = chatContainer.style.display === 'flex';
+        if (isChatVisible) {
+        chatContainer.style.display = 'none';
+        } else {
+        chatContainer.style.display = 'flex';
+        }
+    });
     closeChat.addEventListener('click', () => chatContainer.style.display = 'none');
     sendChat.addEventListener('click', sendMessage);
     chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') sendMessage();
     });
 
+    // **MODIFICADO** A URL agora aponta para o nosso próprio back-end
+    const API_URL = '/api/chat'; 
+    
     async function sendMessage() {
         const userMessage = chatInput.value.trim();
         if (!userMessage) return;

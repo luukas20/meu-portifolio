@@ -16,3 +16,6 @@ __pycache__/
 
 # Arquivos de Workspace
 *.code-workspace
+
+# Arquivos API Key Chat Bot 
+.env
