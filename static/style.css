@@ -69,6 +69,8 @@ h2.titulo span{
     font-weight: 500;
 }
 
+
+
 /* ESTILO DO CABEÇALHO */
 header {
     padding: 10px 3%;
@@ -104,7 +106,7 @@ header nav ul{
     list-style-type: none;
 }
 
-header nav li{
+header nav.menu-desktop li{
     display: inline-block;
     padding: 0 40px;
 }
@@ -113,6 +115,96 @@ header nav li{
     width: 28px; 
     height: 28px;
 }
+
+/* ESTILO MENU MOBILE */
+.btn-abrir-menu .btn-lista {
+    color: var(--accent-100);
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.btn-abrir-menu .btn-lista:hover {
+    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
+    transform: scale(1.05);
+    color: var(--accent-100);
+}
+
+.menu-mobile{
+    background-color: var(--bg-200);
+    height: 80vh;
+    width: 0%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.menu-mobile.abrir-menu{
+    width: 60%;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block;
+}
+
+
+.menu-mobile nav ul{
+    text-align: right;
+}
+
+.menu-mobile nav ul li a{
+    color: var(--text-200);
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 4%;
+    display: block;
+}
+
+.menu-mobile nav ul li a:hover{
+    background-color: var(--bg-300);
+}
+
+.menu-mobile .div-btn-fechar{
+    padding: 10px 5%;
+}
+
+.menu-mobile .div-btn-fechar .btn-fechar{
+    background: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--accent-100);
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-100);
+}
+
+.menu-mobile .btn-fechar:hover {
+    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
+    transform: scale(1.05);
+    color: var(--accent-100);
+}
+
+.overlay-menu{
+    background-color: #0d1f2db1;
+    width: 100vh;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none;
+}
+
 
 /* ESTILO DO TOPO DO SITE */
 section.topo-do-site{
@@ -628,4 +720,91 @@ footer{
 .send-chat:hover {
     box-shadow: 0px 0px 4px var(--primary-100); /* Sombra com cor de destaque */
     transform: scale(1.05);
+}
+
+@media screen and (max-width: 1020px) {
+    /* Clases Gerais */
+    .flex{
+        flex-direction: column;
+    }
+
+    h2.titulo{
+        font-size: 28px;
+    }
+
+    /* Cabeçalho */
+    .menu-desktop{
+        display: none;
+    }
+
+    .btn-abrir-menu .btn-lista {
+        display: block;
+    }
+
+    /* Topo do Site */
+    section.topo-do-site{
+        padding: 20px 8%;
+    }
+
+    section.topo-do-site .flex{
+        gap: 40px;
+    }
+
+    .topo-do-site .txt-topo-site h1{
+        color: var(--text-100);
+        font-size: 30px;
+    }
+
+    .topo-do-site .txt-topo-site h1 span{
+        color: var(--accent-100);
+        font-size: 3opx;
+    }
+
+    .topo-do-site .img-topo-site img{
+        width: 100%;
+    }
+
+    /* Especialidades */
+    section.especialidades{
+        padding: 20px 8%;
+    }
+
+    /* Sobre */
+    section.sobre-mim{
+        padding: 20px 8%;
+    }
+
+    .sobre-mim .txt-sobre-mim h2{
+        font-size: 32px;
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .img-sobre-mim img{
+        width: 100%;
+    }
+
+    .rede-social{
+        text-align: center;
+    }
+
+    /* Portifolio */
+    section.portifolio{
+        padding: 20px 8%;
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-image {
+        width: 200px;
+        height: 120px;
+    }
 }

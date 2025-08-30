@@ -16,6 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---------- MENU MOBILE ----------
+    let btnMenu = document.getElementById('btn-abrir-menu')
+    let menu = document.getElementById('menu-mobile')
+    let OverlayMenu = document.getElementById('overlay-menu')
+
+    btnMenu.addEventListener('click', ()=>{
+        menu.classList.add('abrir-menu')
+    })
+    menu.addEventListener('click', ()=>{
+        menu.classList.remove('abrir-menu')
+    })
+    OverlayMenu.addEventListener('click', ()=>{
+        menu.classList.remove('abrir-menu')
+    })
+
 
     // --- LÓGICA DO CHATBOT ---
     const chatContainer = document.getElementById('chat-container');
