@@ -2,7 +2,7 @@ from main import app
 from flask import render_template, request, jsonify
 from dotenv import load_dotenv
 import os
-import google.generativeai as genai
+from google import genai
 
 # Rotas
 @app.route('/', endpoint='pagina_home')
@@ -13,8 +13,9 @@ def homepage():
 load_dotenv() # Carrega as variáveis do arquivo .env
 
 # 2. CONFIGURAÇÃO DA API DO GEMINI
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel('gemini-1.5-flash')
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+# genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# model = genai.GenerativeModel('gemini-1.5-flash')
 
 # 3. Define os dados do LinkedIn
 dados_linkedin = """
@@ -142,7 +143,11 @@ def chat():
         Puxa Saco:"""
 
         # Envia o prompt para o Gemini e obtém a resposta
-        response = model.generate_content(prompt)
+        # response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-2.0-flash',
+            contents=prompt
+        )
         bot_reply = response.text
 
         # Retorna a resposta no formato JSON que o front-end espera
