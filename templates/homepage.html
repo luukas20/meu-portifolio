@@ -75,7 +75,7 @@
                             "O pensamento estatístico será um dia tão necessário para a cidadania eficiente quanto a capacidade de ler e escrever." <br><span>— H. G. Wells</span> 
                         </p>
                         <div class="contato">
-                            <a href="mailto:lucas.estatistico@outlook.com" target="_blank">
+                            <a href="#contato">
                                 <button>Entre em Contato</button>
                             </a>
                         </div><!--contato-->
@@ -264,28 +264,31 @@
     </footer>
 
     <!-- Botão e Janela do Chatbot -->
-    <button  class="chat-button" id="chat-button">
-        <img src="{{ url_for('static', filename='images/ChartBot.png') }}">
-    </button>
-    <div class="chat-container" id="chat-container" >
-        <div class="chat-cabecalho">
-            <h3 class="chat-nome">Puxa Saco</h3>
-            <button class="close-chat" id="close-chat" >&times;</button>
+     <div class="interface">
+        <button  class="chat-button" id="chat-button">
+            <img src="{{ url_for('static', filename='images/ChartBot.png') }}">
+        </button>
+        <div class="chat-container" id="chat-container" >
+            <div class="chat-cabecalho">
+                <h3 class="chat-nome">Puxa Saco</h3>
+                <button class="close-chat" id="close-chat" >&times;</button>
+            </div>
+            <div class="chat-box" id="chat-box">
+                 <div class="chat-message bot-message">
+                    Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
+                 </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta...">
+                <button class="send-chat" id="send-chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div class="chat-box" id="chat-box">
-             <div class="chat-message bot-message">
-                Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
-             </div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta...">
-            <button class="send-chat" id="send-chat">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-                </svg>
-            </button>
-        </div>
-    </div>
+     </div>
+    
     
 
     <script src="{{ url_for('static', filename='main.js') }}"></script>
