@@ -11,6 +11,9 @@
     <!--BOOTSTRAP INCONS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!--FIM BOOTSTRAP INCONS-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Lucas Costa | Portifólio de Dados</title>
 </head>
@@ -147,6 +150,25 @@
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
                 <div class="project-container">
+
+                    
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h3 class="project-title">📊 Modelagem de Perda Esperada (PE)</h3>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Data Science</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Serviços Financeiros.png') }}"> Risco de Crédito</span>
+                        </div>
+                        <div class="card-content">
+                            <a href="#" target="_blank">
+                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Perda Esperada.png') }}');">
+                                    
+                                </div>
+                            </a>
+                            <p  class="project-description"> Desenvolvi uma solução robusta para a estimativa da Perda Esperada em portfólios de cartão de crédito através da fórmula $$ PE = PD \times LGD \times EAD $$ <strong>• Probabilidade de Default (PD)</strong>; <br> <strong>• Loss Given Default (LGD)</strong>; <br> <strong>• Exposure at Default (EAD)</strong>. <br> Com essa abordagem de <i>Machine Learning</i>, alcancei um <strong>Índice de Cobertura de 115%</strong> ✅. Garantindo uma gestão de limites precisa e maior resiliência financeira para a carteira. 💰📈</p>
+                        </div>
+                    </div>
+
                     <div class="project-card">
                         <div class="card-header">
                             <h3 class="project-title">🚀 Visão Computacional (Gatos vs. Cachorros)</h3>
@@ -168,7 +190,7 @@
                         <div class="card-header">
                             <h3 class="project-title">Faturamento vs Meta</h3>
                             <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power Automate</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> Power Automate</span>
                             <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
                         </div>
                         <div class="card-content">
@@ -211,8 +233,8 @@
                         <div class="card-header">
                             <h3 class="project-title">Controle de Gastos Pessoais</h3>
                             <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                            <span class="project-tag">FORMS</span>
-                            <span class="project-tag">POWER ATOMATE</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> FORMS</span>
+                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> POWER ATOMATE</span>
                         </div>
                         
                         <div class="card-content">
