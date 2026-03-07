@@ -31,7 +31,7 @@ Analista de Transformação Sr. - fev/2026 - atualmente
 •	Analise de Dados para Suporte à Tomada de Decisão Estratégica
 •	Analise de Dados para Viabilidade de Projetos de Transformação
 •	Analise de CAPEX e OPEX para Projetos de Transformação
-•	Desenvolvimento de Dashboards e Relatórios para Monitoramento de Indicadores de Performance de Projetos de Transformação
+•	Desenvolvimento de Dashboards e Relatórios para Monitoramento de Indicadores de Performance dos Projetos de Transformação
 •	Gerenciamento do Power BI Service do Setor de Transformação
 2.	Cencosud
 Analista Estratégia de Risco PL. - abr/2025 - fev/2026
