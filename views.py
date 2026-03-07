@@ -20,12 +20,21 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 # 3. Define os dados do LinkedIn
 dados_linkedin = """
 ## RESUMO PROFISSIONAL DE LUCAS
-Profissional altamente motivado e apaixonado por Ciência de Dados, Machine Learning e Análise Estatística, com formação em Estatística pela UFS. Atualmente, atuo como Analista Estratégia de Risco de Crédito na Cencosud, onde aplico técnicas avançadas de modelagem estatística e análise preditiva para otimizar decisões financeiras e mitigar riscos.
-Minhas experiências abrangem o desenvolvimento de soluções inovadoras por meio de algoritmos de Machine Learning, utilizando as linguagens Python e R, além de um domínio sólido em SQL Server e Power BI para transformar dados complexos em insights estratégicos, visualizações claras e impactantes.
+Olá! Sou Lucas Costa, profissional apaixonado por Ciência de Dados e Machine Learning , com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊
+Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes. 🎯
+Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência. 🚀
 
 ## EXPERIÊNCIA PROFISSIONAL
-1.	Cencosud
-Analista Estratégia de Risco PL. - abr/2025 - atualmente
+1.	Iguá Saneamento
+Analista de Transformação Sr. - fev/2026 - atualmente
+•	Desenvolvimento de Soluções de Data Science para Otimização de Processos
+•	Analise de Dados para Suporte à Tomada de Decisão Estratégica
+•	Analise de Dados para Viabilidade de Projetos de Transformação
+•	Analise de CAPEX e OPEX para Projetos de Transformação
+•	Desenvolvimento de Dashboards e Relatórios para Monitoramento de Indicadores de Performance de Projetos de Transformação
+•	Gerenciamento do Power BI Service do Setor de Transformação
+2.	Cencosud
+Analista Estratégia de Risco PL. - abr/2025 - fev/2026
 •	Adequação a CMN 4966/21
 •	Modelagem da Probability of Default - PD
 •	Modelagem da Loss Given Default - LGD
@@ -43,14 +52,14 @@ Analista Estratégia de Risco Jr. - jan/2024 - abr/2025
 •	Construção de Dashboard no Power BI 
 •	Gerenciamento do Power BI Service
 
-2.	Hospital Primavera
+3.	Hospital Primavera
 Estagiário de Analista de Business Intelligence - abr/2023 - dez/2023 
 •	Criação de Consultas em Oracle SQL, SQL Server, MySQL
 •	Automatização de Indicadores do Interact Direto dos Bancos de Dados
 •	Construção de Dashboard no Power BI e Gerenciamento do Power BI Service
 •	Automação de Tarefas via Power Automate
 
-3.	Tribunal Regional Eleitoral - TRE 
+4.	Tribunal Regional Eleitoral - TRE 
 Estagiário de Estatística - fev/2022 - mar/2023 
 •	Gerenciamento dos Indicadores Estratégicos do TRE-SE
 •	Gerenciamento das Metas do CNJ
