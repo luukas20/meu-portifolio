@@ -49,6 +49,11 @@ Estagiário de Estatística - fev/2022 - mar/2023
 ## FORMAÇÃO ACADÊMICA
 Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 
+## IDIOMAS
+•	Português - Nativo
+•	Inglês - Nível Básico
+•	Espanhol - Nível Básico
+
 ## CURSOS E EXPERIÊNCIAS ADICIONAIS
 •	TCC - Análise Comparativa Entre Modelos De Previsão ARMA-GARCH e Redes Neurais LSTM: Um Estudo de Caso Aplicado ao BOVA11
 •	Formação - Power BI - Data University Cencosud
@@ -69,6 +74,7 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 •	R Core Team 
 •	Python
 •	SQL Server
+•	Snowflake
 •	Power BI
 •	QlikView
 •	Pentaho Data Integration
