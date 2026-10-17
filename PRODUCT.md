@@ -55,7 +55,7 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 - Cat vs Dog: repositório público em `github.com/luukas20/cnn-cat-vs-dog` (notebooks lidos; conclusões aguardam confirmação do Lucas antes de irem para o site ou o chatbot).
 - Experiência: Iguá Saneamento, Cencosud, Hospital Primavera, TRE-SE. Formação e cursos em `prompts/conhecimento.md`.
 - **Tem recomendações no LinkedIn**, mas o LinkedIn bloqueia leitura automatizada e os textos não foram fornecidos. Sem recomendações no site até o Lucas colar os textos: não inventar nem parafrasear depoimentos.
-- Currículo: `C:\Users\lucas\Documents\Curriculo\Currículo Lucas Costa.pdf` (e o modelo `Cópia de Modelo Currículo Tech.docx`). Tem e-mail e telefone, sem CPF ou endereço. Ainda não está no repositório.
+- Currículo em PDF (e o modelo em Word) guardados no computador do Lucas, fora do repositório. Têm e-mail e telefone, sem CPF ou endereço. Ainda não estão no site.
 - **Ausências que não podem ser inventadas:** textos das recomendações, link de destino dos cards sem link.
 
 ## Product Principles
