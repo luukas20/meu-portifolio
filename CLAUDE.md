@@ -70,7 +70,6 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 
 - `homepage.html` carrega `polyfill.io` (domínio comprometido em 2024); o MathJax v3 não precisa dele. Também carrega bootstrap-icons sem usar nenhum ícone.
 - Imagens pesadas em `static/images/` (`Eu Hexagonal.png` 4,4 MB, `Perda Esperada.png` 4,4 MB, `Cat vs Dog.png` 3,9 MB), carregadas sem lazy-load.
-- Cards "Perda Esperada" e "Controle de Gastos" têm `href="#"` (sem destino).
 - O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1)` em `main.py`; sem proxy, o cabeçalho `X-Forwarded-For` pode ser forjado e burlar o limite.
 
 ## Skills

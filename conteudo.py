@@ -1,6 +1,7 @@
 # CONTEÚDO DA PÁGINA
 # Fonte única dos textos, tags, imagens e links da homepage. O template só percorre estas listas.
 # Imagens: nome do arquivo dentro de static/images/. Descrições dos projetos aceitam HTML (renderizadas com |safe).
+# Projeto com "link": None não tem imagem clicável.
 # O conhecimento do chatbot fica em prompts/conhecimento.md (editado à mão): ao mudar algo aqui, conferir lá também.
 
 
@@ -20,8 +21,8 @@ ESPECIALIDADES = [
         ],
     },
     {
-        "icone": "Busines Inteligence.png",
-        "titulo": "Busines Inteligence",
+        "icone": "Business Intelligence.png",
+        "titulo": "Business Intelligence",
         "descricao": "Capacitando líderes com dashboards interativos e relatórios inteligentes para uma tomada de decisão baseada em dados.",
         "tags": [
             tag("Estatistica.png", "Estatística"),
@@ -43,7 +44,7 @@ ESPECIALIDADES = [
 ]
 
 SOBRE_MIM = [
-    "Profissional apaixonado por Ciência de Dados e Machine Learning , com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊",
+    "Profissional apaixonado por Ciência de Dados e Machine Learning, com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊",
     "Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL Server, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes. 🎯",
     "Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência 🚀.",
 ]
@@ -63,7 +64,7 @@ PROJETOS = [
             tag("Serviços Financeiros.png", "Risco de Crédito"),
         ],
         "imagem": "Perda Esperada.png",
-        "link": "#",
+        "link": None,
         "descricao": r"Desenvolvi uma solução robusta para a estimativa da Perda Esperada em portfólios de cartão de crédito através da fórmula $$ PE = PD \times LGD \times EAD $$ <strong>• Probabilidade de Default (PD)</strong>; <br> <strong>• Loss Given Default (LGD)</strong>; <br> <strong>• Exposure at Default (EAD)</strong>. <br> Com essa abordagem de <i>Machine Learning</i>, alcancei um <strong>Índice de Cobertura de 115%</strong> ✅. Garantindo uma gestão de limites precisa e maior resiliência financeira para a carteira. 💰📈",
     },
     {
@@ -105,10 +106,10 @@ PROJETOS = [
         "tags": [
             tag("Power BI.png", "Power BI"),
             tag("Microsoft.png", "FORMS"),
-            tag("Microsoft.png", "POWER ATOMATE"),
+            tag("Microsoft.png", "POWER AUTOMATE"),
         ],
         "imagem": "Controle de Gastos.png",
-        "link": "#",
+        "link": None,
         "descricao": "Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas. 📉✨",
     },
     {

@@ -29,7 +29,7 @@
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="{{ url_for('pagina_home') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('pagina_home') }}">Início</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
                     <li><a href="#sobre-mim">Sobre</a></li>
                     <li><a href="#portifolio">Projetos</a></li>
@@ -53,7 +53,7 @@
 
                 <nav>
                     <ul>
-                        <li><a href="{{ url_for('pagina_home') }}">Inicio</a></li>
+                        <li><a href="{{ url_for('pagina_home') }}">Início</a></li>
                         <li><a href="#especialidades">Especialidades</a></li>
                         <li><a href="#sobre-mim">Sobre</a></li>
                         <li><a href="#portifolio">Projetos</a></li>
@@ -141,11 +141,11 @@
                             {{ tags(projeto.tags) }}
                         </div>
                         <div class="card-content">
-                            <a href="{{ projeto.link }}" target="_blank">
-                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/' ~ projeto.imagem) }}');">
+                            {% if projeto.link %}<a href="{{ projeto.link }}" target="_blank">{% endif %}
+                                <div class="card-image{% if not projeto.link %} sem-link{% endif %}" style="background-image: url('{{ url_for('static', filename='images/' ~ projeto.imagem) }}');">
 
                                 </div>
-                            </a>
+                            {% if projeto.link %}</a>{% endif %}
                             <p class="project-description">{{ projeto.descricao|safe }}</p>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="interface">
-            <p>&copy; 2025 Lucas da Silva Costa. Todos os direitos reservados.</p>
+            <p>&copy; {{ ano_atual }} Lucas da Silva Costa. Todos os direitos reservados.</p>
             <p>Construído com HTML, CSS e muito café.</p>
         </div>
     </footer>

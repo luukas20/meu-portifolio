@@ -1,6 +1,7 @@
 from main import app
 from flask import render_template, request, jsonify
 from dotenv import load_dotenv
+from datetime import datetime
 from functools import lru_cache
 from pathlib import Path
 import os
@@ -33,6 +34,7 @@ def homepage():
         sobre_mim=SOBRE_MIM,
         redes_sociais=REDES,
         projetos=PROJETOS,
+        ano_atual=datetime.now().year,
     )
 
 # 2. CLIENTE DO GEMINI

@@ -1,5 +1,5 @@
 ## RESUMO PROFISSIONAL DE LUCAS
-Olá! Sou Lucas Costa, profissional apaixonado por Ciência de Dados e Machine Learning , com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊
+Olá! Sou Lucas Costa, profissional apaixonado por Ciência de Dados e Machine Learning, com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊
 Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes. 🎯
 Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência. 🚀
 
@@ -7,9 +7,9 @@ Acredito que a combinação de estatística, programação e visualização é e
 1.	Iguá Saneamento
 Analista de Transformação Sr. - fev/2026 - atualmente
 •	Desenvolvimento de Soluções de Data Science para Otimização de Processos
-•	Analise de Dados para Suporte à Tomada de Decisão Estratégica
-•	Analise de Dados para Viabilidade de Projetos de Transformação
-•	Analise de CAPEX e OPEX para Projetos de Transformação
+•	Análise de Dados para Suporte à Tomada de Decisão Estratégica
+•	Análise de Dados para Viabilidade de Projetos de Transformação
+•	Análise de CAPEX e OPEX para Projetos de Transformação
 •	Desenvolvimento de Dashboards e Relatórios para Monitoramento de Indicadores de Performance dos Projetos de Transformação
 •	Gerenciamento do Power BI Service do Setor de Transformação
 2.	Cencosud
@@ -70,11 +70,11 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 •	Python
 •	SQL Server
 •	Power BI
-•	QlickView,
+•	QlikView
 •	Pentaho Data Integration
 •	Figma
 •	Excel
-•	Power Point
+•	PowerPoint
 •	Power Automate
 •	Microsoft Forms
 
@@ -89,18 +89,18 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 1    📈✨ Este painel interativo, desenvolvido com Streamlit, oferece uma análise aprofundada do desempenho de qualquer ação de sua escolha. Digite o ticker desejado para explorar dados históricos, visualizar gráficos de preços e acompanhar as previsões geradas pelo modelo ARMA-GARCH. Uma ferramenta poderosa e flexível para suas análises e projeções no mercado financeiro. 💹💻
 
 * Web Site: 
-1    Desenvolvimento de Web Site com Portifolio em dados Utilizando o Back-End com Python biblioteca Flask, e para o Front-End Utilizando HTML, CSS e Java Script. Sendo esse portifolio que você esta navengando.
+1    Desenvolvimento de Web Site com Portfólio em dados Utilizando o Back-End com Python biblioteca Flask, e para o Front-End Utilizando HTML, CSS e JavaScript. Sendo esse portfólio que você está navegando.
 
-* Analises de Risco de Crédito 
+* Análises de Risco de Crédito 
 1    Construção e manutenção da modelagem de dados da carteira de crédito em SQL Server
-2    Contrução de Modelos de Probabilidade de Inadimplência
-3    Adequanção a nova Norma CMN 4.966/21 com modelagem esatistica de PE = PD x LGD x EAD
+2    Construção de Modelos de Probabilidade de Inadimplência
+3    Adequação a nova Norma CMN 4.966/21 com modelagem estatística de PE = PD x LGD x EAD
 4    Validação de Modelos Credit Score de Bureaux de crédito para escolher a melhor empresa que presta este serviço
 
-* Estatistica
-1   Todos os Tipos de Amostragem: Amostragem Simples, Amostragem Estratificada, Amostrage Por Conglomerado
-2   Modelos de Serie Temoral: SARIMA, ACF, PACF, Rede Neural Netework, Rede Neural LSTM
-3   Modelos de Regreção Linear: Regressão Multipla, Regressão Logistica, Regressão de Poison
-4   Analise Multivariada: PCA, K-mens, Agrupamentos 
+* Estatística
+1   Todos os Tipos de Amostragem: Amostragem Simples, Amostragem Estratificada, Amostragem Por Conglomerado
+2   Modelos de Série Temporal: SARIMA, ACF, PACF, Rede Neural Network, Rede Neural LSTM
+3   Modelos de Regressão Linear: Regressão Múltipla, Regressão Logística, Regressão de Poisson
+4   Análise Multivariada: PCA, K-means, Agrupamentos 
 5   Controle Estatístico de Qualidade
 6   Econometria 
