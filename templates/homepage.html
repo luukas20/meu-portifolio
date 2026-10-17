@@ -12,6 +12,11 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="Lucas Costa | Portfólio de Dados">
     <meta property="og:description" content="Estatístico: Machine Learning, BI e análise para decisão. Projetos, trajetória e currículo.">
+    <meta property="og:url" content="{{ request.url_root }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/og.jpg', _external=True) }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/bricolage-grotesque.woff2') }}" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/onest.woff2') }}" crossorigin>
@@ -49,17 +54,18 @@
         <!-- PRIMEIRA TELA -->
         <section class="abertura" id="topo" aria-labelledby="nome">
             <svg class="curva" viewBox="0 0 1200 340" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                <path class="curva-area" d="M0 340V318H430C520 318 590 292 650 240C710 188 770 40 840 40C910 40 970 188 1030 240C1090 292 1160 318 1240 318V340Z"/>
-                <path class="curva-linha" d="M0 318H430C520 318 590 292 650 240C710 188 770 40 840 40C910 40 970 188 1030 240C1090 292 1160 318 1240 318"/>
+                <path class="curva-area" d="M0 340V318C190 318 300 302 380 244C460 184 520 40 600 40C680 40 740 184 820 244C900 302 1010 318 1200 318V340Z"/>
+                <path class="curva-linha" d="M0 318C190 318 300 302 380 244C460 184 520 40 600 40C680 40 740 184 820 244C900 302 1010 318 1200 318"/>
             </svg>
             <div class="miolo abertura-miolo">
                 <div class="abertura-texto">
                     <h1 class="nome entra" id="nome" style="--i: 0">Lucas Costa</h1>
                     <p class="posicionamento entra" style="--i: 1">{{ tagline }}</p>
+                    <p class="cargo-linha entra" style="--i: 1">{{ atual.cargo }} · {{ atual.empresa }}</p>
                     <ul class="frentes entra" style="--i: 2">
                         {%- for frente in frentes %}
                         <li>
-                            <h2>{{ frente.titulo }}</h2>
+                            <strong class="frente-titulo">{{ frente.titulo }}</strong>
                             <p>{{ frente.texto }}</p>
                         </li>
                         {%- endfor %}
@@ -92,11 +98,22 @@
                             <h3>{{ cargo.empresa }}</h3>
                             <p class="marco-cargo">{{ cargo.cargo }}</p>
                         </div>
+                        {% if loop.index0 < 2 -%}
                         <ul class="topicos">
                             {%- for topico in cargo.topicos %}
                             <li>{{ topico }}</li>
                             {%- endfor %}
                         </ul>
+                        {%- else -%}
+                        <details class="topicos-detalhe">
+                            <summary>Ver atividades ({{ cargo.topicos|length }})</summary>
+                            <ul class="topicos">
+                                {%- for topico in cargo.topicos %}
+                                <li>{{ topico }}</li>
+                                {%- endfor %}
+                            </ul>
+                        </details>
+                        {%- endif %}
                     </li>
                     {%- endfor %}
                     <li class="marco marco-formacao">
@@ -126,7 +143,7 @@
                             {{ tags(projeto.tags) }}
                             <p class="projeto-descricao">{{ projeto.descricao|safe }}</p>
                             {% if projeto.link -%}
-                            <a class="link-seta" href="{{ projeto.link }}" target="_blank" rel="noopener">Abrir o projeto {{ icone('externo') }}</a>
+                            <a class="link-seta" href="{{ projeto.link }}" target="_blank" rel="noopener">Abrir o projeto<span class="so-leitor">: {{ projeto.titulo }}</span> {{ icone('externo') }}</a>
                             {%- endif %}
                         </div>
                     </article>

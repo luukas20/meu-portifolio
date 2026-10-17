@@ -154,3 +154,19 @@ def test_cargo_atual_aparece_na_primeira_tela():
     topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
     atual = conteudo.TRAJETORIA[0]
     assert atual["cargo"] in topo and atual["empresa"] in topo
+
+
+def test_previa_de_compartilhamento():
+    html = home()
+    assert 'property="og:image"' in html and "/static/images/og.jpg" in html
+    assert 'name="twitter:card" content="summary_large_image"' in html
+    assert (PASTA_IMAGENS / "og.jpg").is_file()
+
+
+def test_ordem_e_acessibilidade_da_primeira_tela():
+    html = home()
+    topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
+    # as frentes não são títulos de seção (só o h1 e os h2 das seções entram no índice)
+    assert "<h2>" not in topo
+    # cada link "Abrir o projeto" tem nome acessível próprio
+    assert html.count('class="so-leitor">: ') == len([p for p in conteudo.PROJETOS if p["link"]])

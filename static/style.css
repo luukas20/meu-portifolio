@@ -394,8 +394,10 @@ button {
     right: 0;
     bottom: 0;
     width: 100%;
-    height: min(55%, 22rem);
+    height: 7.5rem;
     pointer-events: none;
+    -webkit-mask-image: linear-gradient(to top, transparent 0, black 70%);
+    mask-image: linear-gradient(to top, transparent 0, black 70%);
 }
 
 .curva-area {
@@ -416,6 +418,39 @@ button {
     align-items: center;
 }
 
+.abertura-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+/* no celular os botões vêm logo abaixo do posicionamento; no desktop, depois das frentes */
+.acoes {
+    order: 2;
+}
+
+.frentes {
+    order: 3;
+}
+
+.cargo-linha {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+    color: var(--tinta);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.cargo-linha::before {
+    content: "";
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--acento);
+}
+
 .nome {
     font-size: clamp(2.75rem, 7vw, 4.75rem);
     font-weight: 700;
@@ -433,7 +468,7 @@ button {
 }
 
 .frentes {
-    margin-top: 2rem;
+    margin-top: 1.75rem;
     border-top: 1px solid var(--linha-forte);
 }
 
@@ -442,7 +477,9 @@ button {
     border-bottom: 1px solid var(--linha);
 }
 
-.frentes h2 {
+.frente-titulo {
+    display: block;
+    font-family: var(--fonte-titulo);
     font-size: 1.05rem;
     font-weight: 650;
     letter-spacing: -0.01em;
@@ -460,7 +497,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
 }
 
 .retrato {
@@ -485,7 +522,7 @@ button {
     position: absolute;
     left: 0.75rem;
     bottom: 1.25rem;
-    display: grid;
+    display: none;
     gap: 0.05rem;
     max-width: calc(100% - 1.5rem);
     padding: 0.7rem 1rem;
@@ -627,6 +664,39 @@ button {
     opacity: 0.7;
 }
 
+.topicos-detalhe summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    color: var(--acento);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.topicos-detalhe summary::-webkit-details-marker {
+    display: none;
+}
+
+.topicos-detalhe summary::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.25s var(--ease);
+}
+
+.topicos-detalhe[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+.topicos-detalhe .topicos {
+    padding-top: 0.5rem;
+}
+
 .marco-tcc {
     max-width: 62ch;
     color: var(--tinta-suave);
@@ -646,7 +716,6 @@ button {
     border-radius: var(--raio-grande);
     background: var(--superficie);
     box-shadow: 0 1px 2px var(--sombra-suave);
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .projeto-imagem {
@@ -664,10 +733,11 @@ button {
 }
 
 .projeto-corpo {
-    display: grid;
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.9rem;
-    align-content: start;
     padding: 1.4rem 1.5rem 1.5rem;
 }
 
@@ -685,7 +755,7 @@ button {
 }
 
 .projeto-corpo .link-seta {
-    justify-self: start;
+    margin-top: auto;
 }
 
 .formula {
@@ -1058,9 +1128,8 @@ button {
 }
 
 .typing-message {
-    color: var(--tinta-fraca);
+    color: var(--tinta-suave);
     font-style: italic;
-    animation: digitando 1.2s ease-in-out infinite;
 }
 
 .error-message {
@@ -1082,7 +1151,7 @@ button {
     min-width: 0;
     min-height: 2.75rem;
     padding: 0.5rem 1.1rem;
-    border: 1px solid var(--linha-forte);
+    border: 1px solid var(--tinta-fraca);
     border-radius: 999px;
     background: var(--superficie);
     color: var(--tinta);
@@ -1123,11 +1192,6 @@ button {
         opacity: 1;
         transform: none;
     }
-}
-
-@keyframes digitando {
-    0%, 100% { opacity: 0.55; }
-    50% { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1178,11 +1242,6 @@ button {
         color: var(--tinta);
     }
 
-    .projeto:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 24px 40px -22px var(--sombra-media);
-    }
-
     .chat-button:hover {
         transform: translateY(-2px);
         background: var(--acento-forte);
@@ -1223,6 +1282,10 @@ button {
 @media (min-width: 48rem) {
     .curva {
         display: block;
+    }
+
+    .abertura {
+        padding-bottom: 9rem;
     }
 
     .marco {
@@ -1287,6 +1350,22 @@ button {
         gap: 3.5rem;
     }
 
+    .frentes {
+        order: 2;
+    }
+
+    .acoes {
+        order: 3;
+    }
+
+    .cargo-linha {
+        display: none;
+    }
+
+    .selo {
+        display: grid;
+    }
+
     .sobre {
         grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
         gap: 5rem;
@@ -1301,7 +1380,8 @@ button {
 /* TELAS BAIXAS: a primeira tela segue inteira */
 @media (min-width: 64rem) and (max-height: 820px) {
     .abertura {
-        padding-top: 1.5rem;
+        padding-top: 2.75rem;
+        padding-bottom: 8rem;
     }
 
     .frentes {

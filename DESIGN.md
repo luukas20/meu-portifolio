@@ -1,293 +1,271 @@
 ---
 name: Lucas Costa | Portfólio de Dados
-description: Uma torre de argila em rolos vista em corte, onde cada bloco de conteúdo é uma fiada assentada sobre a outra.
+description: Portfólio claro, limpo e profissional de um estatístico: fundo frio, tinta azul-grafite, um único acento verde-azulado e uma curva normal discreta como assinatura.
 colors:
-  engobe: "#ece5da"
-  engobe-sombra: "#d9cfbf"
-  seca: "#bda98a"
-  argila-crua: "#d78c5b"
-  terracota: "#c65a3a"
-  terracota-queimada: "#8f3f22"
-  umber: "#7a4e34"
-  argila-umida: "#3e2e28"
-  argila-escura: "#2a1d18"
+  fundo: "#f7f8fa"
+  superficie: "#ffffff"
+  superficie-suave: "#f1f4f8"
+  linha: "#e2e6ec"
+  linha-forte: "#cbd2dc"
+  tinta: "#0e1726"
+  tinta-suave: "#475569"
+  tinta-fraca: "#64748b"
+  acento: "#0b7a75"
+  acento-forte: "#075e5a"
+  acento-suave: "#e3f3f2"
+  escuro: "#0e1726"
+  texto-escuro: "#f7f8fa"
+  texto-escuro-suave: "#a9b4c6"
+  acento-no-escuro: "#3dd6c8"
+  erro: "#b42318"
 typography:
   display:
-    fontFamily: "Holtwood One SC, Rockwell, Rockwell Extra Bold, serif"
-    fontSize: "clamp(2.5rem, min(11vw, 12vh), 5.25rem)"
-    fontWeight: 400
-    lineHeight: 0.98
-    letterSpacing: "-0.01em"
-  headline:
-    fontFamily: "Holtwood One SC, Rockwell, Rockwell Extra Bold, serif"
-    fontSize: "clamp(1.9rem, 6vw, 3.25rem)"
-    fontWeight: 400
-    lineHeight: 1.08
-    letterSpacing: "normal"
-  title:
-    fontFamily: "Holtwood One SC, Rockwell, Rockwell Extra Bold, serif"
-    fontSize: "1.1rem"
-    fontWeight: 400
-    lineHeight: 1.3
-    letterSpacing: "0.03em"
-  body:
-    fontFamily: "Zilla Slab, Rockwell, Georgia, serif"
-    fontSize: "1.125rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  label:
-    fontFamily: "Zilla Slab, Rockwell, Georgia, serif"
-    fontSize: "0.85rem"
+    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(2.75rem, 7vw, 4.75rem)"
     fontWeight: 700
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
+  headline:
+    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.75rem, 3.6vw, 2.6rem)"
+    fontWeight: 650
+    lineHeight: 1.1
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.2rem"
+    fontWeight: 650
+    lineHeight: 1.25
+    letterSpacing: "-0.015em"
+  lead:
+    fontFamily: "Onest, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)"
+    fontWeight: 400
     lineHeight: 1.4
-    letterSpacing: "normal"
+  body:
+    fontFamily: "Onest, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.65
+  label:
+    fontFamily: "Onest, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.8125rem"
+    fontWeight: 500
+    lineHeight: 1.4
 rounded:
-  rolo: "1.75rem"
-  rolo-grande: "2rem"
-  rolo-nome: "2.5rem"
-  tijolo: "0.6rem"
-  tag: "0.5rem"
+  raio: "12px"
+  raio-grande: "22px"
   pilula: "999px"
 spacing:
-  fiada-gap: "0.5rem"
-  faixa-x: "1.25rem"
-  faixa-y: "clamp(3rem, 8vw, 6rem)"
-  fiada-x: "1.75rem"
-  largura-site: "76rem"
+  gutter: "clamp(1.25rem, 4vw, 2rem)"
+  largura-site: "72rem"
+  secao: "clamp(3.5rem, 8vw, 6rem)"
 components:
-  fiada-frente:
-    backgroundColor: "{colors.terracota-queimada}"
-    textColor: "{colors.engobe}"
-    rounded: "{rounded.rolo}"
-    padding: "0.75rem 1.25rem 0.85rem"
-  fiada-nome:
-    backgroundColor: "{colors.terracota}"
-    textColor: "{colors.argila-escura}"
-    typography: "{typography.display}"
-    rounded: "{rounded.rolo-nome}"
-    padding: "0.85rem 1.25rem 0.75rem"
-  fiada-cargo:
-    backgroundColor: "{colors.argila-umida}"
-    textColor: "{colors.engobe}"
-    rounded: "{rounded.rolo}"
-  fiada-cargo-em-andamento:
-    backgroundColor: "{colors.argila-escura}"
-    textColor: "{colors.engobe}"
-  fiada-cargo-base:
-    backgroundColor: "{colors.seca}"
-    textColor: "{colors.argila-escura}"
-  fiada-projeto:
-    backgroundColor: "{colors.terracota-queimada}"
-    textColor: "{colors.engobe}"
-    rounded: "{rounded.rolo-grande}"
-    padding: "1.15rem 3.5rem 1.15rem 1.75rem"
-  botao:
-    backgroundColor: "{colors.terracota-queimada}"
-    textColor: "{colors.engobe}"
-    typography: "{typography.title}"
-    rounded: "{rounded.pilula}"
-    padding: "0.6rem 1.4rem"
+  button-primary:
+    backgroundColor: "{colors.acento}"
+    textColor: "{colors.superficie}"
+    rounded: "{rounded.raio}"
+    padding: "0.65rem 1.25rem"
     height: "2.9rem"
-  botao-claro:
-    backgroundColor: "{colors.engobe}"
-    textColor: "{colors.argila-escura}"
-    rounded: "{rounded.pilula}"
-  junta-curriculo:
-    backgroundColor: "{colors.engobe}"
-    textColor: "{colors.argila-escura}"
-    rounded: "{rounded.pilula}"
-    padding: "0.7rem 1.25rem"
-    height: "3.4rem"
+  button-primary-hover:
+    backgroundColor: "{colors.acento-forte}"
+  button-outline:
+    backgroundColor: "{colors.superficie}"
+    textColor: "{colors.tinta}"
+    rounded: "{rounded.raio}"
+    padding: "0.65rem 1.25rem"
+    height: "2.9rem"
+  button-light:
+    backgroundColor: "{colors.texto-escuro}"
+    textColor: "{colors.escuro}"
+    rounded: "{rounded.raio}"
+    padding: "0.8rem 1.5rem"
+    height: "3.25rem"
+  button-outline-light:
+    backgroundColor: "transparent"
+    textColor: "{colors.texto-escuro}"
+    rounded: "{rounded.raio}"
+    padding: "0.8rem 1.5rem"
+    height: "3.25rem"
+  card-projeto:
+    backgroundColor: "{colors.superficie}"
+    rounded: "{rounded.raio-grande}"
+    padding: "1.4rem 1.5rem 1.5rem"
   tag:
-    backgroundColor: "{colors.argila-escura}"
-    textColor: "{colors.engobe}"
-    typography: "{typography.label}"
-    rounded: "{rounded.tag}"
-    padding: "0.2rem 0.65rem 0.2rem 0.45rem"
-  tijolo:
-    backgroundColor: "{colors.umber}"
-    textColor: "{colors.engobe}"
-    rounded: "{rounded.tijolo}"
-    padding: "0.4rem 1rem"
-  selo:
-    backgroundColor: "{colors.argila-crua}"
-    textColor: "{colors.argila-escura}"
-    typography: "{typography.label}"
+    backgroundColor: "{colors.superficie}"
+    textColor: "{colors.tinta-suave}"
     rounded: "{rounded.pilula}"
-    padding: "0.1rem 0.7rem"
-  arco-botao:
-    backgroundColor: "{colors.argila-escura}"
-    textColor: "{colors.engobe}"
-    width: "7.25rem"
-    height: "8.5rem"
-  chat-container:
-    backgroundColor: "{colors.argila-escura}"
-    textColor: "{colors.engobe}"
-    width: "24rem"
-  bot-message:
-    backgroundColor: "{colors.engobe}"
-    textColor: "{colors.argila-escura}"
-    rounded: "1.1rem"
-    padding: "0.65rem 1rem"
-  user-message:
-    backgroundColor: "{colors.terracota-queimada}"
-    textColor: "{colors.engobe}"
-    rounded: "1.1rem"
-    padding: "0.65rem 1rem"
+    typography: "{typography.label}"
+    padding: "0.2rem 0.65rem 0.2rem 0.5rem"
+  chip:
+    backgroundColor: "{colors.superficie}"
+    textColor: "{colors.tinta}"
+    rounded: "{rounded.pilula}"
+    padding: "0.4rem 0.9rem"
+  selo-cargo:
+    backgroundColor: "{colors.superficie}"
+    textColor: "{colors.tinta}"
+    rounded: "14px"
+    padding: "0.7rem 1rem"
+  selo-atual:
+    backgroundColor: "{colors.acento-suave}"
+    textColor: "{colors.acento-forte}"
+    rounded: "{rounded.pilula}"
+    padding: "0.05rem 0.55rem"
+  chat-bolha-usuario:
+    backgroundColor: "{colors.acento}"
+    textColor: "{colors.superficie}"
+    rounded: "16px"
+    padding: "0.65rem 0.95rem"
+  chat-bolha-bot:
+    backgroundColor: "{colors.superficie}"
+    textColor: "{colors.tinta}"
+    rounded: "16px"
+    padding: "0.65rem 0.95rem"
 ---
 
 # Design System: Lucas Costa | Portfólio de Dados
 
 ## Overview
 
-**Creative North Star: "A Torre de Argila em Rolos"**
+**Creative North Star: "O Relatório Claro"**
 
-A página é a torre vista em corte. Cada bloco de conteúdo é uma fiada de argila, um rolo assentado sobre o outro, e a carreira sobe da base (a formação, o TRE) até a fiada em andamento (Iguá). A cor não é verniz sobre uma página clara: terracota, umber e argila úmida ocupam faixas inteiras, em largura total, e o creme (engobe) aparece só como junta entre elas, como superfície de leitura clara e como texto. O mundo é quente, terroso, tátil e confiante, mais olaria que escritório.
+O site se comporta como um bom relatório executivo: fundo frio e arejado, superfícies brancas, tinta azul-grafite e um único acento verde-azulado que marca ação, estado atual e dados. O conteúdo real (nome, três frentes, trajetória, projetos) lidera; a interface recua. Foi feito para ser lido rápido, em geral no celular, por recrutadores e gestores.
 
-A densidade é média e honesta. Há pouca coisa por tela, mas cada fiada é grande, de cantos arredondados, com grão de argila e um gradiente vertical (luz em cima, sombra embaixo) que dá volume de rolo. A hierarquia vem de largura e de cor da fiada, não de ícones ou ornamentos. Os títulos usam uma serifa grossa de caixa alta com falhas de tinta, como carimbo em tijolo; o texto corrido usa uma serifa de leitura calma.
+A personalidade vem da tipografia (Bricolage Grotesque nos títulos, com tracking apertado, e Onest no texto), de filetes de 1px no lugar de molduras pesadas e de sombras suaves, de baixo contraste e com deslocamento vertical. A única assinatura é estatística: uma curva normal em traço fino no pé da primeira tela, mais o selo do cargo atual sobre a foto no desktop. Currículo é propositalmente discreto: botão de contorno no menu e botão secundário na faixa de contato.
 
-O que o sistema recusa, por decisão do Lucas: o portfólio padrão (hero em duas colunas simétricas, cartões iguais em grade, barras de habilidade) e o fundo creme com acento terracota. A terra é o fundo.
+Recusado de forma confirmada: o visual temático e ornamental da versão anterior (descartada pelo Lucas) e o "portfólio de dev" genérico com neon, degradês e cartões idênticos com ícone. Sem emojis.
 
 **Key Characteristics:**
-- Fiadas de argila como único módulo estrutural: faixas de largura total e blocos arredondados que afunilam para cima.
-- Juntas de engobe (8px, com grão e marcas de polegar) separando as faixas.
-- Uma única fiada em argila úmida escura com anel claro marca o que está em andamento.
-- Volume por gradiente vertical e sombra com desfoque, nunca por contorno duro.
-- Sem ícone decorativo; os únicos desenhos são o arco da torre (entrada do chat), a seta do currículo e os traços de abrir/fechar.
-- Movimento só de assentar: as fiadas caem e se encaixam.
+- Fundo frio (`fundo`), superfícies brancas (`superficie`), faixa escura (`escuro`) apenas em "Vamos conversar" e no rodapé.
+- Um único acento (`acento`); `acento-no-escuro` existe só para a faixa escura.
+- Títulos em Bricolage Grotesque 650 a 700, texto em Onest, ambas hospedadas em `static/fonts`.
+- Filetes (`linha`, `linha-forte`) estruturam; sombras são suaves e raras.
+- Cantos de 12px em controles, 22px em cartões e foto.
+- Movimento curto: entrada da primeira tela com `surgir` e easing `cubic-bezier(0.16, 1, 0.3, 1)`; respeita `prefers-reduced-motion`.
 
 ## Colors
 
-Uma paleta de argila, da mais clara à mais escura, sem nenhum azul, verde ou cinza neutro frio. Todo valor nasce em `:root`.
+Paleta fria e contida: neutros azulados, uma cor de ação verde-azulada e uma faixa escura da mesma tinta do texto.
 
 ### Primary
-- **Terracota Queimada** (`terracota-queimada`, #8f3f22): a cor-base das fiadas e das faixas de trajetória e sobre; botões padrão, balão do usuário, filete do cabeçalho e do chat. Texto engobe sobre ela passa com folga.
-- **Terracota** (`terracota`, #c65a3a): a cor viva. Aparece no bloco do nome, na seta/arco sobre fundo escuro e na cor do ícone do arco. Como é média, só leva texto escuro e só em tamanho de display.
-
-### Secondary
-- **Umber** (`umber`, #7a4e34): segunda cor de fundo: faixa de especialidades e contato, fiadas pares, tijolos de habilidade, bordas finas.
-- **Argila Crua** (`argila-crua`, #d78c5b): o único realce pequeno: foco, seleção, marcadores de lista, sublinhado do link ativo, selo "em andamento", anel da fiada atual, cursor.
+- **Verde-azulado de ação** (`acento`, #0b7a75): botão primário, link com seta, item atual do menu, marcador do cargo atual na trajetória, bolha do usuário, botão do chat, filete curto sobre cada especialidade, traço e área da curva normal (em opacidade baixa), caret e `accent-color`. Contraste sobre branco acima de AA.
+- **Verde-azulado profundo** (`acento-forte`, #075e5a): hover de botão e link, texto do selo "Atual".
+- **Névoa verde-azulada** (`acento-suave`, #e3f3f2): fundo do selo "Atual", área da curva, seleção de texto.
+- **Verde-azulado luminoso** (`acento-no-escuro`, #3dd6c8): somente sobre `escuro`: foco e hover de redes sociais.
 
 ### Neutral
-- **Engobe** (`engobe`, #ece5da): o creme de argila. Texto sobre as faixas escuras, juntas entre faixas, botões claros, balão do bot.
-- **Engobe Sombra** (`engobe-sombra`, #d9cfbf): texto secundário (períodos) sobre fundo escuro.
-- **Seca** (`seca`, #bda98a): argila seca; a fiada-base (formação) e o texto do rodapé.
-- **Argila Úmida** (`argila-umida`, #3e2e28): fundo de página e das fiadas de cargo ímpares.
-- **Argila Escura** (`argila-escura`, #2a1d18): cabeçalho, rodapé, chat, tags, texto sobre engobe e sobre terracota. O mais próximo de preto, e ainda é marrom.
+- **Fundo frio** (`fundo`, #f7f8fa): fundo da página e da caixa de mensagens do chat.
+- **Superfície branca** (`superficie`, #ffffff): cabeçalho, cartões, chips, tags, selo, janela do chat.
+- **Superfície suave** (`superficie-suave`, #f1f4f8): faixas alternadas de seção (Meu portfólio, Sobre), moldura de imagem, bloco da fórmula.
+- **Filete** (`linha`, #e2e6ec) e **filete forte** (`linha-forte`, #cbd2dc): divisórias e bordas; o forte abre listas e contorna botões e o botão de menu.
+- **Tinta** (`tinta`, #0e1726): títulos e texto principal.
+- **Tinta suave** (`tinta-suave`, #475569): parágrafos, descrições e rótulos secundários.
+- **Tinta fraca** (`tinta-fraca`, #64748b): legendas, subtítulo do chat, placeholder, autor da citação.
+- **Faixa escura** (`escuro`, #0e1726) com `texto-escuro` (#f7f8fa) e `texto-escuro-suave` (#a9b4c6): contato e rodapé. Filetes sobre ela usam `linha-escuro` (rgb(247 248 250 / 0.24)).
+- **Erro** (`erro`, #b42318): contorno da mensagem de erro do chat, único uso.
 
 ### Named Rules
-**The Terra Como Fundo Rule.** Terracota e umber são fundo de faixa inteira, em largura total. Nunca são reduzidos a acento sobre uma página creme.
+**The One Teal Rule.** O verde-azulado é a única cor de croma alto e só significa ação, estado atual ou dado. Nada decorativo recebe `acento`.
 
-**The Texto Claro Só Sobre Escuro Rule.** Texto engobe vai sobre terracota-queimada, umber, argila-umida ou argila-escura. Texto escuro (argila-escura) vai sobre engobe, seca ou terracota. Nunca claro sobre terracota média.
-
-**The Uma Fiada Úmida Rule.** Só a fiada em andamento usa argila-escura com anel de argila-crua e brilho de umidade. Esse tratamento não se repete em nenhuma outra.
-
-**The Cor Sai do Token Rule.** Cores novas entram em `:root` antes de serem usadas. Os poucos `rgb()` dentro dos gradientes de volume são luz e sombra, não paleta.
+**The Dark Band Rule.** `escuro` aparece apenas em "Vamos conversar" e no rodapé, como fecho. Nenhuma outra seção vira escura.
 
 ## Typography
 
-**Display Font:** Holtwood One SC (com Rockwell, Rockwell Extra Bold, serif), hospedada em `static/fonts`.
-**Body Font:** Zilla Slab 400, 400 itálico e 700 (com Rockwell, Georgia, serif), hospedada em `static/fonts`.
+**Display Font:** Bricolage Grotesque (com Segoe UI, system-ui, sans-serif), variável 200 a 800.
+**Body Font:** Onest (com Segoe UI, system-ui, sans-serif), variável 100 a 900.
 
-**Character:** Uma serifa egípcia pesada de caixa alta, com baixo contraste, que lê como carimbo em tijolo, contra uma serifa de laje calma para a leitura. As duas têm o mesmo gesto de barra grossa; uma grita, a outra conversa.
+**Character:** Bricolage dá ao título um tom atual e jovem sem perder seriedade; Onest mantém o texto neutro e legível. Títulos usam `text-wrap: balance`.
 
 ### Hierarchy
-- **Display** (Holtwood 400, `clamp(2.5rem, min(11vw, 12vh), 5.25rem)`, 0.98): só o nome na primeira fiada, em caixa alta, com máscara de falha de tinta (`--falha`). A altura da janela (12vh) limita o tamanho para a primeira tela caber.
-- **Headline** (Holtwood 400, `clamp(1.9rem, 6vw, 3.25rem)`, 1.08): títulos de faixa (`.titulo`), com a mesma máscara de falha e `text-wrap: balance`.
-- **Title** (Holtwood 400, 1.1rem a 1.2rem, 1.3, espaçamento 0.02 a 0.04em): empresa do cargo, título de projeto, nome de especialidade, rótulo dos botões, nome do chat.
-- **Body** (Zilla Slab 400, 1.125rem, 1.6): texto corrido; descrições em 1.075rem, sobre em 1.2rem. Limites de linha: 52ch a 62ch.
-- **Label** (Zilla Slab 700, 0.85rem a 1rem): tags, selo, nome do cargo, períodos, tijolos de habilidade, links de redes.
+- **Display** (700, `clamp(2.75rem, 7vw, 4.75rem)`, 1.02, -0.03em): o nome na primeira tela. Em desktop baixo (altura até 820px) escala por `7vh`, até 4.25rem.
+- **Headline** (650, `clamp(1.75rem, 3.6vw, 2.6rem)`, 1.1, -0.02em): títulos de seção.
+- **Title** (650, 1.2rem, 1.25, -0.015em): cartões de projeto, especialidades, empresas da trajetória (1.3rem), frentes (1.05rem).
+- **Lead** (Onest 400, `clamp(1.15rem, 2.2vw, 1.45rem)`, 1.4, máx. 30ch): frase de posicionamento.
+- **Body** (Onest 400, 1.0625rem, 1.65): texto corrido; parágrafos longos ficam entre 52ch e 62ch.
+- **Label** (Onest 500, 0.8125rem a 0.95rem): tags, chips, períodos. Sem caixa alta e sem espaçamento largo.
 
 ### Named Rules
-**The Carimbo Só no Título Rule.** Holtwood é para nome, títulos de faixa, de fiada e de botão. Parágrafo, lista e mensagem de chat nunca saem em Holtwood.
-
-**The Falha de Tinta Rule.** A máscara `--falha` é aplicada só ao nome e aos títulos de faixa (os maiores). Em corpo pequeno ela prejudicaria a leitura.
+**The Tight Display Rule.** Só Bricolage Grotesque recebe tracking negativo (-0.01em a -0.03em); Onest nunca é apertada.
 
 ## Layout
 
-O modelo espacial é vertical: faixas de largura total empilhadas, cada uma com um miolo centrado de no máximo 76rem (`largura-site`); faixas de texto (sobre, contato) caem para 46rem. Dentro do miolo, a unidade é a fiada, um bloco de largura variável, centralizada, empilhada com 0.5rem de intervalo (`fiada-gap`). A largura que muda é o desenho: no desktop as fiadas de cargo alargam de 78% (a atual, no topo) a 97% (a mais antiga), e a base da formação fecha em 100%; as três frentes da primeira tela vão de 100% a 88%, formando o perfil da torre.
+Coluna única centrada, `largura-site` de 72rem, com `gutter` fluido (1.25rem a 2rem) como respiro lateral. Seções têm padding vertical `clamp(3.5rem, 8vw, 6rem)` e alternam `fundo` com `superficie-suave` (com filetes acima e abaixo). Mobile primeiro, com quatro pontos de quebra: 40rem (chat mais largo, cursos em duas colunas), 48rem (curva aparece, cartões e especialidades em grade, trajetória em duas colunas, selo se desloca), 64rem (menu horizontal, primeira tela em duas colunas 1.1fr/0.9fr, selo do cargo sobre a foto, sobre em duas colunas) e desktop baixo (`min-width: 64rem` e `max-height: 820px`, que compacta a primeira tela para caber inteira).
 
-Primeira tela: duas colunas no desktop (1.55fr de fiadas, 1fr de foto) a partir de 64rem; coluna única abaixo. Nome, tagline fina, três frentes e a junta do currículo cabem sem rolar em 390x844 e em 1440x900, com ajustes de padding para telas baixas (menos de 720px de altura no celular, menos de 820px no desktop). Faixas têm padding vertical `clamp(3rem, 8vw, 6rem)` e lateral de 1.25rem.
-
-Há três degraus de resposta: base (celular), `min-width: 40rem` (resumos em grade de colunas, projeto em duas colunas, chat vira janela de 24rem) e `min-width: 64rem` (menu horizontal, duas colunas na primeira tela, cargos em três colunas). Abaixo de 26rem as frentes deixam de afunilar para ganhar largura de texto. Alvos de toque têm no mínimo 2.9rem de altura.
+Primeira tela: no celular a ordem é nome, posicionamento, cargo atual em linha com marcador, botões, frentes, foto; no desktop a linha do cargo some (o selo a substitui) e a ordem passa a nome, posicionamento, frentes, botões. A trajetória é uma linha do tempo vertical de 2px com marcos circulares. Projetos: 1 coluna, 2 a partir de 48rem. Especialidades: 3 colunas a partir de 48rem. O rodapé reserva 5.5rem embaixo para o botão flutuante do chat.
 
 ## Elevation & Depth
 
-O sistema é híbrido: profundidade por camada tonal (cada fiada tem cor própria sobre o fundo `argila-umida`) mais volume de rolo por gradiente, e só então sombra. O volume vem de `--rolo`, uma luz clara no alto e sombra escura embaixo da própria fiada; as superfícies claras de engobe usam `--rolo-claro`, e as fiadas finas `--rolo-suave`. O grão (`--grao`, `--grao-leve`) cobre tudo que é argila.
-
-As sombras são sempre deslocadas para baixo, longas e desfocadas, com raio negativo para não vazar nos lados. Não existe sombra dura nem contorno de caixa como profundidade.
+Híbrido, mas majoritariamente plano: a estrutura vem de filetes e do contraste entre `fundo`, `superficie` e `superficie-suave`. Sombras existem só em objetos que flutuam ou se destacam, sempre suaves, azuladas (base `#0e1726`) e com deslocamento vertical e blur amplo.
 
 ### Shadow Vocabulary
-- **Fiada** (`box-shadow: 0 14px 24px -14px var(--sombra)`): fiadas em repouso, com junta de engobe de 2px embaixo (`--junta`).
-- **Botão** (`box-shadow: 0 8px 16px -8px var(--sombra)`): botões; no hover sobem 2px e a sombra vai a `0 14px 22px -8px`.
-- **Retrato** (`box-shadow: 0 24px 36px -20px var(--sombra)`): a foto e a janela do chat (`0 24px 40px -16px`).
-- **Arco** (`box-shadow: 0 16px 26px -12px var(--sombra)`): o arco e o botão flutuante do chat.
+- **Repouso do cartão** (`box-shadow: 0 1px 2px var(--sombra-suave)`): cartões de projeto.
+- **Foto e citação** (`0 30px 50px -28px var(--sombra-media)` na foto; `0 24px 40px -28px var(--sombra-media)` na citação): peso para os dois elementos de destaque.
+- **Selo e botão primário** (`0 16px 28px -14px var(--sombra-media)` no selo; `0 6px 14px -8px var(--sombra-media)` no botão primário).
+- **Flutuantes** (menu aberto `0 24px 30px -24px`; janela do chat `0 30px 60px -20px`; botão do chat `0 16px 28px -10px` mais `0 2px 6px var(--sombra-suave)`).
 
 ### Named Rules
-**The Junta Rule.** Entre faixas, uma junta de engobe de 8px com grão e a emenda (`--emenda`, marcas de polegar a 115 graus); entre fiadas, 2px de `--junta`. Faixa sem junta de engobe no topo não existe.
-
-**The Sombra Mole Rule.** Sombra sempre com deslocamento vertical e desfoque, raio negativo e cor `--sombra` (marrom translúcido). Nenhuma sombra preta, nenhuma sombra dura deslocada na diagonal.
+**The Soft Lift Rule.** Sombra sempre com deslocamento vertical, blur amplo e valores negativos de spread, em `sombra-suave` (0.08) ou `sombra-media` (0.18). Sem sombra dura, sem contorno deslocado.
 
 ## Shapes
 
-Forma de rolo: cantos muito arredondados, nunca quadrados. Fiadas usam 1.75rem (`raio-rolo`), projetos 2rem, o bloco do nome 2.5rem, a fiada fina e os botões são pílulas (999px). Tags e tijolos são mais enxutos (0.5 e 0.6rem), como tijolos pequenos sobre os rolos.
-
-A silhueta de assinatura é o arco: um semicírculo em cima e cantos de 1rem embaixo (`999px 999px 1rem 1rem`), usado na foto do retrato (com borda de 6px em terracota-queimada), no botão do chat na primeira tela e no botão flutuante. A janela do chat repete a ideia com `3rem 3rem 1.25rem 1.25rem`. Bordas são grossas (2px a 6px) e de argila, nunca finas e cinzas.
+Cantos arredondados moderados: `raio` (12px) em botões, botão de menu e marca; `raio-grande` (22px) em cartões de projeto, citação e foto; 14px no selo do cargo; 16px nas bolhas do chat (canto inferior do lado do falante em 5px) e 20px na janela; pílula (999px) em tags, chips, selo "Atual", campo e botão do chat. A foto é um retângulo 4:5 com borda `linha`. Bordas são sempre de 1px em `linha` ou `linha-forte`; a única exceção é a linha do tempo (2px) e o filete de acento de 3px sobre cada especialidade. Ícones de interface são desenhados em traço único (24x24, traço 1.9, pontas arredondadas, `currentColor`); logotipos de ferramentas nas tags são imagens WebP recoloridas no acento.
 
 ## Components
 
-### Fiada (módulo base)
-Um bloco de argila: cor por `--cor`, grão e rolo como fundo, cantos de `raio-rolo`, texto engobe e filete de junta embaixo. Todas as variações são o mesmo componente com outra cor e outra largura.
-- **Nome:** terracota, texto argila-escura, display, cantos de 2.5rem.
-- **Fina (tagline):** umber, itálico, pílula a 96% de largura.
-- **Frente:** terracota-queimada / umber / terracota-queimada, a 100%, 96% e 92% no celular, e 100%, 94% e 88% a partir de 40rem.
-- **Cargo:** argila-umida e umber alternadas; abre com `details`; indicador de mais/menos de 1.1rem desenhado em CSS, no canto direito. Em andamento: argila-escura com anel de 3px argila-crua e brilho de umidade; vem aberta. Base (formação): seca com texto escuro, sem abrir.
-- **Projeto:** cantos de 2rem; terracota-queimada e umber alternadas; só um abre por vez (acordeão nomeado); corpo em duas colunas com captura de tela em 16/10 com borda de 3px em argila-escura.
-- **Especialidade:** terracota-queimada e argila-umida alternadas; título à esquerda, descrição e tags à direita.
-- **Hover (só com hover real):** o brilho (`--brilho`) acende sobre o resumo.
-
 ### Buttons
-- **Shape:** pílula (999px), altura mínima de 2.9rem (3.4rem no grande).
-- **Padrão:** terracota-queimada com grão e rolo, texto engobe em Holtwood 0.9rem, sombra de botão.
-- **Claro:** engobe com grão leve e `--rolo-claro`, texto argila-escura. Usado para o currículo no cabeçalho, "Abrir o projeto" e ações secundárias.
-- **Hover / Active:** sobe 2px no hover (só em dispositivos com hover); desce 1px ao pressionar. Transição de 0.2s com `--ease`.
-- **Foco:** anel de 3px em argila-crua com 3px de distância, em todo elemento.
+- **Shape:** cantos de 12px (`raio`), altura mínima 2.9rem (pequeno 2.4rem, grande 3.25rem), texto Onest 600.
+- **Primary** (`botao-primario`): fundo `acento`, texto branco, sombra suave; hover para `acento-forte`. Usado em "Ver projetos".
+- **Outline** (`botao-contorno`): fundo branco, borda `linha-forte`, hover com borda `tinta`. Usado em "Falar comigo" e no "Currículo" do menu (pequeno): é o tratamento discreto do currículo.
+- **Sobre faixa escura:** `botao-claro` (fundo `texto-escuro`, texto `escuro`) para o WhatsApp e `botao-contorno-claro` (transparente, borda `linha-escuro`) para o currículo.
+- **Estados:** `:active` desloca 1px; hover só em dispositivos com hover; foco é um contorno de 3px em `acento` com 3px de afastamento (`acento-no-escuro` na faixa escura).
+- **Link com seta** (`link-seta`): texto `acento` 600, sem sublinhado; hover escurece e sublinha.
 
-### Junta do currículo
-A ação primária da página: uma pílula de engobe de 3.4rem, em largura total da coluna, com a seta de download (máscara SVG em `currentColor`) à esquerda do texto "Baixar currículo (PDF)" em Holtwood. Fecha a pilha de fiadas da primeira tela.
+### Cards / Containers
+- **Cartão de projeto:** fundo branco, borda `linha`, canto 22px, imagem 16:10 no topo com filete embaixo, corpo com padding 1.4rem 1.5rem 1.5rem, título, tags, descrição e link com seta empurrado para o fim. Sombra de repouso mínima; sem elevação no hover.
+- **Especialidade:** sem caixa; filete superior de `linha-forte` com um traço de acento de 2.75rem por 3px.
+- **Citação:** cartão branco, canto 22px, texto de título em Bricolage 500.
 
-### Tags e tijolos
-- **Tag:** 0.5rem de raio, fundo argila-escura, texto engobe em bold 0.85rem.
-- **Tijolo (habilidade):** 0.6rem de raio, fundo umber com grão e rolo, bold 1rem, em linha com quebra.
-- **Selo:** pílula de argila-crua com texto argila-escura; só em "em andamento".
+### Chips e tags
+- **Tag** (projetos e especialidades): pílula branca com borda `linha`, texto `tinta-suave` 0.8125rem e logotipo de 14px à esquerda.
+- **Chip** (habilidades técnicas): pílula branca com borda `linha`, texto `tinta` 0.95rem, sem logotipo.
+- **Selo "Atual":** pílula `acento-suave` com texto `acento-forte`, ao lado do período.
 
 ### Navigation
-Cabeçalho fixo em argila-escura com filete de 3px em terracota-queimada. Marca (favicon e nome em Holtwood 0.95rem) à esquerda, botão claro de currículo à direita. No celular, um botão de menu de 2.9rem com três barras que viram X abre uma lista de links com divisor de umber; no desktop (64rem), os links ficam em linha, bold. O link da seção atual é sublinhado em argila-crua (3px).
+Cabeçalho fixo (sticky) branco com filete inferior. Marca (favicon e "Lucas Costa", Bricolage 700) à esquerda. Em desktop, links horizontais em `tinta-suave` e o item da seção visível marcado com `aria-current` em `acento` (nenhum marcado na primeira tela). Abaixo de 64rem, botão de três barras de 2.75rem que vira X e abre um painel de largura total com itens de 3rem separados por filetes e o botão "Currículo" em largura total.
 
-### Arco da torre (entrada do chat)
-Assinatura do sistema: a porta da torre é o convite para a Puxa Saco. Na primeira tela é o botão de 7.25rem por 8.5rem encaixado no canto da foto, com rótulo "Pergunte à Puxa Saco"; depois que se rola, o mesmo arco aparece menor (3.9rem por 4.6rem) como botão flutuante no canto da tela. O desenho é um arco de terracota com linhas de engobe e porta de argila-escura, sobre fundo argila-escura e borda de 3px engobe. A janela do chat abre com translação curta e esmaecimento; mensagens do bot em engobe, do usuário em terracota-queimada, campo de texto em pílula engobe, envio redondo.
+### Selo do cargo (assinatura)
+Cartão branco de 14px com borda e sombra, sobre o canto inferior esquerdo da foto (sai 1.25rem para fora a partir de 48rem), mostrando cargo em negrito e empresa em `tinta-fraca`. Visível só a partir de 64rem; no celular o cargo vira a linha com marcador de acento sob a frase de posicionamento.
 
-### Movimento
-O único gesto é assentar: a fiada cai 22px com leve estreitamento e se encaixa (0.6s, `--ease`, atraso de 60ms por fiada). A torre pode ser reconstruída fiada por fiada somente se o visitante clicar no botão da trajetória (`--duracao` 0.7s, 130ms por fiada). Com `prefers-reduced-motion: reduce` tudo para e o botão de reconstruir some.
+### Curva normal (assinatura)
+SVG de 7.5rem de altura no pé da primeira tela, visível a partir de 48rem: área `acento-suave` e traço de `acento` a 40% de opacidade, com máscara que dissolve para baixo. Decorativo, `aria-hidden`.
+
+### Linha do tempo
+Filete vertical de 2px (`linha`) com marcos circulares de 12px; o marco atual é preenchido em `acento`. Os dois primeiros cargos mostram tópicos com marcador de 6px em `acento` a 70%; os demais ficam num `details` ("Ver atividades (n)").
+
+### Chatbot "Puxa Saco"
+Botão flutuante em pílula `acento` (só ícone no celular, ícone e texto a partir de 40rem). Janela branca de 20px de canto, cabeçalho com filete, área de mensagens em `fundo`, bolhas de 16px: bot branca com borda, usuário em `acento`. Campo em pílula com borda `tinta-fraca` e botão de envio circular. A janela entra com opacidade e `translateY(12px) scale(0.98)`, e `visibility` a remove do foco quando fechada.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** usar terracota-queimada, umber, argila-umida e argila-escura como fundos de faixa e fiada em largura total, e engobe como junta, leitura clara e texto.
-- **Do** dar a cada fiada seu grão (`--grao` ou `--grao-leve`) e seu gradiente de rolo (`--rolo`, `--rolo-claro` ou `--rolo-suave`) sobre a cor de base.
-- **Do** variar a largura das fiadas (de 78% a 100%) para desenhar o perfil da torre; a fiada atual, no topo, é a mais estreita e a base da formação a mais larga.
-- **Do** usar Holtwood One SC em caixa alta só para nome, títulos e rótulos de botão, e Zilla Slab para todo texto corrido, com 52ch a 62ch de linha.
-- **Do** reservar argila-crua para o realce pequeno: foco, seleção, marcadores, selo e o anel da fiada em andamento.
-- **Do** desenhar o arco (`999px 999px r r`) para tudo que é porta de entrada: a foto, o chat, a janela.
-- **Do** declarar uma cor nova como token em `:root` antes de usá-la, e conferir contraste AA em cada par texto/fundo.
+- **Do** usar `acento` apenas para ação, estado atual e dados; o resto é neutro azulado.
+- **Do** escrever toda cor por variável de `:root`; nada de hex solto nos componentes.
+- **Do** separar com filetes de 1px (`linha`, `linha-forte`) antes de pensar em sombra.
+- **Do** manter `escuro` restrito a "Vamos conversar" e ao rodapé, com `acento-no-escuro` para foco e hover ali.
+- **Do** manter o currículo discreto: contorno no menu, contorno claro na faixa escura; o primário sólido é de "Ver projetos".
+- **Do** usar títulos em Bricolage com tracking negativo e texto em Onest; alvos de toque com no mínimo 2.75rem.
+- **Do** envolver animações de entrada em `prefers-reduced-motion: no-preference` e limitar hover a `(hover: hover)`.
 
 ### Don't:
-- **Don't** fazer o portfólio padrão: hero em duas colunas simétricas, cartões iguais em grade, barras de habilidade.
-- **Don't** pôr texto engobe sobre terracota média (#c65a3a); nela só entra argila-escura, e só em tamanho de display.
-- **Don't** reduzir terracota e umber a acento sobre fundo creme; a terra é o fundo.
-- **Don't** repetir o tratamento de argila úmida com anel claro fora da fiada em andamento.
-- **Don't** usar sombra dura, sombra preta pura ou contorno fino cinza como profundidade; só a sombra mole marrom e a borda grossa de argila.
-- **Don't** pôr ícone decorativo, ilustração ou emoji de enfeite no layout; os únicos desenhos são o arco, a seta do currículo e os traços de abrir/fechar.
-- **Don't** aplicar a máscara de falha de tinta a texto pequeno nem usar Holtwood em parágrafos.
-- **Don't** animar nada além de assentar, sombra e elevação de hover; sem rolagem parallax, sem hover grudado no celular.
+- **Don't** usar emojis, ícones por glifo ou ícones de fonte; ícones de interface são SVG de traço único.
+- **Don't** usar neon, degradês decorativos ou cartões idênticos com ícone no estilo "portfólio de dev".
+- **Don't** usar sombras duras ou deslocadas sem blur.
+- **Don't** introduzir um segundo acento nem tingir seções inteiras de `acento`.
+- **Don't** apertar o tracking da Onest nem usar caixa alta com espaçamento largo como rótulo de seção.
+- **Don't** repetir o tema ornamental e pesado da versão descartada (terracota, texturas, molduras grossas).
+
+## Limitações conhecidas
+
+- A foto da primeira tela (`lucas.webp`) tem 720 px de largura e fica mole em telas 2x.
+- A frase da meta description ainda aguarda aprovação do Lucas.

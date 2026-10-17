@@ -27,10 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------- SEÇÃO ATUAL NO MENU ----------
     const linksMenu = [...menu.querySelectorAll('a[href^="#"]')];
     const secoes = linksMenu.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const topo = document.getElementById('topo');
     if ('IntersectionObserver' in window && secoes.length) {
         const observador = new IntersectionObserver((entradas) => {
             entradas.forEach((entrada) => {
                 if (!entrada.isIntersecting) return;
+                // na primeira tela nenhum item do menu fica marcado
                 linksMenu.forEach((link) => {
                     if (link.getAttribute('href') === '#' + entrada.target.id) {
                         link.setAttribute('aria-current', 'true');
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { rootMargin: '-35% 0px -55% 0px' });
         secoes.forEach((secao) => observador.observe(secao));
+        if (topo) observador.observe(topo);
     }
 
 
