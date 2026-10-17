@@ -51,12 +51,12 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 
 ## Evidence on Hand
 
-- Seis projetos publicados (imagens em `static/images/`, descrições em `conteudo.py`): Perda Esperada, Visão Computacional (Gatos vs. Cachorros), Faturamento vs Meta, Previsão BOVA11, Controle de Gastos Pessoais, Previsão Ações Streamlit.
+- Seis projetos publicados (imagens em `public/static/images/`, descrições em `conteudo.py`): Perda Esperada, Visão Computacional (Gatos vs. Cachorros), Faturamento vs Meta, Previsão BOVA11, Controle de Gastos Pessoais, Previsão Ações Streamlit.
 - **Pode mostrar métricas da Cencosud**, como o Índice de Cobertura de 115% do projeto de Perda Esperada.
 - Cat vs Dog: repositório público em `github.com/luukas20/cnn-cat-vs-dog` (notebooks lidos; conclusões aguardam confirmação do Lucas antes de irem para o site ou o chatbot).
 - Experiência: Iguá Saneamento, Cencosud, Hospital Primavera, TRE-SE. Formação e cursos em `prompts/conhecimento.md`.
 - **Tem recomendações no LinkedIn**, mas o LinkedIn bloqueia leitura automatizada e os textos não foram fornecidos. Sem recomendações no site até o Lucas colar os textos: não inventar nem parafrasear depoimentos.
-- Currículo em PDF baixável no site (`static/docs/`), na versão atualizada em out/2026: Iguá como emprego atual, subtítulo "Analista de Dados". O Word de origem fica no computador do Lucas, fora do repositório. O PDF tem e-mail e telefone, sem CPF ou endereço.
+- Currículo em PDF baixável no site (`public/static/docs/`), na versão atualizada em out/2026: Iguá como emprego atual, subtítulo "Analista de Dados". O Word de origem fica no computador do Lucas, fora do repositório. O PDF tem e-mail e telefone, sem CPF ou endereço.
 - **Ausências que não podem ser inventadas:** textos das recomendações, link de destino dos cards sem link.
 
 ## Product Principles

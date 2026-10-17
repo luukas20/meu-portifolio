@@ -6,7 +6,7 @@ Repositório: `github.com/luukas20/meu-portifolio` (branch `main`). Todo o conte
 ## Stack
 
 - Python 3.12, Flask 3.1, `google-genai` (modelo padrão `gemini-3.8-flash` com reserva `gemini-3.5-flash-lite`; trocáveis por `GEMINI_MODEL` e `GEMINI_MODEL_RESERVA`), `Flask-Limiter`, `python-dotenv`, `gunicorn` (produção)
-- Front: templates Jinja2, `static/style.css` (CSS puro), `static/main.js` (JS vanilla). **Sem CDN nem script de terceiros**: fontes hospedadas em `static/fonts/` (Bricolage Grotesque para títulos, Onest para texto) e a fórmula da Perda Esperada em MathML nativo
+- Front: templates Jinja2, `public/static/style.css` (CSS puro), `public/static/main.js` (JS vanilla). **Sem CDN nem script de terceiros**: fontes hospedadas em `public/static/fonts/` (Bricolage Grotesque para títulos, Onest para texto) e a fórmula da Perda Esperada em MathML nativo
 - Sem banco de dados, sem build/bundler, sem CI/CD no repositório. Testes em `tests/` (pytest): chatbot e conteúdo/estrutura da página
 
 ## Comandos (Windows / PowerShell)
@@ -15,7 +15,7 @@ Repositório: `github.com/luukas20/meu-portifolio` (branch `main`). Todo o conte
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements-dev.txt   # requirements.txt = produção; requirements-dev.txt = + pytest e Pillow
-python tools/otimizar_imagens.py     # gera os WebP leves em static/images/ a partir de imagens-originais/
+python tools/otimizar_imagens.py     # gera os WebP leves em public/static/images/ a partir de imagens-originais/
 
 flask --app main run --debug     # dev em http://127.0.0.1:5000 (python main.py também funciona)
 gunicorn main:app                # produção
@@ -26,12 +26,13 @@ pytest                           # testes (Gemini simulado, não gasta cota)
 - Não há linter: para o resto, validar mudanças subindo o servidor e conferindo no navegador (desktop e celular). O servidor sem `--debug` **não recarrega templates** (só o CSS/JS estáticos): reinicie ao mexer em `templates/`. Capturas sem navegador aberto: Chrome `--headless=new --screenshot` (a janela headless não desce de ~500 px; para celular use um iframe de 390 px).
 - Modelos do Gemini saem do ar com frequência (`gemini-2.0-flash` e `2.5-flash` retornam 404 para esta chave). Antes de trocar o padrão, conferir a [página de depreciações](https://ai.google.dev/gemini-api/docs/deprecations) e testar com uma chamada real. Modelos maiores (`3.6`/`3.8-flash`) exigem créditos no AI Studio; o `flash-lite` funcionou sem eles. Se o principal falhar com 402/404/429/500/503, o back-end tenta o modelo de reserva.
 - Node.js LTS (24.x) instalado via winget só para rodar ferramentas `npx` (skills); o app em si não usa Node. Em terminais já abertos o PATH só atualiza após reiniciar.
-- O deploy não está descrito no repositório (não há Procfile/Dockerfile/render.yaml). Perguntar ao Lucas antes de assumir a plataforma.
+- **Hospedagem**: hoje no Render (plano gratuito que "dorme"); em migração para a **Vercel (Hobby)** na branch `hospedagem-vercel`. O repositório funciona nas duas: `vercel.json` e `.python-version` só importam para a Vercel (entrada `main.py`, instância `app`; as dependências vêm de `requirements.txt`). Variáveis na Vercel: `GEMINI_API_KEY` (e, se quiser, `GEMINI_MODEL`) em Settings > Environment Variables. Deploy e troca de links são ações externas: pedir confirmação ao Lucas.
 
 ## Arquitetura
 
 ```
-main.py                  cria `app = Flask(__name__)` e faz `from views import *` no final
+main.py                  cria `app = Flask(__name__, static_folder="public/static", ...)` e faz `from views import *` no final
+vercel.json, .python-version  configuração da Vercel (duração máxima da função, arquivos excluídos do pacote, Python 3.12)
 views.py                 rotas, cliente Gemini (criado sob demanda), limite de uso e leitura dos prompts
 conteudo.py              conteúdo da homepage (frentes, trajetória, projetos, especialidades, ferramentas, sobre-mim, redes, currículo); o template só percorre estas listas
 templates/macros.html    macros `tags` (etiquetas com logotipo) e `icone` (ícones SVG em traço único)
@@ -40,10 +41,10 @@ imagens-originais/       imagens de origem (PNG/JPEG pesados), fora da pasta ser
 prompts/persona.md       persona e regras da "Puxa Saco" (instrução do sistema)
 prompts/conhecimento.md  base de conhecimento do bot (currículo, projetos); editar o .md e reiniciar o servidor
 templates/homepage.html  página única: abertura (primeira tela), trajetória, portfólio, especialidades, sobre, contato, rodapé, chat
-static/style.css         todo o CSS; tokens em :root; mobile-first com breakpoints em 40rem, 48rem e 64rem
-static/main.js           menu, seção atual no menu, chatbot (fetch POST /api/chat)
-static/fonts/            Bricolage Grotesque e Onest (woff2, licença OFL em LICENSE.txt)
-static/images/           WebP gerados por tools/otimizar_imagens.py (projetos/, icones/, lucas.webp); cada um com .json de proveniência
+public/static/style.css  todo o CSS; tokens em :root; mobile-first com breakpoints em 40rem, 48rem e 64rem
+public/static/main.js   menu, seção atual no menu, chatbot (fetch POST /api/chat)
+public/static/fonts/   Bricolage Grotesque e Onest (woff2, licença OFL em LICENSE.txt)
+public/static/images/   WebP gerados por tools/otimizar_imagens.py (projetos/, icones/, lucas.webp); cada um com .json de proveniência
 tools/otimizar_imagens.py  converte os originais em WebP leves (e recolore os ícones no verde-azulado do acento)
 tests/                   test_chat.py (endpoint do chat) e test_conteudo.py (conteúdo, imagens, fontes, acessibilidade básica)
 ```
@@ -58,7 +59,7 @@ tests/                   test_chat.py (endpoint do chat) e test_conteudo.py (con
 - Nomes em português: classes CSS (`.abertura`, `.marco`, `.projeto`, `.chips`), ids, endpoint (`pagina_home`), comentários e mensagens de commit curtas ("Adicionando o Projeto da Perda Esperada").
 - Grafia **"portfolio"** (sem acento) em classes, ids e âncoras (`.portfolio`, `#portfolio`) e **"portfólio"** no texto visível e no `<title>`. Foi renomeado de "portifolio" em out/2026; um teste confere que não sobrou nenhuma ocorrência. O repositório (`meu-portifolio`) e a pasta local mantêm a grafia antiga de propósito.
 - Indentação de 4 espaços. CSS organizado em blocos com cabeçalho em comentário MAIÚSCULO (`/* ESTILO DO CABEÇALHO */`); HTML fecha blocos grandes com comentário (`</section><!--trajetoria-->`).
-- Imagens sempre via `{{ url_for('static', filename='images/...') }}` e sempre os WebP gerados (nunca os originais); cores sempre via variáveis CSS (nada de hex solto fora de `:root`).
+- Arquivos estáticos ficam em `public/static/` (a Vercel só serve estáticos de `public/`; o endereço público continua `/static/...`). Imagens sempre via `{{ url_for('static', filename='images/...') }}` e sempre os WebP gerados (nunca os originais); cores sempre via variáveis CSS (nada de hex solto fora de `:root`).
 - Movimento: só a entrada suave ("surgir") da primeira tela; tudo desligado em `prefers-reduced-motion`. Hover só dentro de `@media (hover: hover)`.
 - Sem kicker/rótulo acima de título, sem cartões iguais de ícone + título + texto, **sem emojis** (o Lucas pediu para tirá-los; a persona do bot também manda não usar). Ícones sempre pela macro `icone`.
 - `appendMessage` em `main.js` usa `textContent` de propósito (evita injeção de HTML vinda do modelo). Manter assim.
@@ -71,13 +72,13 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 - **Novo projeto na página**: copiar um item de `PROJETOS` em `conteudo.py` (`titulo`, `tags` com `tag("icones/x.webp", nome)`, `imagem` em `projetos/x.webp`, `link`, `descricao` em HTML, `chave_bot`). Para gerar o WebP: colocar o original em `imagens-originais/`, incluí-lo no mapa de `tools/otimizar_imagens.py` e rodar o script; depois registrar a origem (`impeccable embed-prompt`, que cria o `.json` ao lado).
 - **Novo cargo**: item em `TRAJETORIA` (do mais recente para o mais antigo; `atual: True` só no cargo em andamento).
 - Links de redes sociais (LinkedIn, GitHub, e-mail) ficam em `REDES` e aparecem sozinhos no sobre-mim e no contato.
-- **Currículo**: o PDF baixável é `static/docs/Curriculo-Lucas-Costa.pdf` (configurado em `CURRICULO`, `conteudo.py`). O Word de origem fica **fora** do repositório (pasta `Documents\Curriculo` do Lucas); para atualizar, editar o Word, exportar o PDF e trocar o arquivo, mantendo o nome. O PDF tem link para a URL do site (hoje `meu-portifolio-lucas.onrender.com`): se a hospedagem mudar, atualizar o currículo também.
+- **Currículo**: o PDF baixável é `public/static/docs/Curriculo-Lucas-Costa.pdf` (configurado em `CURRICULO`, `conteudo.py`). O Word de origem fica **fora** do repositório (pasta `Documents\Curriculo` do Lucas); para atualizar, editar o Word, exportar o PDF e trocar o arquivo, mantendo o nome. O PDF tem link para a URL do site (hoje `meu-portifolio-lucas.onrender.com`): se a hospedagem mudar, atualizar o currículo também.
 - `pytest` confere se as imagens citadas existem, se a home renderiza todo o conteúdo e se cada projeto tem sua `chave_bot` em `prompts/conhecimento.md` (projeto novo na página sem entrar no conhecimento do bot faz o teste falhar).
 - Texto profissional, persona e dados pessoais são conteúdo do Lucas: perguntar antes de reescrever ou "melhorar" o texto.
 
 ## Armadilhas conhecidas (revisar/remover conforme forem corrigidas)
 
-- A foto (`static/images/lucas.webp`) vem de um original de 720 px de largura: fica um pouco mole em telas 2x. Se o Lucas tiver uma foto de 1000 px ou mais, trocar em `imagens-originais/` e rodar `tools/otimizar_imagens.py`.
+- A foto (`public/static/images/lucas.webp`) vem de um original de 720 px de largura: fica um pouco mole em telas 2x. Se o Lucas tiver uma foto de 1000 px ou mais, trocar em `imagens-originais/` e rodar `tools/otimizar_imagens.py`.
 - A frase da meta description e da prévia de compartilhamento (`og.jpg`, feita a partir dos títulos das frentes) foi composta fora dos textos do Lucas e aguarda a aprovação dele. Para refazer a prévia, ver o HTML de origem no histórico do git ou recriar com Chrome `--screenshot` a 1200x630.
 - O texto do currículo e o do site citam o endereço no Render; se a hospedagem mudar, atualizar os dois.
 - O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1, x_proto=1, x_host=1)` em `main.py` (IP, https e host reais; a prévia de compartilhamento monta endereços absolutos a partir deles); sem proxy, os cabeçalhos `X-Forwarded-*` podem ser forjados (burla o limite do chat e muda os endereços da prévia).

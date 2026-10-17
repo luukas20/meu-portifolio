@@ -3,9 +3,9 @@
 Uso (na raiz do projeto, com o venv ativo):
     python tools/otimizar_imagens.py
 
-- Capturas dos projetos  -> static/images/projetos/<nome>.webp (900 px de largura)
-- Ícones das etiquetas   -> static/images/icones/<nome>.webp  (64 px)
-- Foto                   -> static/images/<nome>.webp         (720 px de largura)
+- Capturas dos projetos  -> public/static/images/projetos/<nome>.webp (900 px de largura)
+- Ícones das etiquetas   -> public/static/images/icones/<nome>.webp  (64 px)
+- Foto                   -> public/static/images/<nome>.webp         (720 px de largura)
 Os originais ficam fora da pasta servida (imagens-originais/) e nunca vão para a página.
 """
 from pathlib import Path
@@ -14,7 +14,7 @@ from PIL import Image
 
 RAIZ = Path(__file__).resolve().parent.parent
 ORIGINAIS = RAIZ / "imagens-originais"
-SAIDA = RAIZ / "static" / "images"
+SAIDA = RAIZ / "public" / "static" / "images"
 
 # nome do original -> nome final (sem acento, sem espaço)
 PROJETOS = {

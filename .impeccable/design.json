@@ -120,7 +120,7 @@
     "keyCharacteristics": [
       "Fundo frio (fundo), superfícies brancas (superficie), faixa escura (escuro) apenas em \"Vamos conversar\" e no rodapé.",
       "Um único acento (acento); acento-no-escuro existe só para a faixa escura.",
-      "Títulos em Bricolage Grotesque 650 a 700, texto em Onest, ambas hospedadas em static/fonts.",
+      "Títulos em Bricolage Grotesque 650 a 700, texto em Onest, ambas hospedadas em public/static/fonts.",
       "Filetes (linha, linha-forte) estruturam; sombras são suaves e raras.",
       "Cantos de 12px em controles, 22px em cartões e foto.",
       "Movimento curto: entrada da primeira tela com surgir e easing cubic-bezier(0.16, 1, 0.3, 1); respeita prefers-reduced-motion."

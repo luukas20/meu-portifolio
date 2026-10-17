@@ -1,3 +1,4 @@
+import json
 import re
 from datetime import datetime
 from pathlib import Path
@@ -7,7 +8,7 @@ import views
 from main import app
 
 RAIZ = Path(__file__).resolve().parent.parent
-PASTA_STATIC = RAIZ / "static"
+PASTA_STATIC = RAIZ / "public" / "static"
 PASTA_IMAGENS = PASTA_STATIC / "images"
 
 
@@ -177,3 +178,18 @@ def test_previa_usa_https_atras_do_proxy():
     html = app.test_client().get("/", headers=cabecalhos).get_data(as_text=True)
     assert 'property="og:image" content="https://meu-site.example/static/images/og.jpg"' in html
     assert 'property="og:url" content="https://meu-site.example/"' in html
+
+def test_estaticos_ficam_em_public_para_a_vercel():
+    # a Vercel serve public/** direto pela CDN; o Flask serve a mesma pasta fora dela
+    assert Path(app.static_folder).resolve() == PASTA_STATIC.resolve()
+    assert app.static_url_path == "/static"
+    assert not (RAIZ / "static").exists(), "static/ na raiz seria ignorada na Vercel"
+    resposta = app.test_client().get("/static/style.css")
+    assert resposta.status_code == 200
+    resposta.close()
+
+
+def test_configuracao_da_vercel_valida():
+    config = json.loads((RAIZ / "vercel.json").read_text(encoding="utf-8"))
+    assert config["functions"]["main.py"]["maxDuration"] <= 300  # limite do plano Hobby
+    assert (RAIZ / ".python-version").read_text(encoding="utf-8").strip() == "3.12"

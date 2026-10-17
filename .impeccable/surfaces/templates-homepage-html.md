@@ -2,12 +2,12 @@
 version: 1
 slug: "templates-homepage-html"
 primary_target: "templates/homepage.html"
-related_targets: ["static/style.css","static/main.js"]
+related_targets: ["public/static/style.css","public/static/main.js"]
 ---
 
 # Homepage do portfólio (Lucas Costa), versão limpa
 
-**Escopo:** `templates/homepage.html`, `static/style.css`, `static/main.js`, rota `/`. Refaz o visual por completo (a "Torre de argila" foi descartada pelo Lucas por ser pesada e pouco séria). Code-led, sem comp (o ambiente não gera imagens). **Modo do visitante:** Experience, o conteúdo real lidera.
+**Escopo:** `templates/homepage.html`, `public/static/style.css`, `public/static/main.js`, rota `/`. Refaz o visual por completo (a "Torre de argila" foi descartada pelo Lucas por ser pesada e pouco séria). Code-led, sem comp (o ambiente não gera imagens). **Modo do visitante:** Experience, o conteúdo real lidera.
 
 **Público e tarefa:** recrutadores (inclusive juniores) e a alta gerência de empresas, em geral pelo celular via LinkedIn, olhando rápido; colegas de dados em segundo plano. Ações: ver os projetos e falar com o Lucas. O currículo é secundário: um botão discreto no menu e na seção de contato.
 

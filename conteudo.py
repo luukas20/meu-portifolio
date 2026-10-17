@@ -1,6 +1,6 @@
 # CONTEÚDO DA PÁGINA
 # Fonte única dos textos, tags, imagens e links da homepage. O template só percorre estas listas.
-# Imagens: caminho dentro de static/images/ (WebP gerados por tools/otimizar_imagens.py). Descrições dos projetos aceitam HTML (renderizadas com |safe).
+# Imagens: caminho dentro de public/static/images/ (WebP gerados por tools/otimizar_imagens.py). Descrições dos projetos aceitam HTML (renderizadas com |safe).
 # Projeto com "link": None não tem imagem clicável.
 # "chave_bot": trecho que precisa existir em prompts/conhecimento.md (conferido por tests/test_conteudo.py).
 # O conhecimento do chatbot fica em prompts/conhecimento.md (editado à mão): ao mudar algo aqui, conferir lá também.
@@ -11,7 +11,8 @@ def tag(icone, nome):
 
 
 ESPECIALIDADES = [
-    {
+    {
+
         "titulo": "Data Science",
         "descricao": "Aplicando algoritmos de Machine Learning para solucionar desafios complexos e impulsionar a eficiência operacional.",
         "tags": [
@@ -20,7 +21,8 @@ ESPECIALIDADES = [
             tag("icones/r.webp", "R/RStudio"),
         ],
     },
-    {
+    {
+
         "titulo": "Business Intelligence",
         "descricao": "Capacitando líderes com dashboards interativos e relatórios inteligentes para uma tomada de decisão baseada em dados.",
         "tags": [
@@ -30,7 +32,8 @@ ESPECIALIDADES = [
             tag("icones/sql.webp", "SQL"),
         ],
     },
-    {
+    {
+
         "titulo": "Risco de Crédito",
         "descricao": "Desenvolvendo e validando modelos de score de crédito que garantem uma concessão de crédito mais segura e eficiente. Em conformidade com a CMN 4966/21.",
         "tags": [
@@ -53,7 +56,7 @@ REDES = [
     {"nome": "E-mail", "url": "mailto:lucas.estatistico@outlook.com"},
 ]
 
-# Currículo em PDF (arquivo dentro de static/). O Word de origem fica fora do repositório.
+# Currículo em PDF (arquivo dentro de public/static/). O Word de origem fica fora do repositório.
 CURRICULO = {
     "arquivo": "docs/Curriculo-Lucas-Costa.pdf",
     "nome_download": "Currículo Lucas Costa.pdf",
