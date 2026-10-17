@@ -129,3 +129,28 @@ def test_estrutura_acessivel_basica():
     assert sem_alt == []
     # nenhum botão dentro de link (HTML inválido que existia antes)
     assert not re.search(r"<a\b[^>]*>\s*<button", html)
+
+
+def test_pagina_sem_emojis():
+    html = home()
+    emojis = re.findall("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]", html)
+    assert emojis == []
+
+
+def test_curriculo_so_no_menu_e_no_contato():
+    html = home()
+    nome = conteudo.CURRICULO["nome_download"]
+    # exatamente dois botões de currículo: um no menu e outro em "Vamos conversar"
+    assert html.count(f'download="{nome}"') == 2
+    topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
+    assert "download=" not in topo  # a primeira tela não tem botão de currículo
+    assert "Ver projetos" in topo and "Falar comigo" in topo
+    contato = html.split('id="contato"')[1]
+    assert "Baixar currículo (PDF)" in contato
+
+
+def test_cargo_atual_aparece_na_primeira_tela():
+    html = home()
+    topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
+    atual = conteudo.TRAJETORIA[0]
+    assert atual["cargo"] in topo and atual["empresa"] in topo

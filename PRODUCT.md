@@ -8,7 +8,7 @@ web
 
 ## Users
 
-- **Principal:** recrutadores e gestores avaliando a contratação do Lucas (dados, BI, análise). Chegam por LinkedIn, currículo ou indicação, olham rápido e decidem se entram em contato.
+- **Principal:** recrutadores (inclusive juniores) e a alta gerência de empresas, avaliando a contratação do Lucas (dados, BI, análise). Chegam por LinkedIn, currículo ou indicação, olham rápido e decidem se entram em contato.
 - **Secundário:** colegas e comunidade de dados. Querem ver o método, o código e os estudos por trás de cada projeto.
 
 ## Product Purpose
@@ -46,7 +46,8 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 
 - Nome: Lucas Costa.
 - O assistente se chama **Puxa Saco** e tem voz amigável, engraçada, um pouco bajuladora, porém profissional e precisa. Só afirma o que está na base de conhecimento.
-- Paleta, fonte e layout atuais **não** são compromisso: o redesign completo foi pedido.
+- Pedido do Lucas para o visual (out/2026): limpo, jovem e atual, com fontes atuais e legíveis, **muito profissional e leve**, para servir tanto a recrutadores juniores quanto à alta gerência; **sem emojis**; usar a foto atual (`Foto Perfil`); o botão de currículo com **pouco destaque** (um botão no menu e outro na seção "Vamos conversar").
+- Uma tentativa anterior ("Torre de argila", terracota e umber) foi descartada por ser pesada e pouco séria; fica só no histórico do git.
 
 ## Evidence on Hand
 
@@ -62,7 +63,7 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 
 1. **Prova antes de promessa:** projetos reais, métricas autorizadas e recomendações com as palavras de quem as escreveu.
 2. **As três frentes ditas com clareza** logo no começo: estatística/ML, BI e análise para decisão.
-3. **Caminho curto até o contato e o currículo** para quem só passa o olho.
+3. **Caminho curto até os projetos e o contato** para quem só passa o olho; o currículo está à mão, sem disputar atenção.
 4. **Profundidade para quem quer ver o método:** cada projeto leva ao código, ao painel ou ao estudo, quando existir.
 5. **O chatbot é parte do produto:** tem personalidade, só diz o que está na base e a base acompanha a página.
 

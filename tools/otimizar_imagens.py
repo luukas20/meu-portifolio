@@ -40,7 +40,7 @@ ICONES = {
 FOTOS = {"Foto Perfil.jpeg": "lucas"}
 
 
-COR_ICONE = (215, 140, 91)  # --argila-crua
+COR_ICONE = (11, 122, 117)  # --acento (verde-azulado)
 
 
 def salvar(origem, destino, largura, qualidade, recolorir=False):

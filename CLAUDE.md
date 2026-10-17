@@ -1,12 +1,12 @@
 # CLAUDE.md
 
-Portfólio pessoal de **Lucas Costa** (Estatístico; Ciência de Dados, BI e Risco de Crédito). Site de página única em Flask + HTML/CSS/JS puros (visual "Torre de argila", ver `DESIGN.md`), com um chatbot ("Puxa Saco") que responde sobre o Lucas usando a API do Gemini.
+Portfólio pessoal de **Lucas Costa** (Estatístico; Ciência de Dados, BI e Risco de Crédito). Site de página única em Flask + HTML/CSS/JS puros (visual limpo, claro e moderno; ver `DESIGN.md`), com um chatbot ("Puxa Saco") que responde sobre o Lucas usando a API do Gemini.
 Repositório: `github.com/luukas20/meu-portifolio` (branch `main`). Todo o conteúdo, UI e commits são em **pt-BR**.
 
 ## Stack
 
 - Python 3.12, Flask 3.1, `google-genai` (modelo padrão `gemini-3.8-flash` com reserva `gemini-3.5-flash-lite`; trocáveis por `GEMINI_MODEL` e `GEMINI_MODEL_RESERVA`), `Flask-Limiter`, `python-dotenv`, `gunicorn` (produção)
-- Front: templates Jinja2, `static/style.css` (CSS puro), `static/main.js` (JS vanilla). **Sem CDN nem script de terceiros**: fontes hospedadas em `static/fonts/` (Holtwood One SC para títulos, Zilla Slab para texto) e a fórmula da Perda Esperada em MathML nativo
+- Front: templates Jinja2, `static/style.css` (CSS puro), `static/main.js` (JS vanilla). **Sem CDN nem script de terceiros**: fontes hospedadas em `static/fonts/` (Bricolage Grotesque para títulos, Onest para texto) e a fórmula da Perda Esperada em MathML nativo
 - Sem banco de dados, sem build/bundler, sem CI/CD no repositório. Testes em `tests/` (pytest): chatbot e conteúdo/estrutura da página
 
 ## Comandos (Windows / PowerShell)
@@ -34,33 +34,33 @@ pytest                           # testes (Gemini simulado, não gasta cota)
 main.py                  cria `app = Flask(__name__)` e faz `from views import *` no final
 views.py                 rotas, cliente Gemini (criado sob demanda), limite de uso e leitura dos prompts
 conteudo.py              conteúdo da homepage (frentes, trajetória, projetos, especialidades, ferramentas, sobre-mim, redes, currículo); o template só percorre estas listas
-templates/macros.html    macros `tags` (etiquetas com logotipo) e `arco` (símbolo do arco da torre, SVG)
+templates/macros.html    macros `tags` (etiquetas com logotipo) e `icone` (ícones SVG em traço único)
 PRODUCT.md, DESIGN.md    contexto de produto e sistema visual (Impeccable); `.impeccable/design.json` e `.impeccable/surfaces/` são o apoio
 imagens-originais/       imagens de origem (PNG/JPEG pesados), fora da pasta servida; o site usa só os WebP gerados
 prompts/persona.md       persona e regras da "Puxa Saco" (instrução do sistema)
 prompts/conhecimento.md  base de conhecimento do bot (currículo, projetos); editar o .md e reiniciar o servidor
-templates/homepage.html  página única: torre (primeira tela), trajetória, portfólio, especialidades, sobre, contato, rodapé, chat
-static/style.css         todo o CSS; tokens da torre em :root; mobile-first com breakpoints em 40rem e 64rem
-static/main.js           menu, seção atual no menu, "torre sendo construída", chatbot (fetch POST /api/chat)
-static/fonts/            Holtwood One SC e Zilla Slab (woff2, licença OFL em LICENSE.txt)
+templates/homepage.html  página única: abertura (primeira tela), trajetória, portfólio, especialidades, sobre, contato, rodapé, chat
+static/style.css         todo o CSS; tokens em :root; mobile-first com breakpoints em 40rem, 48rem e 64rem
+static/main.js           menu, seção atual no menu, chatbot (fetch POST /api/chat)
+static/fonts/            Bricolage Grotesque e Onest (woff2, licença OFL em LICENSE.txt)
 static/images/           WebP gerados por tools/otimizar_imagens.py (projetos/, icones/, lucas.webp); cada um com .json de proveniência
-tools/otimizar_imagens.py  converte os originais em WebP leves (e recolore os ícones na cor da argila)
+tools/otimizar_imagens.py  converte os originais em WebP leves (e recolore os ícones no verde-azulado do acento)
 tests/                   test_chat.py (endpoint do chat) e test_conteudo.py (conteúdo, imagens, fontes, acessibilidade básica)
 ```
 
 - **Rotas** (`views.py`): `GET /` (endpoint `pagina_home`, renderiza `homepage.html`) e `POST /api/chat`.
 - **Import circular** `main` ↔ `views`: `views.py` faz `from main import app`. Funciona, mas é frágil; manter `from views import *` no **fim** do `main.py` e não adicionar imports de `views` antes de `app` existir.
 - **Chatbot**: o front envia `{message}` para `/api/chat`; o back valida (texto, até 500 caracteres, senão 400), limita a 10 mensagens/min e 100/dia por IP (429), e chama `client.models.generate_content` com persona + conhecimento (`prompts/*.md`) em `system_instruction` e a mensagem do usuário só em `contents`. Devolve `{reply}` ou `{error}` (500 se o Gemini falhar). É stateless (sem histórico entre mensagens). `prompts/conhecimento.md` é a **única fonte de conhecimento** do bot.
-- **Tema "Torre de argila"**: a página é uma torre vista em corte; cada bloco de conteúdo é uma *fiada* (`.fiada`) de argila sobre faixas (`.faixa`) de terracota ou umber, separadas por juntas de engobe. Cores só por variáveis de `:root` (`--terracota-queimada`, `--umber`, `--argila-umida`, `--argila-escura`, `--engobe`, `--seca`, `--argila-crua`...). A fiada em andamento (cargo atual) é a única em argila úmida escura. Regras completas em `DESIGN.md`.
+- **Tema**: fundo claro e frio, superfícies brancas, tinta azul-grafite e **um único acento verde-azulado** (`--acento`) para ação, estado atual e dados; faixa escura só em "Vamos conversar" e no rodapé. Títulos em Bricolage Grotesque, texto em Onest. Assinatura: a curva normal discreta atrás da foto na primeira tela. O currículo é discreto de propósito: um botão no menu e outro em "Vamos conversar", nada na primeira tela. Cores só por variáveis de `:root`; regras completas em `DESIGN.md`.
 
 ## Convenções do código
 
-- Nomes em português: classes CSS (`.fiada`, `.faixa`, `.junta-curriculo`), ids, endpoint (`pagina_home`), comentários e mensagens de commit curtas ("Adicionando o Projeto da Perda Esperada").
+- Nomes em português: classes CSS (`.abertura`, `.marco`, `.projeto`, `.chips`), ids, endpoint (`pagina_home`), comentários e mensagens de commit curtas ("Adicionando o Projeto da Perda Esperada").
 - Grafia **"portfolio"** (sem acento) em classes, ids e âncoras (`.portfolio`, `#portfolio`) e **"portfólio"** no texto visível e no `<title>`. Foi renomeado de "portifolio" em out/2026; um teste confere que não sobrou nenhuma ocorrência. O repositório (`meu-portifolio`) e a pasta local mantêm a grafia antiga de propósito.
 - Indentação de 4 espaços. CSS organizado em blocos com cabeçalho em comentário MAIÚSCULO (`/* ESTILO DO CABEÇALHO */`); HTML fecha blocos grandes com comentário (`</section><!--trajetoria-->`).
 - Imagens sempre via `{{ url_for('static', filename='images/...') }}` e sempre os WebP gerados (nunca os originais); cores sempre via variáveis CSS (nada de hex solto fora de `:root`).
-- Movimento: um momento só ("assentar" da primeira tela) mais a reconstrução sob pedido; tudo desligado em `prefers-reduced-motion`. Hover só dentro de `@media (hover: hover)`.
-- Sem kicker/rótulo acima de título, sem cartões iguais, sem emoji ou glifo como ícone (os emojis que já estão nos textos do Lucas são dele e ficam).
+- Movimento: só a entrada suave ("surgir") da primeira tela; tudo desligado em `prefers-reduced-motion`. Hover só dentro de `@media (hover: hover)`.
+- Sem kicker/rótulo acima de título, sem cartões iguais de ícone + título + texto, **sem emojis** (o Lucas pediu para tirá-los; a persona do bot também manda não usar). Ícones sempre pela macro `icone`.
 - `appendMessage` em `main.js` usa `textContent` de propósito (evita injeção de HTML vinda do modelo). Manter assim.
 
 ## Manutenção do conteúdo (sincronização manual)
@@ -77,10 +77,7 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 
 ## Armadilhas conhecidas (revisar/remover conforme forem corrigidas)
 
-- **Foto provisória**: `static/images/lucas.webp` vem de `Foto Perfil.jpeg` (fundo cinza-azulado, o único elemento frio da página). O Lucas vai enviar o original para um tratamento melhor (recorte com matte real, sem contorno vermelho; o antigo `Eu Hexagonal.png` tem contorno vermelho que briga com a paleta).
-- Os textos do Lucas têm emojis (projetos e "Sobre") que destoam do mundo de argila; decisão dele manter ou trocar.
-- O ícone de enviar do chat é um avião de papel (SVG) fora do vocabulário "arco, seta e traços" do `DESIGN.md`.
-- Em celular de 667 px de altura a borda de baixo do botão grande do currículo fica ~10 px cortada (o texto aparece; há também o botão "Currículo" fixo no cabeçalho).
+- O texto do currículo e o do site citam o endereço no Render; se a hospedagem mudar, atualizar os dois.
 - O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1)` em `main.py`; sem proxy, o cabeçalho `X-Forwarded-For` pode ser forjado e burlar o limite.
 
 ## Skills

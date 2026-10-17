@@ -4,16 +4,26 @@
 {% macro tags(lista) %}
 <ul class="tags">
 {%- for tag in lista %}
-    <li class="tag"><img src="{{ url_for('static', filename='images/' ~ tag.icone) }}" alt="" width="16" height="16" loading="lazy"> {{ tag.nome }}</li>
+    <li class="tag"><img src="{{ url_for('static', filename='images/' ~ tag.icone) }}" alt="" width="14" height="14" loading="lazy"> {{ tag.nome }}</li>
 {%- endfor %}
 </ul>
 {%- endmacro %}
 
-{# Símbolo do arco da torre (porta/janela), desenhado em SVG; as cores vêm do CSS #}
-{% macro arco() %}
-<svg class="arco-icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-    <path class="arco-corpo" d="M12 56V30a20 20 0 0 1 40 0v26z"/>
-    <path class="arco-linhas" d="M12 42h40M12 49h40"/>
-    <path class="arco-porta" d="M25 56V40a7 7 0 0 1 14 0v16z"/>
+{# Ícones desenhados em traço único (24x24); a cor vem do CSS (currentColor) #}
+{% macro icone(nome) %}
+<svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+{%- if nome == 'download' %}
+    <path d="M12 4v11M7.5 11 12 15.5 16.5 11M5 19.5h14"/>
+{%- elif nome == 'externo' %}
+    <path d="M7 17 17 7M9 7h8v8"/>
+{%- elif nome == 'direita' %}
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+{%- elif nome == 'chat' %}
+    <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z"/>
+{%- elif nome == 'enviar' %}
+    <path d="M4 12 20 4l-5 16-3-6.5z"/>
+{%- elif nome == 'fechar' %}
+    <path d="M6 6l12 12M18 6 6 18"/>
+{%- endif %}
 </svg>
 {%- endmacro %}

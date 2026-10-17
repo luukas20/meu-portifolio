@@ -5,30 +5,30 @@ primary_target: "templates/homepage.html"
 related_targets: ["static/style.css","static/main.js"]
 ---
 
-# Homepage do portfólio (Lucas Costa)
+# Homepage do portfólio (Lucas Costa), versão limpa
 
-**Escopo:** `templates/homepage.html`, `static/style.css`, `static/main.js`, rota `/`. Redesign completo em código (code-led, sem comp: o ambiente não gera imagens). **Modo do visitante:** Experience, a obra lidera.
+**Escopo:** `templates/homepage.html`, `static/style.css`, `static/main.js`, rota `/`. Refaz o visual por completo (a "Torre de argila" foi descartada pelo Lucas por ser pesada e pouco séria). Code-led, sem comp (o ambiente não gera imagens). **Modo do visitante:** Experience, o conteúdo real lidera.
 
-**Público e tarefa:** recrutadores e gestores (celular, via LinkedIn, olhar rápido) e colegas de dados. Ação principal: baixar o currículo. Prova real: 6 projetos, trajetória (Iguá, Cencosud, Hospital Primavera, TRE-SE), currículo atualizado, chatbot Puxa Saco.
+**Público e tarefa:** recrutadores (inclusive juniores) e a alta gerência de empresas, em geral pelo celular via LinkedIn, olhando rápido; colegas de dados em segundo plano. Ações: ver os projetos e falar com o Lucas. O currículo é secundário: um botão discreto no menu e na seção de contato.
 
-**Restrições:** pt-BR; nenhum texto do Lucas é reescrito; conteúdo vem de `conteudo.py`; contraste WCAG AA; `prefers-reduced-motion`; páginas leves (imagens enxutas, sem JS pesado); conhecimento e API do chatbot não mudam.
+**Pedido do Lucas (vale como direção fixada):** layout limpo, jovem e atual; fontes atuais e jovens sem perder legibilidade e seriedade; muito profissional; leve; sem emojis; usar a foto atual (`Foto Perfil`); menos destaque para o botão de currículo.
 
-**Direção escolhida pelo Lucas:** Torre de argila em rolos (catálogo `clay-ceramics-fracture-coiled-earth-tower`), adotada mesmo tendo sido marcada como recusada. Decisões do Lucas: terracota e umber como fundo de verdade (não creme); chatbot como o arco de entrada da torre; foto original a ser tratada para o portfólio.
+**Restrições:** pt-BR; nenhum texto do Lucas reescrito (só os emojis saem); conteúdo vindo de `conteudo.py`; contraste WCAG AA; `prefers-reduced-motion`; leve; cores só por variáveis CSS em `:root`; chatbot e backend não mudam.
 
-**Momento de assinatura:** a fiada em andamento (Iguá, "atualmente") é a única em argila úmida escura; a torre pode ser "construída" fiada por fiada somente se o visitante pedir.
+**Momento de assinatura:** a curva normal (distribuição) em traço fino atrás da primeira tela, a marca de quem é estatístico; e o selo do cargo atual na foto.
 
-**Em aberto:** foto original (aguarda o arquivo do Lucas); hospedagem (muda o link dentro do PDF do currículo); sem recomendações do LinkedIn; a citação do H. G. Wells fica, em lugar a definir na construção.
+**Em aberto:** hospedagem (muda o link dentro do PDF do currículo); sem recomendações do LinkedIn.
 
 ## Direction contract
 
-THESIS: A página é a própria torre vista em corte: fiadas de argila assentadas uma sobre a outra, cada bloco de conteúdo uma fiada, a carreira subindo da base (TRE, 2022) até a fiada em andamento (Iguá). Recusa o portfólio padrão: hero em duas colunas, cartões iguais e barras de habilidade.
+THESIS: Um portfólio executivo e jovem: claro, limpo e arejado, em que o conteúdo real (nome, três frentes, trajetória, projetos com resultado) lidera e a interface recua. Recusa o visual temático e ornamental (a torre de argila saiu) e o "portfólio de dev" genérico: neon, degradês, cartões idênticos com ícone.
 
-OWN-WORLD: Terracota e umber ocupam faixas inteiras, em largura total; juntas de engobe claro separam as fiadas; um único anel de argila úmida escura marca o que está em andamento. Maiúsculas de serifa grossa e baixo contraste, como carimbo em tijolo, para títulos; serifa de leitura para o texto corrido, sobre faixas escuras ou claras, nunca claro sobre terracota média. Grão leve de argila, cantos de rolo arredondados, sombras com deslocamento e desfoque. Sem ícone decorativo.
+OWN-WORLD: Fundo claro neutro e frio, superfícies brancas, tinta azul-grafite e um único acento verde-azulado (teal) para ação, estado atual e dados. Títulos em Bricolage Grotesque (600 a 700, tracking apertado), texto em Onest. Filetes de 1px, cantos de 12 a 16px (maiores na foto), sombras suaves com deslocamento e desfoque, uma faixa escura só no contato. A curva normal em traço fino é a assinatura estatística. Ícones desenhados em traço único; sem emoji.
 
-STORY: Em segundos o visitante entende quem é Lucas Costa e suas três frentes (estatística e ML, BI, análise para decisão). Acredita pela trajetória em fiadas e pelos projetos que abrem mostrando método e resultado. Age: baixa o currículo; depois contata ou conversa com a Puxa Saco pelo arco da torre.
+STORY: Em segundos o visitante entende quem é Lucas Costa, o que faz (estatística e ML, BI, análise para decisão) e onde trabalha hoje. Confia pela trajetória e pelos projetos com resultado. Age: ver projetos ou falar com ele; o currículo está à mão, sem disputar atenção.
 
-FIRST VIEWPORT: Desktop 1440x900: faixas terracota em largura total; à esquerda "LUCAS COSTA" em caixa alta grossa (até 6rem) numa fiada; abaixo, três fiadas com as frentes, cada linha com a largura da sua fiada; uma junta clara com "Baixar currículo (PDF)" como ação primária; à direita a foto recortada encaixada na torre e o arco de entrada do chat no flanco. Celular 390x844: nome, três fiadas e o botão do currículo cabem sem rolar.
+FIRST VIEWPORT: Desktop 1440x900: cabeçalho com o nome, o menu e o botão "Currículo" em contorno; duas colunas. À esquerda: o nome (até 4.75rem), a frase de posicionamento, as três frentes em linhas separadas por filetes e dois botões ("Ver projetos" sólido, "Falar comigo" em contorno). À direita: a foto em retângulo arredondado com um selo "Analista de Transformação Sr., Iguá Saneamento" sobre o canto, e a curva normal sutil ao fundo. Celular 390x844: nome, posicionamento, frentes e botões; a foto vem logo abaixo.
 
-FORM: Torre de argila em rolos (catálogo `clay-ceramics-fracture-coiled-earth-tower`), escolhida pelo Lucas entre os desafiantes; fora da minha lista própria de candidatos. seed:8dfea99e72645cc7
+FORM: Direção fixada pelo Lucas (limpa, jovem e profissional), executada como o padrão da categoria em fidelidade total, com tipografia atual e uma assinatura estatística; fora da minha lista própria de candidatos. seed:8dfea99e72645cc7
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
