@@ -64,6 +64,18 @@ CURRICULO = {
 
 PROJETOS = [
     {
+        "titulo": "Eleições ao Vivo 2026",
+        "destaque": True,
+        "tags": [
+            tag("icones/python.webp", "Python e Flask"),
+            tag("icones/estatistica.webp", "Dados públicos do TSE"),
+        ],
+        "imagem": "projetos/eleicoes-ao-vivo.webp",
+        "chave_bot": "Eleições ao Vivo",
+        "link": "https://github.com/luukas20/eleicoes-ao-vivo",
+        "descricao": "Painel não oficial para acompanhar ao vivo a apuração das eleições de 2026, feito em Python e Flask sobre os arquivos públicos de divulgação do TSE. Reúne Presidente, Governador, Senador e Deputados, com mapa do Brasil, ranking, gráfico de evolução, hemiciclo por UF e busca por município, em celular, tablet e computador. Só o servidor consulta o TSE, dentro das regras de uso dele. Tem testes automatizados, simulador de dados e acessibilidade verificada. A captura mostra o resultado final do primeiro turno, de 4 de outubro de 2026.",
+    },
+    {
         "titulo": "Modelagem de Perda Esperada (PE)",
         "tags": [
             tag("icones/python.webp", "Python"),

@@ -193,3 +193,12 @@ def test_configuracao_da_vercel_valida():
     config = json.loads((RAIZ / "vercel.json").read_text(encoding="utf-8"))
     assert config["functions"]["main.py"]["maxDuration"] <= 300  # limite do plano Hobby
     assert (RAIZ / ".python-version").read_text(encoding="utf-8").strip() == "3.12"
+
+
+def test_um_unico_projeto_em_destaque_com_link_publico():
+    destaques = [p for p in conteudo.PROJETOS if p.get("destaque")]
+    assert len(destaques) == 1
+    assert destaques[0]["link"].startswith("https://github.com/luukas20/")
+    assert home().count("projeto-destaque") == 1
+    # o cartão em destaque abre a lista (mais recente e mais completo)
+    assert conteudo.PROJETOS[0] is destaques[0]

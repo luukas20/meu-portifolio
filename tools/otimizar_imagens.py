@@ -24,6 +24,7 @@ PROJETOS = {
     "Previsão BOVA11.png": "previsao-bova11",
     "Controle de Gastos.png": "controle-de-gastos",
     "Dashboard Streamlit.png": "previsao-acoes-streamlit",
+    "Eleições ao Vivo.png": "eleicoes-ao-vivo",
 }
 ICONES = {
     "Estatistica.png": "estatistica",

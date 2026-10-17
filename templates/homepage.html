@@ -139,7 +139,7 @@
                 <h2 class="titulo" id="titulo-portfolio">Meu portfólio</h2>
                 <div class="projetos">
                     {%- for projeto in projetos %}
-                    <article class="projeto">
+                    <article class="projeto{% if projeto.destaque %} projeto-destaque{% endif %}">
                         <div class="projeto-imagem">
                             <img src="{{ url_for('static', filename='images/' ~ projeto.imagem) }}" alt="Captura de tela do projeto: {{ projeto.titulo }}" width="900" height="560" loading="lazy" decoding="async">
                         </div>

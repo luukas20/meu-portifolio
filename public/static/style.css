@@ -776,6 +776,35 @@ button {
     margin-top: auto;
 }
 
+/* projeto em destaque: ocupa a largura toda; a partir de 80rem, imagem ao lado do texto */
+@media (min-width: 48rem) {
+    .projeto-destaque {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 80rem) {
+    .projeto-destaque {
+        flex-direction: row;
+    }
+
+    .projeto-destaque .projeto-imagem {
+        flex: 0 0 60%;
+        aspect-ratio: auto;
+        border-right: 1px solid var(--linha);
+        border-bottom: 0;
+    }
+
+    .projeto-destaque .projeto-corpo {
+        justify-content: center;
+        padding: 1.75rem 2rem;
+    }
+
+    .projeto-destaque h3 {
+        font-size: 1.45rem;
+    }
+}
+
 .formula {
     display: block math;
     margin: 0.7rem 0;
