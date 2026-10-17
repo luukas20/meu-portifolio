@@ -22,3 +22,8 @@ __pycache__/
 
 # Skills e configuracoes do Claude Code
 .claude/
+
+# Trabalho gerado pelo Impeccable (esboços, capturas, estado de build)
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
