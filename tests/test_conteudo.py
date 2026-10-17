@@ -2,6 +2,7 @@ from datetime import datetime
 from pathlib import Path
 
 import conteudo
+import views
 from main import app
 
 PASTA_IMAGENS = Path(__file__).resolve().parent.parent / "static" / "images"
@@ -38,6 +39,12 @@ def test_cada_projeto_tem_os_campos_obrigatorios():
         assert "link" in projeto  # None = sem link
 
 
+def test_chatbot_conhece_todos_os_projetos_da_pagina():
+    conhecimento = (views.PASTA_PROMPTS / "conhecimento.md").read_text(encoding="utf-8")
+    faltando = [p["titulo"] for p in conteudo.PROJETOS if p["chave_bot"] not in conhecimento]
+    assert faltando == [], f"Faltam em prompts/conhecimento.md: {faltando}"
+
+
 def test_projeto_sem_link_nao_tem_imagem_clicavel():
     html = app.test_client().get("/").get_data(as_text=True)
     sem_link = [p for p in conteudo.PROJETOS if not p["link"]]
@@ -52,4 +59,6 @@ def test_grafias_corrigidas_e_ano_automatico():
         assert correto in html
     for errado in ("Busines Inteligence", "Inicio<", "ATOMATE", "&copy; 2025"):
         assert errado not in html
+    assert "portif" not in html.lower()
+    assert 'id="portfolio"' in html and 'href="#portfolio"' in html
     assert f"&copy; {datetime.now().year} " in html

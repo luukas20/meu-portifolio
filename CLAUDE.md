@@ -36,7 +36,7 @@ conteudo.py              conteúdo da homepage (especialidades, sobre-mim, redes
 templates/macros.html    macros `tags` e `redes`, reutilizadas na homepage
 prompts/persona.md       persona e regras da "Puxa Saco" (instrução do sistema)
 prompts/conhecimento.md  base de conhecimento do bot (currículo, projetos); editar o .md e reiniciar o servidor
-templates/homepage.html  página única: topo, especialidades, sobre-mim, portifólio, contato, footer, widget do chat
+templates/homepage.html  página única: topo, especialidades, sobre-mim, portfólio, contato, footer, widget do chat
 static/style.css         todo o CSS; tema por variáveis em :root; um único breakpoint (max-width: 1020px)
 static/main.js           menu mobile + chatbot (fetch POST /api/chat)
 static/images/           PNGs/JPEG usados via url_for (nomes com espaço e acento)
@@ -46,12 +46,12 @@ tests/test_chat.py       testes do endpoint do chat (pytest, Gemini simulado)
 - **Rotas** (`views.py`): `GET /` (endpoint `pagina_home`, renderiza `homepage.html`) e `POST /api/chat`.
 - **Import circular** `main` ↔ `views`: `views.py` faz `from main import app`. Funciona, mas é frágil; manter `from views import *` no **fim** do `main.py` e não adicionar imports de `views` antes de `app` existir.
 - **Chatbot**: o front envia `{message}` para `/api/chat`; o back valida (texto, até 500 caracteres, senão 400), limita a 10 mensagens/min e 100/dia por IP (429), e chama `client.models.generate_content` com persona + conhecimento (`prompts/*.md`) em `system_instruction` e a mensagem do usuário só em `contents`. Devolve `{reply}` ou `{error}` (500 se o Gemini falhar). É stateless (sem histórico entre mensagens). `prompts/conhecimento.md` é a **única fonte de conhecimento** do bot.
-- **Tema**: cores só via variáveis (`--primary-*`, `--accent-*`, `--text-*`, `--bg-*`); fonte Poppins. Seção do portifólio = lista de `.project-card` dentro de `.project-container` (2 por linha no desktop, 1 no mobile).
+- **Tema**: cores só via variáveis (`--primary-*`, `--accent-*`, `--text-*`, `--bg-*`); fonte Poppins. Seção do portfólio = lista de `.project-card` dentro de `.project-container` (2 por linha no desktop, 1 no mobile).
 
 ## Convenções do código
 
 - Nomes em português: classes CSS (`.sobre-mim`, `.especialidades-box`), ids, endpoint (`pagina_home`), comentários e mensagens de commit curtas ("Adicionando o Projeto da Perda Esperada").
-- A grafia **"portifolio"** (sic) é usada de forma consistente em classes, ids e âncoras (`.portifolio`, `#portifolio`, `<title>`). Não corrigir só uma ocorrência; se for renomear, trocar tudo (HTML, CSS, links de navegação).
+- Grafia **"portfolio"** (sem acento) em classes, ids e âncoras (`.portfolio`, `#portfolio`) e **"portfólio"** no texto visível e no `<title>`. Foi renomeado de "portifolio" em out/2026; um teste confere que não sobrou nenhuma ocorrência. O repositório (`meu-portifolio`) e a pasta local mantêm a grafia antiga de propósito.
 - Indentação de 4 espaços. CSS organizado em blocos com cabeçalho em comentário MAIÚSCULO (`/* ESTILO DO CABEÇALHO */`); HTML fecha divs com comentário (`</div><!--flex-->`).
 - Imagens sempre via `{{ url_for('static', filename='images/...') }}`; cores sempre via variáveis CSS (nada de hex solto).
 - `appendMessage` em `main.js` usa `textContent` de propósito (evita injeção de HTML vinda do modelo). Manter assim.
@@ -63,7 +63,7 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 - **Novo projeto / cargo / habilidade**: atualizar (1) `conteudo.py` (o card aparece sozinho), (2) `prompts/conhecimento.md` (senão o chatbot responde que "não tem essa informação") e (3) `SOBRE_MIM` em `conteudo.py`, se o texto mudar.
 - **Novo card**: copiar um item de `PROJETOS` em `conteudo.py` (`titulo`, `tags` com `tag(icone, nome)`, `imagem`, `link`, `descricao` em HTML). Imagens são nomes de arquivo em `static/images/`.
 - Links de redes sociais (LinkedIn, GitHub, e-mail) ficam em `REDES` e aparecem sozinhos no sobre-mim e no contato.
-- `pytest` confere se as imagens citadas existem e se a home renderiza todo o conteúdo.
+- `pytest` confere se as imagens citadas existem, se a home renderiza todo o conteúdo e se cada projeto tem sua `chave_bot` em `prompts/conhecimento.md` (projeto novo na página sem entrar no conhecimento do bot faz o teste falhar).
 - Texto profissional, persona e dados pessoais são conteúdo do Lucas: perguntar antes de reescrever ou "melhorar" o texto.
 
 ## Armadilhas conhecidas (revisar/remover conforme forem corrigidas)

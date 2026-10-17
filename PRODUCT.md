@@ -38,12 +38,9 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 - Todo texto profissional é do Lucas: nada é reescrito sem aprovação.
 - **Decisões em aberto:**
   - Hospedagem (hoje no Render gratuito, que "dorme" e demora no primeiro acesso; aberto a trocar).
-  - Currículo em PDF: usar o arquivo que ele já usa, sem alterar. O arquivo ainda não foi entregue.
-  - Nome exibido: "Lucas Costa" (site) ou "Lucas da Silva Costa" (rodapé).
-  - Citação do H. G. Wells no topo: manter, corrigir a atribuição ou trocar.
-  - Grafia "portifolio" (ids, classes, âncoras): renomear tudo para "portfólio" ou manter.
-  - Domínio próprio.
+  - Currículo em PDF: o Lucas pediu para usar o arquivo que já usa, sem alterar. Esse PDF cita a Cencosud como emprego atual e não menciona a Iguá (site e chatbot dizem Iguá desde fev/2026). Falta decidir: publicar como está ou atualizar o Word e gerar um PDF novo.
   - Destino dos cards "Perda Esperada" e "Controle de Gastos" (hoje sem link).
+- **Decididas pelo Lucas:** rodapé com o nome completo ("Lucas da Silva Costa"); manter a citação do H. G. Wells; renomear "portifolio" para "portfólio" (feito); sem domínio próprio por enquanto (usa o endereço da hospedagem).
 
 ## Brand Commitments
 
@@ -57,8 +54,9 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 - **Pode mostrar métricas da Cencosud**, como o Índice de Cobertura de 115% do projeto de Perda Esperada.
 - Cat vs Dog: repositório público em `github.com/luukas20/cnn-cat-vs-dog` (notebooks lidos; conclusões aguardam confirmação do Lucas antes de irem para o site ou o chatbot).
 - Experiência: Iguá Saneamento, Cencosud, Hospital Primavera, TRE-SE. Formação e cursos em `prompts/conhecimento.md`.
-- **Tem recomendações do LinkedIn para usar.** Os textos ainda não foram fornecidos: não inventar nem parafrasear depoimentos.
-- **Ausências que não podem ser inventadas:** o PDF do currículo (não está no repositório), os textos das recomendações, link de destino dos cards sem link.
+- **Tem recomendações no LinkedIn**, mas o LinkedIn bloqueia leitura automatizada e os textos não foram fornecidos. Sem recomendações no site até o Lucas colar os textos: não inventar nem parafrasear depoimentos.
+- Currículo: `C:\Users\lucas\Documents\Curriculo\Currículo Lucas Costa.pdf` (e o modelo `Cópia de Modelo Currículo Tech.docx`). Tem e-mail e telefone, sem CPF ou endereço. Ainda não está no repositório.
+- **Ausências que não podem ser inventadas:** textos das recomendações, link de destino dos cards sem link.
 
 ## Product Principles
 
