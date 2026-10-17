@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T17:43:38+00:00",
+  "title": "Design System: Lucas Costa | Portfólio de Dados",
+  "extensions": {
+    "colorMeta": {
+      "engobe": {
+        "role": "neutral",
+        "displayName": "Engobe",
+        "canonical": "#ece5da",
+        "tonalRamp": [
+          "#33291a",
+          "#59482e",
+          "#806742",
+          "#a68755",
+          "#bba27b",
+          "#cfbda1",
+          "#e3d8c8",
+          "#f6f3ee"
+        ]
+      },
+      "engobe-sombra": {
+        "role": "neutral",
+        "displayName": "Engobe Sombra",
+        "canonical": "#d9cfbf",
+        "tonalRamp": [
+          "#30281c",
+          "#554732",
+          "#796648",
+          "#9e855e",
+          "#b4a181",
+          "#cabca6",
+          "#e0d8ca",
+          "#f5f3ef"
+        ]
+      },
+      "seca": {
+        "role": "neutral",
+        "displayName": "Seca",
+        "canonical": "#bda98a",
+        "tonalRamp": [
+          "#31291c",
+          "#564731",
+          "#7b6646",
+          "#a1855b",
+          "#b7a17f",
+          "#ccbca4",
+          "#e1d8c9",
+          "#f6f3ef"
+        ]
+      },
+      "argila-crua": {
+        "role": "secondary",
+        "displayName": "Argila Crua",
+        "canonical": "#d78c5b",
+        "tonalRamp": [
+          "#3e210f",
+          "#6c3b1a",
+          "#9b5426",
+          "#ca6e31",
+          "#d88e5e",
+          "#e3af8d",
+          "#efd0bc",
+          "#faf1ea"
+        ]
+      },
+      "terracota": {
+        "role": "primary",
+        "displayName": "Terracota",
+        "canonical": "#c65a3a",
+        "tonalRamp": [
+          "#3b1b11",
+          "#692f1e",
+          "#96442b",
+          "#c35838",
+          "#d27d64",
+          "#dfa391",
+          "#ecc9be",
+          "#f9eeeb"
+        ]
+      },
+      "terracota-queimada": {
+        "role": "primary",
+        "displayName": "Terracota Queimada",
+        "canonical": "#8f3f22",
+        "tonalRamp": [
+          "#3e1b0f",
+          "#6d301a",
+          "#9c4525",
+          "#cb5930",
+          "#d97e5d",
+          "#e4a38c",
+          "#efc9bb",
+          "#faefea"
+        ]
+      },
+      "umber": {
+        "role": "secondary",
+        "displayName": "Umber",
+        "canonical": "#7a4e34",
+        "tonalRamp": [
+          "#362217",
+          "#5f3c28",
+          "#87573a",
+          "#b0714b",
+          "#c39073",
+          "#d5b19b",
+          "#e6d1c4",
+          "#f7f1ed"
+        ]
+      },
+      "argila-umida": {
+        "role": "neutral",
+        "displayName": "Argila Úmida",
+        "canonical": "#3e2e28",
+        "tonalRamp": [
+          "#2e221e",
+          "#523d35",
+          "#75574c",
+          "#997163",
+          "#b09185",
+          "#c7b1a9",
+          "#ded1cc",
+          "#f5f1f0"
+        ]
+      },
+      "argila-escura": {
+        "role": "neutral",
+        "displayName": "Argila Escura",
+        "canonical": "#2a1d18",
+        "tonalRamp": [
+          "#31221c",
+          "#563b31",
+          "#7b5546",
+          "#a06e5b",
+          "#b68f7f",
+          "#cbafa5",
+          "#e1d0ca",
+          "#f6f1ef"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Só o nome na primeira fiada, caixa alta com falha de tinta."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de faixa."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Empresa do cargo, título de projeto, rótulo de botão, nome do chat."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido em Zilla Slab."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tags, selo, períodos, tijolos de habilidade."
+      }
+    },
+    "shadows": [
+      {
+        "name": "fiada",
+        "value": "0 14px 24px -14px var(--sombra)",
+        "purpose": "Fiadas em repouso, com junta de 2px embaixo."
+      },
+      {
+        "name": "botao",
+        "value": "0 8px 16px -8px var(--sombra)",
+        "purpose": "Botões; no hover 0 14px 22px -8px."
+      },
+      {
+        "name": "retrato",
+        "value": "0 24px 36px -20px var(--sombra)",
+        "purpose": "Foto e janela do chat."
+      },
+      {
+        "name": "arco",
+        "value": "0 16px 26px -12px var(--sombra)",
+        "purpose": "Arco e botão flutuante do chat."
+      },
+      {
+        "name": "sombra",
+        "value": "rgb(18 9 5 / 0.45)",
+        "purpose": "Cor de toda sombra (token --sombra)."
+      },
+      {
+        "name": "brilho",
+        "value": "rgb(255 238 220 / 0.2)",
+        "purpose": "Luz de topo do rolo e brilho de hover (token --brilho)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Easing único do site (--ease)."
+      },
+      {
+        "name": "assentar",
+        "value": "0.6s var(--ease), atraso de 60ms por fiada, cai 22px",
+        "purpose": "Entrada das fiadas da primeira tela."
+      },
+      {
+        "name": "duracao",
+        "value": "0.7s",
+        "purpose": "Reconstrução da torre sob pedido, 130ms por fiada (--duracao)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration 0.01ms; animation none",
+        "purpose": "Respeita prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "medio",
+        "value": "40rem"
+      },
+      {
+        "name": "desktop",
+        "value": "64rem"
+      },
+      {
+        "name": "celular-estreito",
+        "value": "26rem (max-width)"
+      }
+    ],
+    "materials": [
+      {
+        "name": "grao",
+        "value": "SVG feTurbulence, opacidade .55",
+        "purpose": "Grão de argila sobre faixas e fiadas escuras (--grao)."
+      },
+      {
+        "name": "grao-leve",
+        "value": "SVG feTurbulence, opacidade .16",
+        "purpose": "Grão sobre superfícies de engobe (--grao-leve)."
+      },
+      {
+        "name": "rolo",
+        "value": "linear-gradient(180deg, brilho 0, transparent 34%, transparent 64%, sombra 100%)",
+        "purpose": "Volume de rolo; variantes --rolo-claro e --rolo-suave."
+      },
+      {
+        "name": "emenda",
+        "value": "repeating-linear-gradient(115deg, transparent 0 14px, rgb(120 85 50 / .3) 14px 16px)",
+        "purpose": "Marcas de polegar na junta de engobe de 8px (--emenda)."
+      },
+      {
+        "name": "falha",
+        "value": "SVG feTurbulence usado como máscara",
+        "purpose": "Falhas de tinta no nome e nos títulos de faixa (--falha)."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Fiada de frente",
+      "kind": "card",
+      "refersTo": "fiada-frente",
+      "description": "Bloco base da torre: argila com grão, rolo e junta embaixo.",
+      "html": "<div class=\"ds-fiada\"><h2>ESTATÍSTICA E ML</h2><p>Modelos de Machine Learning que sustentam decisão.</p></div>",
+      "css": ".ds-fiada{background-color:var(--terracota-queimada);background-image:var(--grao),var(--rolo);border-radius:var(--raio-rolo);color:var(--engobe);border-bottom:2px solid var(--junta);box-shadow:0 14px 24px -14px var(--sombra);padding:.75rem 1.25rem .85rem;font-family:var(--fonte-texto)}.ds-fiada h2{margin:0 0 .2rem;font-family:var(--fonte-titulo);font-size:1.05rem;font-weight:400;letter-spacing:.04em}.ds-fiada p{margin:0;font-size:1rem;line-height:1.45}"
+    },
+    {
+      "name": "Fiada do nome",
+      "kind": "custom",
+      "refersTo": "fiada-nome",
+      "description": "Display em Holtwood sobre terracota, cantos de 2.5rem.",
+      "html": "<h1 class=\"ds-nome\">LUCAS<br>COSTA</h1>",
+      "css": ".ds-nome{margin:0;background-color:var(--terracota);background-image:var(--grao),var(--rolo);border-radius:2.5rem;color:var(--argila-escura);padding:.85rem 1.25rem .75rem;font-family:var(--fonte-titulo);font-weight:400;font-size:3.5rem;line-height:.98;letter-spacing:-.01em;box-shadow:0 14px 24px -14px var(--sombra)}"
+    },
+    {
+      "name": "Fiada em andamento",
+      "kind": "card",
+      "refersTo": "fiada-cargo-em-andamento",
+      "description": "A única fiada de argila úmida: anel de argila-crua e brilho.",
+      "html": "<div class=\"ds-andamento\"><span class=\"ds-emp\">IGUÁ SANEAMENTO</span><em class=\"ds-selo\">em andamento</em></div>",
+      "css": ".ds-andamento{display:flex;justify-content:space-between;align-items:center;padding:1.15rem 1.75rem;border:3px solid var(--argila-crua);border-radius:var(--raio-rolo);background-color:var(--argila-escura);background-image:var(--grao),linear-gradient(100deg,transparent 18%,rgb(255 238 220/.14) 26%,transparent 34%),var(--rolo);color:var(--engobe);font-family:var(--fonte-texto)}.ds-emp{font-family:var(--fonte-titulo);font-size:1.1rem;letter-spacing:.03em}.ds-selo{padding:.1rem .7rem;border-radius:999px;background:var(--argila-crua);color:var(--argila-escura);font-size:.85rem;font-style:normal;font-weight:700}"
+    },
+    {
+      "name": "Botão",
+      "kind": "button",
+      "refersTo": "botao",
+      "description": "Pílula de terracota-queimada em Holtwood; sobe 2px no hover.",
+      "html": "<a class=\"ds-botao\" href=\"#\">Abrir o projeto</a>",
+      "css": ".ds-botao{display:inline-flex;align-items:center;justify-content:center;min-height:2.9rem;padding:.6rem 1.4rem;border-radius:999px;background-color:var(--terracota-queimada);background-image:var(--grao),var(--rolo);color:var(--engobe);font-family:var(--fonte-titulo);font-size:.9rem;letter-spacing:.03em;text-decoration:none;box-shadow:0 8px 16px -8px var(--sombra);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}.ds-botao:hover{transform:translateY(-2px);box-shadow:0 14px 22px -8px var(--sombra)}.ds-botao:active{transform:translateY(1px)}.ds-botao:focus-visible{outline:3px solid var(--argila-crua);outline-offset:3px}"
+    },
+    {
+      "name": "Botão claro",
+      "kind": "button",
+      "refersTo": "botao-claro",
+      "description": "Pílula de engobe com texto escuro, para ações secundárias.",
+      "html": "<a class=\"ds-claro\" href=\"#\">Abrir o projeto</a>",
+      "css": ".ds-claro{display:inline-flex;align-items:center;justify-content:center;min-height:2.9rem;padding:.6rem 1.4rem;border-radius:999px;background-color:var(--engobe);background-image:var(--grao-leve),var(--rolo-claro);color:var(--argila-escura);font-family:var(--fonte-titulo);font-size:.9rem;letter-spacing:.03em;text-decoration:none;box-shadow:0 8px 16px -8px var(--sombra);transition:transform .2s var(--ease)}.ds-claro:hover{transform:translateY(-2px)}.ds-claro:focus-visible{outline:3px solid var(--argila-crua);outline-offset:3px}"
+    },
+    {
+      "name": "Junta do currículo",
+      "kind": "button",
+      "refersTo": "junta-curriculo",
+      "description": "Ação primária: pílula de engobe com seta de download.",
+      "html": "<a class=\"ds-junta\" href=\"#\"><span>Baixar currículo (PDF)</span></a>",
+      "css": ".ds-junta{display:flex;align-items:center;justify-content:center;gap:.8rem;min-height:3.4rem;padding:.7rem 1.25rem;border-radius:999px;background-color:var(--engobe);background-image:var(--grao-leve),var(--rolo-claro);color:var(--argila-escura);font-family:var(--fonte-titulo);font-size:1.1rem;letter-spacing:.03em;text-decoration:none;box-shadow:0 14px 24px -12px var(--sombra);transition:transform .25s var(--ease)}.ds-junta::before{content:'';width:1.5rem;height:1.5rem;flex:none;background:currentColor;-webkit-mask:var(--seta-baixo) center/contain no-repeat;mask:var(--seta-baixo) center/contain no-repeat}.ds-junta:hover{transform:translateY(-2px)}.ds-junta:focus-visible{outline:3px solid var(--argila-crua);outline-offset:3px}"
+    },
+    {
+      "name": "Tag e tijolo",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Tag de argila-escura e tijolo de habilidade em umber.",
+      "html": "<span class=\"ds-tag\">Python</span> <span class=\"ds-tijolo\">Power BI</span>",
+      "css": ".ds-tag{display:inline-flex;padding:.2rem .65rem;border-radius:.5rem;background:var(--argila-escura);color:var(--engobe);font:700 .85rem/1.4 var(--fonte-texto)}.ds-tijolo{display:inline-block;padding:.4rem 1rem;border-radius:.6rem;background-color:var(--umber);background-image:var(--grao),var(--rolo);color:var(--engobe);font:700 1rem var(--fonte-texto)}"
+    },
+    {
+      "name": "Navegação",
+      "kind": "nav",
+      "refersTo": "fiada-cargo",
+      "description": "Cabeçalho de argila-escura com filete de terracota-queimada; link atual sublinhado em argila-crua.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-marca\">Lucas Costa</span><a href=\"#\" aria-current=\"true\">Trajetória</a><a href=\"#\">Portfólio</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:1.75rem;padding:.6rem 1.25rem;background:var(--argila-escura);border-bottom:3px solid var(--terracota-queimada);color:var(--engobe);font-family:var(--fonte-texto);font-weight:700}.ds-marca{margin-right:auto;font-family:var(--fonte-titulo);font-size:.95rem;letter-spacing:.03em;font-weight:400}.ds-nav a{color:inherit;padding:.4rem 0;text-decoration:none}.ds-nav a:hover{color:var(--argila-crua)}.ds-nav a:focus-visible{outline:3px solid var(--argila-crua);outline-offset:3px}.ds-nav a[aria-current=true]{text-decoration:underline;text-decoration-color:var(--argila-crua);text-decoration-thickness:3px;text-underline-offset:.45em}"
+    },
+    {
+      "name": "Arco da torre",
+      "kind": "custom",
+      "refersTo": "arco-botao",
+      "description": "Entrada da Puxa Saco: semicírculo em cima, cantos de 1rem embaixo.",
+      "html": "<button class=\"ds-arco\" type=\"button\"><svg viewBox=\"0 0 24 24\" width=\"40\" height=\"40\" aria-hidden=\"true\"><path d=\"M3 22V11a9 9 0 0 1 18 0v11z\" fill=\"currentColor\"/><path d=\"M9 22v-6a3 3 0 0 1 6 0v6z\" fill=\"#2a1d18\"/></svg><span>Pergunte à Puxa Saco</span></button>",
+      "css": ".ds-arco{display:grid;justify-items:center;align-content:end;gap:.35rem;width:7.25rem;height:8.5rem;padding:.9rem .5rem .8rem;border:3px solid var(--engobe);border-radius:999px 999px 1rem 1rem;background:var(--argila-escura);color:var(--terracota);font-family:var(--fonte-texto);font-size:.85rem;font-weight:700;line-height:1.15;text-align:center;cursor:pointer;box-shadow:0 16px 26px -12px var(--sombra);transition:transform .25s var(--ease)}.ds-arco span{color:var(--engobe)}.ds-arco:hover{transform:translateY(-4px)}.ds-arco:focus-visible{outline:3px solid var(--argila-crua);outline-offset:3px}"
+    },
+    {
+      "name": "Mensagens do chat",
+      "kind": "custom",
+      "refersTo": "bot-message",
+      "description": "Balão do bot em engobe e do usuário em terracota-queimada.",
+      "html": "<div class=\"ds-msgs\"><div class=\"ds-bot\">Olá, sou a Puxa Saco.</div><div class=\"ds-user\">O que você faz?</div></div>",
+      "css": ".ds-msgs{display:flex;flex-direction:column;gap:.5rem;padding:1rem;background:var(--argila-escura);font-family:var(--fonte-texto)}.ds-bot,.ds-user{max-width:88%;padding:.65rem 1rem;border-radius:1.1rem;font-size:1rem;line-height:1.45}.ds-bot{align-self:flex-start;border-bottom-left-radius:.35rem;background:var(--engobe);color:var(--argila-escura)}.ds-user{align-self:flex-end;border-bottom-right-radius:.35rem;background:var(--terracota-queimada);color:var(--engobe)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Torre de Argila em Rolos",
+    "overview": "A página é a torre vista em corte. Cada bloco de conteúdo é uma fiada de argila, um rolo assentado sobre o outro, e a carreira sobe da base (a formação, o TRE) até a fiada em andamento (Iguá). A cor não é verniz sobre uma página clara: terracota, umber e argila úmida ocupam faixas inteiras, em largura total, e o creme (engobe) aparece só como junta entre elas, como superfície de leitura clara e como texto. O mundo é quente, terroso, tátil e confiante, mais olaria que escritório.\n\nA densidade é média e honesta. Há pouca coisa por tela, mas cada fiada é grande, de cantos arredondados, com grão de argila e um gradiente vertical (luz em cima, sombra embaixo) que dá volume de rolo. A hierarquia vem de largura e de cor da fiada, não de ícones ou ornamentos. Os títulos usam uma serifa grossa de caixa alta com falhas de tinta, como carimbo em tijolo; o texto corrido usa uma serifa de leitura calma.\n\nO que o sistema recusa, por decisão do Lucas: o portfólio padrão (hero em duas colunas simétricas, cartões iguais em grade, barras de habilidade) e o fundo creme com acento terracota. A terra é o fundo.",
+    "keyCharacteristics": [
+      "Fiadas de argila como único módulo estrutural: faixas de largura total e blocos arredondados que afunilam para cima.",
+      "Juntas de engobe (8px, com grão e marcas de polegar) separando as faixas.",
+      "Uma única fiada em argila úmida escura com anel claro marca o que está em andamento.",
+      "Volume por gradiente vertical e sombra com desfoque, nunca por contorno duro.",
+      "Sem ícone decorativo; os únicos desenhos são o arco da torre (entrada do chat), a seta do currículo e os traços de abrir/fechar.",
+      "Movimento só de assentar: as fiadas caem e se encaixam."
+    ],
+    "rules": [
+      {
+        "name": "The Terra Como Fundo Rule",
+        "body": "Terracota e umber são fundo de faixa inteira, em largura total. Nunca são reduzidos a acento sobre uma página creme.",
+        "section": "colors"
+      },
+      {
+        "name": "The Texto Claro Só Sobre Escuro Rule",
+        "body": "Texto engobe vai sobre terracota-queimada, umber, argila-umida ou argila-escura. Texto escuro (argila-escura) vai sobre engobe, seca ou terracota. Nunca claro sobre terracota média.",
+        "section": "colors"
+      },
+      {
+        "name": "The Uma Fiada Úmida Rule",
+        "body": "Só a fiada em andamento usa argila-escura com anel de argila-crua e brilho de umidade. Esse tratamento não se repete em nenhuma outra.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cor Sai do Token Rule",
+        "body": "Cores novas entram em `:root` antes de serem usadas. Os poucos `rgb()` dentro dos gradientes de volume são luz e sombra, não paleta.",
+        "section": "colors"
+      },
+      {
+        "name": "The Carimbo Só no Título Rule",
+        "body": "Holtwood é para nome, títulos de faixa, de fiada e de botão. Parágrafo, lista e mensagem de chat nunca saem em Holtwood.",
+        "section": "typography"
+      },
+      {
+        "name": "The Falha de Tinta Rule",
+        "body": "A máscara `--falha` é aplicada só ao nome e aos títulos de faixa (os maiores). Em corpo pequeno ela prejudicaria a leitura.",
+        "section": "typography"
+      },
+      {
+        "name": "The Junta Rule",
+        "body": "Entre faixas, uma junta de engobe de 8px com grão e a emenda (`--emenda`, marcas de polegar a 115 graus); entre fiadas, 2px de `--junta`. Faixa sem junta de engobe no topo não existe.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Sombra Mole Rule",
+        "body": "Sombra sempre com deslocamento vertical e desfoque, raio negativo e cor `--sombra` (marrom translúcido). Nenhuma sombra preta, nenhuma sombra dura deslocada na diagonal.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** usar terracota-queimada, umber, argila-umida e argila-escura como fundos de faixa e fiada em largura total, e engobe como junta, leitura clara e texto.",
+      "**Do** dar a cada fiada seu grão (`--grao` ou `--grao-leve`) e seu gradiente de rolo (`--rolo`, `--rolo-claro` ou `--rolo-suave`) sobre a cor de base.",
+      "**Do** variar a largura das fiadas (de 78% a 100%) para desenhar o perfil da torre; a fiada atual, no topo, é a mais estreita e a base da formação a mais larga.",
+      "**Do** usar Holtwood One SC em caixa alta só para nome, títulos e rótulos de botão, e Zilla Slab para todo texto corrido, com 52ch a 62ch de linha.",
+      "**Do** reservar argila-crua para o realce pequeno: foco, seleção, marcadores, selo e o anel da fiada em andamento.",
+      "**Do** desenhar o arco (`999px 999px r r`) para tudo que é porta de entrada: a foto, o chat, a janela.",
+      "**Do** declarar uma cor nova como token em `:root` antes de usá-la, e conferir contraste AA em cada par texto/fundo."
+    ],
+    "donts": [
+      "**Don't** fazer o portfólio padrão: hero em duas colunas simétricas, cartões iguais em grade, barras de habilidade.",
+      "**Don't** pôr texto engobe sobre terracota média (#c65a3a); nela só entra argila-escura, e só em tamanho de display.",
+      "**Don't** reduzir terracota e umber a acento sobre fundo creme; a terra é o fundo.",
+      "**Don't** repetir o tratamento de argila úmida com anel claro fora da fiada em andamento.",
+      "**Don't** usar sombra dura, sombra preta pura ou contorno fino cinza como profundidade; só a sombra mole marrom e a borda grossa de argila.",
+      "**Don't** pôr ícone decorativo, ilustração ou emoji de enfeite no layout; os únicos desenhos são o arco, a seta do currículo e os traços de abrir/fechar.",
+      "**Don't** aplicar a máscara de falha de tinta a texto pequeno nem usar Holtwood em parágrafos.",
+      "**Don't** animar nada além de assentar, sombra e elevação de hover; sem rolagem parallax, sem hover grudado no celular."
+    ]
+  }
+}
