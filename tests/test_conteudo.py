@@ -39,6 +39,26 @@ def test_cada_projeto_tem_os_campos_obrigatorios():
         assert "link" in projeto  # None = sem link
 
 
+def test_curriculo_existe_e_tem_botao_de_download():
+    arquivo = PASTA_IMAGENS.parent / conteudo.CURRICULO["arquivo"]
+    assert arquivo.is_file()
+    assert arquivo.read_bytes().startswith(b"%PDF")
+
+    html = app.test_client().get("/").get_data(as_text=True)
+    assert f'/static/{conteudo.CURRICULO["arquivo"]}' in html
+    assert f'download="{conteudo.CURRICULO["nome_download"]}"' in html
+
+    resposta = app.test_client().get(f'/static/{conteudo.CURRICULO["arquivo"]}')
+    assert resposta.status_code == 200
+    assert resposta.mimetype == "application/pdf"
+
+
+def test_chatbot_conhece_idiomas_e_snowflake():
+    conhecimento = (views.PASTA_PROMPTS / "conhecimento.md").read_text(encoding="utf-8")
+    for termo in ("Inglês - Nível Básico", "Espanhol - Nível Básico", "Snowflake"):
+        assert termo in conhecimento
+
+
 def test_chatbot_conhece_todos_os_projetos_da_pagina():
     conhecimento = (views.PASTA_PROMPTS / "conhecimento.md").read_text(encoding="utf-8")
     faltando = [p["titulo"] for p in conteudo.PROJETOS if p["chave_bot"] not in conhecimento]

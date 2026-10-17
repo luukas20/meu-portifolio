@@ -9,7 +9,7 @@ from google import genai
 from google.genai import errors, types
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from conteudo import ESPECIALIDADES, PROJETOS, REDES, SOBRE_MIM
+from conteudo import CURRICULO, ESPECIALIDADES, PROJETOS, REDES, SOBRE_MIM
 
 # 1. CONFIGURAÇÃO INICIAL
 load_dotenv() # Carrega as variáveis do arquivo .env
@@ -34,6 +34,7 @@ def homepage():
         sobre_mim=SOBRE_MIM,
         redes_sociais=REDES,
         projetos=PROJETOS,
+        curriculo=CURRICULO,
         ano_atual=datetime.now().year,
     )
 

@@ -162,6 +162,11 @@
                 <a href="https://wa.me/5579999365991?text=Olá" target="_blank" class="wpp-contato">
                     <img src="{{ url_for('static', filename='images/WhatsApp.png') }}"> Manda "Oi" no Whats.</button>
                 </a>
+                {% if curriculo %}
+                <a href="{{ url_for('static', filename=curriculo.arquivo) }}" download="{{ curriculo.nome_download }}" class="wpp-contato">
+                    Baixar currículo (PDF)
+                </a>
+                {% endif %}
                 <div class="rede-social">
                     {{ redes(redes_sociais) }}
                 </div><!--rede-social-->

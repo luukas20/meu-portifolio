@@ -63,6 +63,7 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 - **Novo projeto / cargo / habilidade**: atualizar (1) `conteudo.py` (o card aparece sozinho), (2) `prompts/conhecimento.md` (senão o chatbot responde que "não tem essa informação") e (3) `SOBRE_MIM` em `conteudo.py`, se o texto mudar.
 - **Novo card**: copiar um item de `PROJETOS` em `conteudo.py` (`titulo`, `tags` com `tag(icone, nome)`, `imagem`, `link`, `descricao` em HTML). Imagens são nomes de arquivo em `static/images/`.
 - Links de redes sociais (LinkedIn, GitHub, e-mail) ficam em `REDES` e aparecem sozinhos no sobre-mim e no contato.
+- **Currículo**: o PDF baixável é `static/docs/Curriculo-Lucas-Costa.pdf` (configurado em `CURRICULO`, `conteudo.py`). O Word de origem fica **fora** do repositório (pasta `Documents\Curriculo` do Lucas); para atualizar, editar o Word, exportar o PDF e trocar o arquivo, mantendo o nome. O PDF tem link para a URL do site (hoje `meu-portifolio-lucas.onrender.com`): se a hospedagem mudar, atualizar o currículo também.
 - `pytest` confere se as imagens citadas existem, se a home renderiza todo o conteúdo e se cada projeto tem sua `chave_bot` em `prompts/conhecimento.md` (projeto novo na página sem entrar no conhecimento do bot faz o teste falhar).
 - Texto profissional, persona e dados pessoais são conteúdo do Lucas: perguntar antes de reescrever ou "melhorar" o texto.
 

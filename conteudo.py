@@ -56,6 +56,12 @@ REDES = [
     {"nome": "E-mail", "url": "mailto:lucas.estatistico@outlook.com", "icone": "E-Mail.png"},
 ]
 
+# Currículo em PDF (arquivo dentro de static/). O Word de origem fica fora do repositório.
+CURRICULO = {
+    "arquivo": "docs/Curriculo-Lucas-Costa.pdf",
+    "nome_download": "Currículo Lucas Costa.pdf",
+}
+
 PROJETOS = [
     {
         "titulo": "📊 Modelagem de Perda Esperada (PE)",
