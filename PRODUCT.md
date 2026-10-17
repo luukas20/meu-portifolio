@@ -38,8 +38,8 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 - Todo texto profissional é do Lucas: nada é reescrito sem aprovação.
 - **Decisões em aberto:**
   - Hospedagem (hoje no Render gratuito, que "dorme" e demora no primeiro acesso; aberto a trocar).
-  - Currículo em PDF: o Lucas pediu para usar o arquivo que já usa, sem alterar. Esse PDF cita a Cencosud como emprego atual e não menciona a Iguá (site e chatbot dizem Iguá desde fev/2026). Falta decidir: publicar como está ou atualizar o Word e gerar um PDF novo.
   - Destino dos cards "Perda Esperada" e "Controle de Gastos" (hoje sem link).
+  - Quando a hospedagem mudar, atualizar o link do site dentro do PDF do currículo (hoje aponta para o endereço no Render).
 - **Decididas pelo Lucas:** rodapé com o nome completo ("Lucas da Silva Costa"); manter a citação do H. G. Wells; renomear "portifolio" para "portfólio" (feito); sem domínio próprio por enquanto (usa o endereço da hospedagem).
 
 ## Brand Commitments
@@ -55,7 +55,7 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 - Cat vs Dog: repositório público em `github.com/luukas20/cnn-cat-vs-dog` (notebooks lidos; conclusões aguardam confirmação do Lucas antes de irem para o site ou o chatbot).
 - Experiência: Iguá Saneamento, Cencosud, Hospital Primavera, TRE-SE. Formação e cursos em `prompts/conhecimento.md`.
 - **Tem recomendações no LinkedIn**, mas o LinkedIn bloqueia leitura automatizada e os textos não foram fornecidos. Sem recomendações no site até o Lucas colar os textos: não inventar nem parafrasear depoimentos.
-- Currículo em PDF (e o modelo em Word) guardados no computador do Lucas, fora do repositório. Têm e-mail e telefone, sem CPF ou endereço. Ainda não estão no site.
+- Currículo em PDF baixável no site (`static/docs/`), na versão atualizada em out/2026: Iguá como emprego atual, subtítulo "Analista de Dados". O Word de origem fica no computador do Lucas, fora do repositório. O PDF tem e-mail e telefone, sem CPF ou endereço.
 - **Ausências que não podem ser inventadas:** textos das recomendações, link de destino dos cards sem link.
 
 ## Product Principles
