@@ -1,15 +1,19 @@
 {# Trechos repetidos da homepage #}
 
-{# Etiquetas com ícone (especialidades e projetos) #}
+{# Etiquetas com logotipo (especialidades e projetos) #}
 {% macro tags(lista) %}
+<ul class="tags">
 {%- for tag in lista %}
-<span class="project-tag"> <img src="{{ url_for('static', filename='images/' ~ tag.icone) }}"> {{ tag.nome }}</span>
+    <li class="tag"><img src="{{ url_for('static', filename='images/' ~ tag.icone) }}" alt="" width="16" height="16" loading="lazy"> {{ tag.nome }}</li>
 {%- endfor %}
+</ul>
 {%- endmacro %}
 
-{# Botões de rede social (sobre-mim e contato) #}
-{% macro redes(lista) %}
-{%- for rede in lista %}
-<a href="{{ rede.url }}" target="_blank"><button><img src="{{ url_for('static', filename='images/' ~ rede.icone) }}" alt=""></button></a>
-{%- endfor %}
+{# Símbolo do arco da torre (porta/janela), desenhado em SVG; as cores vêm do CSS #}
+{% macro arco() %}
+<svg class="arco-icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <path class="arco-corpo" d="M12 56V30a20 20 0 0 1 40 0v26z"/>
+    <path class="arco-linhas" d="M12 42h40M12 49h40"/>
+    <path class="arco-porta" d="M25 56V40a7 7 0 0 1 14 0v16z"/>
+</svg>
 {%- endmacro %}

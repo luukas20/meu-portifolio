@@ -9,7 +9,7 @@ from google import genai
 from google.genai import errors, types
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from conteudo import CURRICULO, ESPECIALIDADES, PROJETOS, REDES, SOBRE_MIM
+import conteudo
 
 # 1. CONFIGURAÇÃO INICIAL
 load_dotenv() # Carrega as variáveis do arquivo .env
@@ -30,11 +30,20 @@ limiter = Limiter(get_remote_address, app=app, storage_uri="memory://")
 def homepage():
     return render_template(
         "homepage.html",
-        especialidades=ESPECIALIDADES,
-        sobre_mim=SOBRE_MIM,
-        redes_sociais=REDES,
-        projetos=PROJETOS,
-        curriculo=CURRICULO,
+        tagline=conteudo.TAGLINE,
+        citacao=conteudo.CITACAO,
+        frentes=conteudo.FRENTES,
+        trajetoria=conteudo.TRAJETORIA,
+        fundacao=conteudo.FUNDACAO,
+        ferramentas=conteudo.FERRAMENTAS,
+        idiomas=conteudo.IDIOMAS,
+        cursos=conteudo.CURSOS,
+        navegacao=conteudo.NAVEGACAO,
+        especialidades=conteudo.ESPECIALIDADES,
+        sobre_mim=conteudo.SOBRE_MIM,
+        redes_sociais=conteudo.REDES,
+        projetos=conteudo.PROJETOS,
+        curriculo=conteudo.CURRICULO,
         ano_atual=datetime.now().year,
     )
 

@@ -1,219 +1,254 @@
-{% from "macros.html" import tags, redes -%}
+{% from "macros.html" import tags, arco -%}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- GOOGLE FONTE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- FIM GOOGLE FONTES -->
-    <!--BOOTSTRAP INCONS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <!--FIM BOOTSTRAP INCONS-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lucas Costa | Portfólio de Dados</title>
+    <meta name="description" content="Lucas Costa, estatístico: Machine Learning, BI e análise para decisão. Projetos, trajetória profissional e currículo em PDF.">
+    <meta name="theme-color" content="#3e2e28">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Lucas Costa | Portfólio de Dados">
+    <meta property="og:description" content="Estatístico: Machine Learning, BI e análise para decisão. Projetos, trajetória e currículo.">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/holtwood-one-sc.woff2') }}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/zilla-slab-400.woff2') }}" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Lucas da Silva Costa","alternateName":"Lucas Costa","jobTitle":"Analista de Transformação","worksFor":{"@type":"Organization","name":"Iguá Saneamento"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universidade Federal de Sergipe"},"sameAs":["https://www.linkedin.com/in/luukas20/","https://github.com/luukas20"],"knowsAbout":["Estatística","Machine Learning","Business Intelligence","Power BI","Python","R","SQL"]}
+    </script>
+    <noscript><style>.menu-botao{display:none}.cabecalho .menu{display:flex!important;position:static}</style></noscript>
 </head>
 <body>
-    <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="{{ url_for('pagina_home') }}">
-                    <img src="{{ url_for('static', filename='images/HomePage.png') }}" alt="" width="50" height="60">
-                </a>
-            </div><!--logo-->
+    <a class="pular" href="#principal">Pular para o conteúdo</a>
 
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="{{ url_for('pagina_home') }}">Início</a></li>
-                    <li><a href="#especialidades">Especialidades</a></li>
-                    <li><a href="#sobre-mim">Sobre</a></li>
-                    <li><a href="#portfolio">Projetos</a></li>
-                </ul>
-            </nav>
-
-            <div class="contato">
-                <a href="#contato">
-                    <button>Contato</button>
-                </a>
-            </div><!--contato-->
-
-            <div class="btn-abrir-menu" id="btn-abrir-menu">
-                <button class="btn-lista">&#9776;</button>
-            </div>
-
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="div-btn-fechar">
-                    <button class="btn-fechar">&times;</button>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="{{ url_for('pagina_home') }}">Início</a></li>
-                        <li><a href="#especialidades">Especialidades</a></li>
-                        <li><a href="#sobre-mim">Sobre</a></li>
-                        <li><a href="#portfolio">Projetos</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-
-            <div class="overlay-menu" id="overlay-menu"> </div>
-
-        </div><!--interface-->
+    <header class="cabecalho" id="cabecalho">
+        <a class="marca" href="#topo" aria-label="Lucas Costa, início da página">
+            <img src="{{ url_for('static', filename='favicon.svg') }}" alt="" width="36" height="36">
+            <span>Lucas Costa</span>
+        </a>
+        <nav class="menu" id="menu" aria-label="Principal">
+            <ul>
+                {%- for rotulo, ancora in navegacao %}
+                <li><a href="{{ ancora }}">{{ rotulo }}</a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
+        {% if curriculo -%}
+        <a class="botao botao-curriculo" href="{{ url_for('static', filename=curriculo.arquivo) }}" download="{{ curriculo.nome_download }}">Currículo</a>
+        {%- endif %}
+        <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+            <span class="menu-botao-barras" aria-hidden="true"></span>
+            <span class="so-leitor">Abrir menu</span>
+        </button>
     </header>
 
-    <main>
-        <section class="topo-do-site" id="topo-do-site">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1>
-                            TRANSFORMANDO DADOS COMPLEXOS EM DECISÕES ESTRATÉGICAS <span>.</span>
-                        </h1>
-                        <p>
-                            "O pensamento estatístico será um dia tão necessário para a cidadania eficiente quanto a capacidade de ler e escrever." <br><span>— H. G. Wells</span> 
-                        </p>
-                        <div class="contato">
-                            <a href="#contato">
-                                <button>Entre em Contato</button>
-                            </a>
-                        </div><!--contato-->
-                    </div><!--txt-topo-do-site-->
-                    <div class="img-topo-site">
-                        <a href="">
-                            <img src="{{ url_for('static', filename='images/Eu Hexagonal.png') }}" alt="" width="400" height="600">
-                        </a>
-                    </div><!--img-topo-do-site-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--topo-do-site-->
-        
-        <section class="especialidades" id="especialidades">
-            <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
-                <div class="flex">
-{% for esp in especialidades %}
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/' ~ esp.icone) }}" alt="" width="100" height="100">
+    <main id="principal">
+
+        <!-- TORRE: PRIMEIRA TELA -->
+        <section class="torre" id="topo" aria-labelledby="nome">
+            <div class="torre-miolo">
+                <div class="torre-texto">
+                    <h1 class="nome fiada fiada-nome" id="nome" style="--i: 0"><span class="carimbo">Lucas<br>Costa</span></h1>
+                    <p class="tagline fiada fiada-fina" style="--i: 1">{{ tagline }}</p>
+                    <ul class="frentes">
+                        {%- for frente in frentes %}
+                        <li class="fiada fiada-frente fiada-{{ loop.index }}" style="--i: {{ loop.index + 1 }}">
+                            <h2>{{ frente.titulo }}</h2>
+                            <p>{{ frente.texto }}</p>
+                        </li>
+                        {%- endfor %}
+                    </ul>
+                    {% if curriculo -%}
+                    <a class="junta-curriculo" style="--i: 5" href="{{ url_for('static', filename=curriculo.arquivo) }}" download="{{ curriculo.nome_download }}">
+                        <span>Baixar currículo (PDF)</span>
+                    </a>
+                    {%- endif %}
+                </div><!--torre-texto-->
+
+                <figure class="retrato" style="--i: 3">
+                    <img src="{{ url_for('static', filename='images/lucas.webp') }}" alt="Lucas Costa, estatístico" width="720" height="1280" fetchpriority="high">
+                    <button class="arco-botao arco-hero" type="button" data-abrir-chat aria-label="Pergunte à Puxa Saco, assistente que responde sobre o Lucas" aria-expanded="false" aria-controls="chat-container">
+                        {{ arco() }}
+                        <span>Pergunte à Puxa Saco</span>
+                    </button>
+                </figure>
+            </div><!--torre-miolo-->
+        </section><!--torre-->
+
+        <!-- TRAJETÓRIA: AS FIADAS DA TORRE -->
+        <section class="faixa faixa-trajetoria" id="trajetoria" aria-labelledby="titulo-trajetoria">
+            <div class="faixa-miolo">
+                <div class="faixa-cabecalho">
+                    <h2 class="titulo" id="titulo-trajetoria">Trajetória</h2>
+                    <button class="botao botao-claro botao-construir" type="button" id="construir">Ver a torre sendo construída</button>
+                </div>
+                <ol class="fiadas" id="fiadas-trajetoria">
+                    {%- for cargo in trajetoria %}
+                    <li class="fiada fiada-cargo{% if cargo.atual %} em-andamento{% endif %}" style="--i: {{ trajetoria|length - loop.index0 }}">
+                        <details{% if cargo.atual %} open{% endif %}>
+                            <summary>
+                                <span class="cargo-empresa">{{ cargo.empresa }}</span>
+                                <span class="cargo-nome">{{ cargo.cargo }}</span>
+                                <span class="cargo-periodo">{{ cargo.periodo }}{% if cargo.atual %} <em class="selo">em andamento</em>{% endif %}</span>
+                            </summary>
+                            <ul class="topicos">
+                                {%- for topico in cargo.topicos %}
+                                <li>{{ topico }}</li>
+                                {%- endfor %}
+                            </ul>
+                        </details>
+                    </li>
+                    {%- endfor %}
+                    <li class="fiada fiada-cargo fiada-base" style="--i: 0">
+                        <div class="base-conteudo">
+                            <span class="cargo-empresa">{{ fundacao.instituicao }}</span>
+                            <span class="cargo-nome">{{ fundacao.curso }}</span>
+                            <span class="cargo-periodo">{{ fundacao.periodo }}</span>
+                            <p class="base-tcc">{{ fundacao.tcc }}</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section><!--trajetoria-->
+
+        <!-- PROJETOS -->
+        <section class="faixa" id="portfolio" aria-labelledby="titulo-portfolio">
+            <div class="faixa-miolo">
+                <h2 class="titulo" id="titulo-portfolio">Meu portfólio</h2>
+                <div class="fiadas">
+                    {%- for projeto in projetos %}
+                    <details class="fiada fiada-projeto" name="projetos"{% if loop.first %} open{% endif %}>
+                        <summary>
+                            <span class="projeto-titulo">{{ projeto.titulo }}</span>
+                            {{ tags(projeto.tags) }}
+                        </summary>
+                        <div class="projeto-corpo">
+                            <div class="projeto-imagem">
+                                <img src="{{ url_for('static', filename='images/' ~ projeto.imagem) }}" alt="Captura de tela do projeto: {{ projeto.titulo }}" width="900" height="560" loading="lazy" decoding="async">
+                            </div>
+                            <div class="projeto-texto">
+                                <p class="projeto-descricao">{{ projeto.descricao|safe }}</p>
+                                {% if projeto.link -%}
+                                <a class="botao botao-claro" href="{{ projeto.link }}" target="_blank" rel="noopener">Abrir o projeto</a>
+                                {%- endif %}
+                            </div>
+                        </div>
+                    </details>
+                    {%- endfor %}
+                </div>
+            </div>
+        </section><!--portfolio-->
+
+        <!-- ESPECIALIDADES E FERRAMENTAS -->
+        <section class="faixa faixa-especialidades" id="especialidades" aria-labelledby="titulo-especialidades">
+            <div class="faixa-miolo">
+                <h2 class="titulo" id="titulo-especialidades">Minhas especialidades</h2>
+                <ul class="fiadas fiadas-especialidades">
+                    {%- for esp in especialidades %}
+                    <li class="fiada fiada-especialidade">
                         <h3>{{ esp.titulo }}</h3>
                         <p>{{ esp.descricao }}</p>
                         {{ tags(esp.tags) }}
-                    </div><!--especialidades-box-->
-{% endfor %}
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--especialidades-->
-        
-        <section class="sobre-mim" id="sobre-mim">
-            <div class="interface">
-                <div class="flex">
-                    <div class="img-sobre-mim">
-                        <img src="{{ url_for('static', filename='images/Foto Perfil.jpeg') }}" alt="" width="400" height="600">
-                    </div><!--img-sobre-mim-->
-                    <div class="txt-sobre-mim">
-                        <h2>MUITO PRAZER, <span>SOU LUCAS COSTA</span></h2>
-{% for paragrafo in sobre_mim %}
-                        <p>{{ paragrafo }}</p>
-{% endfor %}
-                        <div class="rede-social">
-                            {{ redes(redes_sociais) }}
-                        </div><!--rede-social-->
-                    </div><!--txt-sobre-mim-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--sobre-mim-->
+                    </li>
+                    {%- endfor %}
+                </ul>
 
-        <section class="portfolio" id="portfolio">
-            <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
-                <div class="project-container">
-
-                    
-{% for projeto in projetos %}
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">{{ projeto.titulo }}</h3>
-                            {{ tags(projeto.tags) }}
-                        </div>
-                        <div class="card-content">
-                            {% if projeto.link %}<a href="{{ projeto.link }}" target="_blank">{% endif %}
-                                <div class="card-image{% if not projeto.link %} sem-link{% endif %}" style="background-image: url('{{ url_for('static', filename='images/' ~ projeto.imagem) }}');">
-
-                                </div>
-                            {% if projeto.link %}</a>{% endif %}
-                            <p class="project-description">{{ projeto.descricao|safe }}</p>
-                        </div>
+                <div class="ferramentas">
+                    <div class="ferramentas-bloco">
+                        <h3>Habilidades técnicas</h3>
+                        <ul class="tijolos">
+                            {%- for item in ferramentas %}
+                            <li>{{ item }}</li>
+                            {%- endfor %}
+                        </ul>
                     </div>
-{% endfor %}
+                    <div class="ferramentas-bloco">
+                        <h3>Idiomas</h3>
+                        <ul class="idiomas">
+                            {%- for item in idiomas %}
+                            <li><strong>{{ item.idioma }}</strong> {{ item.nivel }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                    <details class="cursos">
+                        <summary>Cursos e experiências adicionais</summary>
+                        <ul>
+                            {%- for curso in cursos %}
+                            <li>{{ curso }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </details>
                 </div>
-            </div><!--interface-->
-        </section><!--portfolio-->
-
-        <!-- Contato -->
-        <section class="contato" id="contato">
-            <div class="interface">
-                <h2 class="titulo">VAMOS <span>CONVERSAR.</span></h2>
-                <p class="txt-contato">Estou sempre aberto a novos desafios e oportunidades. Se você tem um projeto em mente ou quer saber mais sobre meu trabalho, entre em contato!</p>
-                <a href="https://wa.me/5579999365991?text=Olá" target="_blank" class="wpp-contato">
-                    <img src="{{ url_for('static', filename='images/WhatsApp.png') }}"> Manda "Oi" no Whats.</button>
-                </a>
-                {% if curriculo %}
-                <a href="{{ url_for('static', filename=curriculo.arquivo) }}" download="{{ curriculo.nome_download }}" class="wpp-contato">
-                    Baixar currículo (PDF)
-                </a>
-                {% endif %}
-                <div class="rede-social">
-                    {{ redes(redes_sociais) }}
-                </div><!--rede-social-->
             </div>
-                
-        </section>
+        </section><!--especialidades-->
+
+        <!-- SOBRE -->
+        <section class="faixa faixa-sobre" id="sobre" aria-labelledby="titulo-sobre">
+            <div class="faixa-miolo faixa-estreita">
+                <h2 class="titulo" id="titulo-sobre">Muito prazer, sou Lucas Costa</h2>
+                {%- for paragrafo in sobre_mim %}
+                <p class="sobre-texto">{{ paragrafo }}</p>
+                {%- endfor %}
+                <blockquote class="citacao">
+                    <p>“{{ citacao.texto }}”</p>
+                    <footer>{{ citacao.autor }}</footer>
+                </blockquote>
+            </div>
+        </section><!--sobre-->
+
+        <!-- CONTATO -->
+        <section class="faixa faixa-contato" id="contato" aria-labelledby="titulo-contato">
+            <div class="faixa-miolo faixa-estreita">
+                <h2 class="titulo" id="titulo-contato">Vamos conversar.</h2>
+                <p class="contato-texto">Estou sempre aberto a novos desafios e oportunidades. Se você tem um projeto em mente ou quer saber mais sobre meu trabalho, entre em contato!</p>
+                <div class="contato-acoes">
+                    <a class="botao botao-grande" href="https://wa.me/5579999365991?text=Olá" target="_blank" rel="noopener">Manda "Oi" no Whats.</a>
+                    {% if curriculo -%}
+                    <a class="botao botao-claro botao-grande" href="{{ url_for('static', filename=curriculo.arquivo) }}" download="{{ curriculo.nome_download }}">Baixar currículo (PDF)</a>
+                    {%- endif %}
+                </div>
+                <ul class="redes">
+                    {%- for rede in redes_sociais %}
+                    <li><a href="{{ rede.url }}" target="_blank" rel="noopener">{{ rede.nome }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        </section><!--contato-->
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="interface">
-            <p>&copy; {{ ano_atual }} Lucas da Silva Costa. Todos os direitos reservados.</p>
-            <p>Construído com HTML, CSS e muito café.</p>
-        </div>
+    <footer class="rodape">
+        <p>&copy; {{ ano_atual }} Lucas da Silva Costa. Todos os direitos reservados.</p>
+        <p>Construído com HTML, CSS e muito café.</p>
     </footer>
 
-    <!-- Botão e Janela do Chatbot -->
-     <div class="interface">
-        <button type="button" class="chat-button" id="chat-button" aria-label="Abrir chat com a Puxa Saco" aria-expanded="false" aria-controls="chat-container">
-            <img src="{{ url_for('static', filename='images/ChartBot.png') }}" alt="">
-        </button>
-        <div class="chat-container" id="chat-container" role="dialog" aria-labelledby="chat-titulo">
-            <div class="chat-cabecalho">
-                <h3 class="chat-nome" id="chat-titulo">Puxa Saco</h3>
-                <button type="button" class="close-chat" id="close-chat" aria-label="Fechar chat">&times;</button>
-            </div>
-            <div class="chat-box" id="chat-box" role="log" aria-live="polite">
-                 <div class="chat-message bot-message">
-                    Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
-                 </div>
-            </div>
-            <div class="chat-input-area">
-                <label for="chat-input" class="sr-only">Sua pergunta para a Puxa Saco</label>
-                <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta..." maxlength="500" autocomplete="off">
-                <button type="button" class="send-chat" id="send-chat" aria-label="Enviar mensagem">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
-                        <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-                    </svg>
-                </button>
+    <!-- Botão (o arco da torre) e janela do chatbot -->
+    <button type="button" class="chat-button" id="chat-button" data-abrir-chat aria-label="Abrir chat com a Puxa Saco" aria-expanded="false" aria-controls="chat-container">
+        {{ arco() }}
+    </button>
+    <div class="chat-container" id="chat-container" role="dialog" aria-labelledby="chat-titulo">
+        <div class="chat-cabecalho">
+            <h3 class="chat-nome" id="chat-titulo">Puxa Saco</h3>
+            <button type="button" class="close-chat" id="close-chat" aria-label="Fechar chat"></button>
+        </div>
+        <div class="chat-box" id="chat-box" role="log" aria-live="polite">
+            <div class="chat-message bot-message">
+                Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
             </div>
         </div>
-     </div>
-    
-    
+        <div class="chat-input-area">
+            <label for="chat-input" class="so-leitor">Sua pergunta para a Puxa Saco</label>
+            <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta..." maxlength="500" autocomplete="off">
+            <button type="button" class="send-chat" id="send-chat" aria-label="Enviar mensagem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+                    <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                </svg>
+            </button>
+        </div>
+    </div>
 
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>

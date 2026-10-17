@@ -1,19 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ---------- MENU MOBILE ----------
-    let btnMenu = document.getElementById('btn-abrir-menu')
-    let menu = document.getElementById('menu-mobile')
-    let OverlayMenu = document.getElementById('overlay-menu')
+    const menuBotao = document.getElementById('menu-botao');
+    const menu = document.getElementById('menu');
 
-    btnMenu.addEventListener('click', ()=>{
-        menu.classList.add('abrir-menu')
-    })
-    menu.addEventListener('click', ()=>{
-        menu.classList.remove('abrir-menu')
-    })
-    OverlayMenu.addEventListener('click', ()=>{
-        menu.classList.remove('abrir-menu')
-    })
+    function definirMenu(aberto) {
+        menu.classList.toggle('aberto', aberto);
+        menuBotao.setAttribute('aria-expanded', String(aberto));
+        menuBotao.querySelector('.so-leitor').textContent = aberto ? 'Fechar menu' : 'Abrir menu';
+    }
+
+    menuBotao.addEventListener('click', () => {
+        definirMenu(menuBotao.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.addEventListener('click', (e) => {
+        if (e.target.closest('a')) definirMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('aberto')) {
+            definirMenu(false);
+            menuBotao.focus({ preventScroll: true });
+        }
+    });
+
+
+    // ---------- SEÇÃO ATUAL NO MENU ----------
+    const linksMenu = [...menu.querySelectorAll('a[href^="#"]')];
+    const secoes = linksMenu.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    if ('IntersectionObserver' in window && secoes.length) {
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (!entrada.isIntersecting) return;
+                linksMenu.forEach((link) => {
+                    if (link.getAttribute('href') === '#' + entrada.target.id) {
+                        link.setAttribute('aria-current', 'true');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+            });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        secoes.forEach((secao) => observador.observe(secao));
+    }
+
+
+    // ---------- A TORRE SENDO CONSTRUÍDA (só quando o visitante pede) ----------
+    const construir = document.getElementById('construir');
+    const fiadasTrajetoria = document.getElementById('fiadas-trajetoria');
+
+    construir.addEventListener('click', () => {
+        // Remove, força o navegador a recalcular e põe de novo: a animação recomeça da base
+        fiadasTrajetoria.classList.remove('reconstruir');
+        void fiadasTrajetoria.offsetWidth;
+        fiadasTrajetoria.classList.add('reconstruir');
+    });
 
 
     // --- LÓGICA DO CHATBOT ---
@@ -28,33 +68,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const API_URL = '/api/chat';
     const TEMPO_LIMITE_MS = 30000; // desiste da resposta depois de 30 s
     let isSending = false;
+    let botaoQueAbriu = chatButton;
 
-    function openChat() {
+    const arcos = document.querySelectorAll('[data-abrir-chat]');
+    const rotulosFechados = new Map();
+    arcos.forEach((arco) => rotulosFechados.set(arco, arco.getAttribute('aria-label')));
+
+    // Todos os arcos acompanham o estado do chat (rótulo e aria-expanded)
+    function sincronizarArcos(aberto) {
+        arcos.forEach((arco) => {
+            arco.setAttribute('aria-expanded', String(aberto));
+            arco.setAttribute('aria-label', aberto ? 'Fechar chat com a Puxa Saco' : rotulosFechados.get(arco));
+        });
+    }
+
+    function openChat(origem) {
+        botaoQueAbriu = origem || chatButton;
         chatContainer.classList.add('aberto');
-        chatButton.setAttribute('aria-expanded', 'true');
+        sincronizarArcos(true);
         chatInput.focus({ preventScroll: true });
     }
 
     function closeChatWindow() {
         const focoDentro = chatContainer.contains(document.activeElement);
         chatContainer.classList.remove('aberto');
-        chatButton.setAttribute('aria-expanded', 'false');
-        // Devolve o foco ao botão para quem navega pelo teclado
-        if (focoDentro) chatButton.focus({ preventScroll: true });
+        sincronizarArcos(false);
+        // Devolve o foco ao botão que abriu o chat, para quem navega pelo teclado
+        if (focoDentro) botaoQueAbriu.focus({ preventScroll: true });
     }
 
-    // Este botão abre E fecha o chat
-    chatButton.addEventListener('click', () => {
-        if (chatContainer.classList.contains('aberto')) {
-            closeChatWindow();
-        } else {
-            openChat();
-        }
+    // Os arcos (o da primeira tela e o fixo) abrem E fecham o chat
+    arcos.forEach((botao) => {
+        botao.addEventListener('click', () => {
+            if (chatContainer.classList.contains('aberto')) {
+                closeChatWindow();
+            } else {
+                openChat(botao);
+            }
+        });
     });
     closeChat.addEventListener('click', closeChatWindow);
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && chatContainer.classList.contains('aberto')) closeChatWindow();
     });
+
+    // O arco fixo só aparece depois que a primeira tela (onde já existe um arco) sai de vista
+    const torre = document.querySelector('.torre');
+    if (torre && 'IntersectionObserver' in window) {
+        new IntersectionObserver(([entrada]) => {
+            chatButton.classList.toggle('oculto', entrada.isIntersecting);
+        }, { threshold: 0.15 }).observe(torre);
+    }
 
     sendChat.addEventListener('click', sendMessage);
     chatInput.addEventListener('keydown', (e) => {

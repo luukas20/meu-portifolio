@@ -1,0 +1,4 @@
+Fontes hospedadas neste site (subconjunto latino, obtidas do Google Fonts), todas sob a SIL Open Font License 1.1 (https://openfontlicense.org):
+
+- Holtwood One SC, de Vernon Adams / Brian J. Bonislawsky (Astigmatic)
+- Zilla Slab, da Mozilla / Typotheque

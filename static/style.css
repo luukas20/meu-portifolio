@@ -1,642 +1,150 @@
-/* ETILO GERAL */
+/* FONTES (hospedadas no próprio site; licença em static/fonts/LICENSE.txt) */
+@font-face {
+    font-family: "Holtwood One SC";
+    src: url("fonts/holtwood-one-sc.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("fonts/zilla-slab-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("fonts/zilla-slab-400-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("fonts/zilla-slab-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* TOKENS DA TORRE: toda cor do site nasce aqui */
 :root {
-    --primary-100: #0D6E6E;
-    --primary-200: #4a9d9c;
-    --primary-300: #afffff;
-    --accent-100: #FF3D3D;
-    --accent-200: #ffe0c8;
-    --text-100: #FFFFFF;
-    --text-200: #e0e0e0;
-    --bg-100: #0D1F2D;
-    --bg-200: #1d2e3d;
-    --bg-300: #354656;
+    /* argila, da mais clara à mais escura */
+    --engobe: #ece5da;
+    --engobe-sombra: #d9cfbf;
+    --seca: #bda98a;
+    --argila-crua: #d78c5b;
+    --terracota: #c65a3a;
+    --terracota-queimada: #8f3f22;
+    --umber: #7a4e34;
+    --argila-umida: #3e2e28;
+    --argila-escura: #2a1d18;
+
+    /* luz e sombra sobre a argila */
+    --brilho: rgb(255 238 220 / 0.2);
+    --sombra: rgb(18 9 5 / 0.45);
+
+    /* tipografia */
+    --fonte-titulo: "Holtwood One SC", Rockwell, "Rockwell Extra Bold", serif;
+    --fonte-texto: "Zilla Slab", Rockwell, Georgia, serif;
+
+    /* medidas e movimento */
+    --raio-rolo: 1.75rem;
+    --largura-site: 76rem;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --duracao: 0.7s;
+
+    /* grão de argila (SVG minúsculo, desenhado uma vez pelo navegador) */
+    --grao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1  0 0 0 0 .05  0 0 0 0 .03  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    /* o mesmo grão, bem mais suave, para as superfícies claras de engobe */
+    --grao-leve: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    --rolo-claro: linear-gradient(180deg, rgb(255 255 255 / 0.4) 0, transparent 40%, transparent 72%, rgb(120 85 50 / 0.2) 100%);
+    /* luz do alto e sombra de baixo: o volume do rolo */
+    --rolo: linear-gradient(180deg, var(--brilho) 0, transparent 34%, transparent 64%, var(--sombra) 100%);
+    --rolo-suave: linear-gradient(180deg, rgb(255 238 220 / 0.1) 0, transparent 50%, rgb(18 9 5 / 0.25) 100%);
+    --junta: rgb(236 229 218 / 0.5);
+    /* a emenda do rolo: marcas de polegar na junta de engobe entre as faixas */
+    --emenda: repeating-linear-gradient(115deg, transparent 0 14px, rgb(120 85 50 / 0.3) 14px 16px);
+    /* falhas de tinta no lettering, como carimbo em tijolo */
+    --falha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  6 0 0 0 -1.08'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23f)'/%3E%3C/svg%3E");
+    --seta-baixo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11M7 11l5 5 5-5M5 20h14'/%3E%3C/svg%3E");
 }
 
-*{
+/* BASE */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    background: var(--argila-umida);
+    scrollbar-color: var(--seca) var(--argila-escura);
+}
+
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body{
-    background-color: var(--bg-100); /* Cor de fundo principal */
-    height: 100vh;
-}
-
-.interface{
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-.contato button{
-    padding: 10px 40px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: var(--accent-100); /* Cor de destaque */
-    border: 0;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: .2s;
-    color: var(--text-100); /* Adicionado para garantir legibilidade */
-}
-
-button:hover, form .btn-enviar input:hover{
-    box-shadow: 0px 0px 8px var(--accent-100); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-}
-
-.flex{
-    display: flex;
-}
-
-h2.titulo{
-    color: var(--text-100); /* Cor principal do texto */
-    font-size: 38px;
-    text-align: center;
-}
-
-h2.titulo span{
-    color: var(--accent-100); /* Cor de destaque */
-}
-
-.skill-tag {
-    background-color: var(--bg-300); /* Fundo de tag */
-    color: var(--primary-300); /* Texto de tag */
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-
-
-/* ESTILO DO CABEÇALHO */
-header {
-    padding: 10px 3%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(13, 31, 45, 0.65); /* Cor de fundo com transparência */
-    backdrop-filter: blur(5px); /* Efeito opcional para desfoque */
-    box-sizing: border-box;
-}
-
-header > .interface{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header a{
-    color: var(--text-200); /* Cor secundária de texto para links */
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.2s;
-}
-
-header a:hover{
-    color: var(--text-100); /* Cor principal de texto no hover */
-    transform: scale(1.05);
-}
-
-header nav ul{
-    list-style-type: none;
-}
-
-header nav.menu-desktop li{
-    display: inline-block;
-    padding: 0 40px;
-}
-
-.rede-social img {
-    width: 28px; 
-    height: 28px;
-}
-
-/* ESTILO MENU MOBILE */
-.btn-abrir-menu .btn-lista {
-    color: var(--accent-100);
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: none;
-}
-
-.btn-abrir-menu .btn-lista:hover {
-    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-    color: var(--accent-100);
-}
-
-.menu-mobile{
-    background-color: var(--bg-200);
-    height: 80vh;
-    width: 0%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 99999;
-    overflow: hidden;
-    transition: .4s;
-}
-
-.menu-mobile.abrir-menu{
-    width: 60%;
-}
-
-.menu-mobile.abrir-menu ~ .overlay-menu{
-    display: block;
-}
-
-
-.menu-mobile nav ul{
-    text-align: right;
-}
-
-.menu-mobile nav ul li a{
-    color: var(--text-200);
-    font-size: 20px;
-    font-weight: 300;
-    padding: 20px 4%;
-    display: block;
-}
-
-.menu-mobile nav ul li a:hover{
-    background-color: var(--bg-300);
-}
-
-.menu-mobile .div-btn-fechar{
-    padding: 10px 5%;
-}
-
-.menu-mobile .div-btn-fechar .btn-fechar{
-    background: none;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--accent-100);
-    border-radius: 5px;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--text-100);
-}
-
-.menu-mobile .btn-fechar:hover {
-    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-    color: var(--accent-100);
-}
-
-.overlay-menu{
-    background-color: #0d1f2db1;
-    width: 100vh;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 88888;
-    display: none;
-}
-
-
-/* ESTILO DO TOPO DO SITE */
-section.topo-do-site{
-    margin-top: 100px;
-    padding: 10px 4%;
-}
-
-section.topo-do-site .flex{
-    align-items: center;
-    justify-content: center;
-    gap: 200px;
-}
-
-.topo-do-site .txt-topo-site h1{
-    color: var(--text-100);
-    font-size: 38px;
-    line-height: 40px;
-}
-
-.topo-do-site .txt-topo-site h1 span{
-    color: var(--accent-100);
-    font-size: 38px;
-    line-height: 40px;
-}
-
-.topo-do-site .txt-topo-site p{
-    color: var(--text-100);
-    font-size: 24px;
-    line-height: 40px;
-    margin: 40px 0px;
-}
-
-.topo-do-site .txt-topo-site p span{
-    color: var(--accent-100);
-}
-
-.topo-do-site .img-topo-site img{
-    position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate;
-}
-
-@keyframes flutuar{
-    0%{
-        top: 0;
-    }
-    100%{
-        top: 30px;
-    }
-}
-
-/* ESTILO ESPECIALIDADES */
-section.especialidades{
-    padding: 80px 4%;
-}
-
-section.especialidades .flex{
-    justify-content: center;
-    gap: 30px;
-}
-
-.especialidades-link {
-    text-decoration: none; 
-    color: inherit; 
-    display: inline-block; 
-}
-
-.especialidades .especialidades-box{
-    color: var(--text-100);
-    background-color: var(--bg-200); /* Cor de fundo para os cards */
-    padding: 15px;
-    border-radius: 25px;
-    margin-top: 45px;
-    transition: 0.2s;
-}
-
-.especialidades .especialidades-box:hover{
-    transform: scale(1.03);
-    box-shadow: 0 0 8px var(--primary-200); /* Sombra com cor primária */
-}
-
-.especialidades .especialidades-box h3{
-    font-size: 24px;
-    margin: 15px 0;
-}
-
-/* ESTILO SOBRE MIM */
-section.sobre-mim{
-    padding: 80px 4%;
-}
-
-section.sobre-mim .flex{
-    align-items: center;
-    gap: 60px;
-}
-
-.sobre-mim .txt-sobre-mim{
-    color: var(--text-100);
-}
-
-.sobre-mim .txt-sobre-mim h2{
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 30px;
-}
-
-.sobre-mim .txt-sobre-mim h2 span{
-    color: var(--accent-100);
-    display: block;
-    font-size: 40px;
-}
-
-.sobre-mim .txt-sobre-mim p{
-    margin: 10px 0;
-    text-align: justify;
-    text-indent: 2em;
-}
-
-.sobre-mim .txt-sobre-mim .rede-social button{
-    width: 80px;
-    height: 60px;
-    border-radius: 25px;
-    border: none;
-    background-color: var(--accent-100);
-    font-weight: 600;
-    font-size: 10px;
-    cursor: pointer;
-    margin: 10px 10px;
-    transition: .2s;
-    align-items: center;
-    justify-content: center;
-    padding: 0; 
-}
-
-/* ESTILO MEU PORTFÓLIO */
-section.portfolio{
-    padding: 80px 4%;
-    box-shadow: 0px 0px 40px 10px rgba(74, 157, 156, 0.1); /* Sombra sutil com a cor primária */
-}
-
-section.portfolio .interface h2{
-    padding: 0px 4%;
-    margin-bottom: 60px
-}
-
-/* Container principal que alinha os cards de projeto */
-.project-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 40px; 
-    justify-content: center;
-    max-width: 1400px; 
-    margin: 0 auto; 
-}
-
-/* Estilo individual de cada card de projeto */
-.project-card {
-    display: flex;
-    flex-direction: column;
-    width: calc(50% - 20px);
-    color: var(--text-100);
-    background-color: var(--bg-200); /* Cor de fundo para os cards */
-    padding: 10px;
-    border-radius: 25px;
-    margin-top: 45px;
-    transition: 0.2s;
-    position: relative;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 8px var(--primary-200); /* Sombra com cor primária */
-}
-
-/* Container de cabeçalho */
-.card-header {
-    display: flex;
-    justify-content: space-between; /* Coloca o título na esquerda e a tag na direita */
-    align-items: center;
-    margin-bottom: 20px; /* Espaço entre o cabeçalho e o corpo */
-    width: 98%;
-}
-
-
-/* Título do projeto */
-.project-title {
-    color: var(--text-100);
-    font-size: 20px;
-    font-weight: bold;
-    padding: 5px;
-}
-
-/* Etiqueta/Tag do projeto */
-.project-tag {
-    display: inline-flex;
-    align-items: center;
-    /*background-color: var(--accent-100);*/
-    border: 1px solid var(--accent-100);
-    color: var(--accent-100);
-    font-size: 0.55rem;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    flex-shrink: 0;
-}
-
-.project-tag img {
-    width: 16px; 
-    height: 16px;
-    vertical-align: middle; 
-    display: inline-block; 
-    margin-right: 3px; 
-    margin-left: 1px; 
-}
-
-/* Conteúdo de texto à direita */
-.card-content {
-    display: flex;
-    gap: 10px; /* Espaço entre a imagem e a descrição */
-    flex-grow: 1;
-}
-
-/* Container da imagem à esquerda */
-.card-image {
-    width: 360px;
-    height: 260px;
-    background-size: cover;
-    background-position: 100% 0%;
-    transition: 8s;
-    cursor: pointer;
-    border-radius: 25px;
-    position: relative;
-}
-
-.card-image:hover{
-    background-position: 100% 100%;
-}
-
-/* Projeto sem link: a imagem não é clicável */
-.card-image.sem-link{
-    cursor: default;
-}
-
-/* Descrição do projeto */
-.project-description {
-    flex-basis: 40%;
-    color: var(--text-200);
-    text-align: justify;
-    font-size: 12px;
-    text-indent: 2em;
-    padding: 0px 0px 0px 10px; 
-}
-
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(13, 31, 45, 0.7); /* Fundo do overlay com transparência */
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-100);
-    opacity: 0;
-    transition: 0.2s;
-}
-
-.overlay:hover{
-    opacity: 1;
-}
-
-
-/* Botão para visitar o projeto */
-.project-button {
-    background-color: var(--primary-100);
-    color: var(--text-100);
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: auto; 
-    align-self: flex-start; 
-    transition: background-color 0.3s ease;
-}
-
-.project-button:hover {
-    background-color: var(--primary-200);
-}
-
-/* ESTILO MEU CONTATO */
-
-section.contato{
-    padding: 80px 4%;
-}
-
-section.contato .interface{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-.txt-contato{
-    text-align: center;
-    color: var(--text-100);
+    min-height: 100dvh;
+    background: var(--argila-umida);
+    color: var(--engobe);
+    font-family: var(--fonte-texto);
+    font-size: 1.125rem;
     line-height: 1.6;
-    max-width: 500px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    caret-color: var(--argila-crua);
+    accent-color: var(--terracota);
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure,
+blockquote {
     margin: 0;
 }
 
-.wpp-contato{
-    padding: 10px 20px;
-    display: inline-flex;
-    justify-content: center;
-    gap: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: var(--primary-100);
-    border: 0;
-    border-radius: 15px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: .2s;
-    color: var(--text-100); /* Adicionado para garantir legibilidade */
+ul,
+ol {
+    padding: 0;
+    list-style: none;
 }
 
-.wpp-contato:hover{
-    box-shadow: 0px 0px 8px var(--primary-100); /* Sombra com cor de destaque */
-    transform: scale(1.05);
+button {
+    font: inherit;
+    color: inherit;
 }
 
-
-.wpp-contato img {
-    width: 28px; 
-    height: 28px;
+::selection {
+    background: var(--argila-crua);
+    color: var(--argila-escura);
 }
 
-section.contato .interface .rede-social button{
-    width: 80px;
-    height: 60px;
-    border-radius: 25px;
-    border: none;
-    background-color: var(--accent-100);
-    font-weight: 600;
-    font-size: 10px;
-    cursor: pointer;
-    margin: 10px 10px;
-    transition: .2s;
-    align-items: center;
-    justify-content: center;
-    padding: 0; 
+:focus-visible {
+    outline: 3px solid var(--argila-crua);
+    outline-offset: 3px;
 }
 
-/* ESTILO RODAPÉ */
-
-footer{
-    padding: 10px 4%;
-    background-color: var(--bg-200);
-    text-align: center;
-    color: var(--text-100);
-}
-
-/* --- ESTILO GERAL DO CHATBOT --- */
-
-/* Botão flutuante para abrir o chat */
-.chat-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: var(--bg-200);
-    border-radius: 20%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    transition: transform 0.2s ease;
-}
-
-.chat-button:hover {
-    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-}
-
-.chat-button img {
-    width: 35px;
-    height: 35px;
-}
-
-/* Container principal da janela do chat */
-.chat-container {
-    position: fixed;
-    padding: 2px 2px 2px 2px;
-    bottom: 90px;
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    max-height: 80vh;
-    background-color: var(--bg-200);
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Garante que os cantos arredondados sejam aplicados a tudo */
-    z-index: 1000;
-    /* Inicia escondido: visibility tira a janela do foco do teclado e dos leitores de tela */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px) scale(0.98);
-    transform-origin: bottom right;
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear 0.2s;
-}
-
-.chat-container.aberto {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    transition-delay: 0s;
-}
-
-/* Texto só para leitores de tela */
-.sr-only {
+.so-leitor {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -648,261 +156,1288 @@ footer{
     border: 0;
 }
 
-/* --- CABEÇALHO DO CHAT --- */
-.chat-cabecalho {
-    background-color: var(--bg-200);
-    padding: 15px;
-    height: 48px;
+.pular {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--engobe);
+    color: var(--argila-escura);
+    font-weight: 700;
+    transition: top 0.2s var(--ease);
+}
+
+.pular:focus {
+    top: 1rem;
+}
+
+/* ESTILO DO CABEÇALHO */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--argila-escura);
+    border-bottom: 3px solid var(--terracota-queimada);
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-right: auto;
+    text-decoration: none;
+    font-family: var(--fonte-titulo);
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+}
+
+.marca img {
+    border-radius: 0.5rem;
+}
+
+.menu {
+    display: none;
+}
+
+.menu.aberto {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.25rem 1.25rem;
+    background: var(--argila-escura);
+    border-bottom: 3px solid var(--terracota-queimada);
+}
+
+.menu ul {
+    display: grid;
+}
+
+.menu a {
+    display: block;
+    padding: 0.85rem 0;
+    min-height: 3rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--umber);
+}
+
+.menu a[aria-current="true"] {
+    text-decoration: underline;
+    text-decoration-color: var(--argila-crua);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.45em;
+}
+
+.menu-botao {
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0;
+    border: 2px solid var(--umber);
+    border-radius: 0.75rem;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-botao-barras,
+.menu-botao-barras::before,
+.menu-botao-barras::after {
+    display: block;
+    width: 1.35rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--engobe);
+    transition: transform 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.menu-botao-barras {
+    position: relative;
+}
+
+.menu-botao-barras::before,
+.menu-botao-barras::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.menu-botao-barras::before {
+    top: -7px;
+}
+
+.menu-botao-barras::after {
+    top: 7px;
+}
+
+.menu-botao[aria-expanded="true"] .menu-botao-barras {
+    background: transparent;
+}
+
+.menu-botao[aria-expanded="true"] .menu-botao-barras::before {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-botao[aria-expanded="true"] .menu-botao-barras::after {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* BOTÕES */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 2.9rem;
+    padding: 0.6rem 1.4rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--terracota-queimada);
+    background-image: var(--grao), var(--rolo);
+    color: var(--engobe);
+    font-family: var(--fonte-titulo);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 16px -8px var(--sombra);
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.botao:active {
+    transform: translateY(1px);
+}
+
+.botao-claro {
+    background-color: var(--engobe);
+    background-image: var(--grao-leve), var(--rolo-claro);
+    color: var(--argila-escura);
+}
+
+.botao-curriculo {
+    background-color: var(--engobe);
+    background-image: var(--grao-leve), var(--rolo-claro);
+    color: var(--argila-escura);
+    padding-inline: 1.1rem;
+}
+
+.botao-grande {
+    min-height: 3.4rem;
+    padding-inline: 1.9rem;
+    font-size: 1rem;
+}
+
+/* PRIMEIRA TELA: A TORRE */
+.torre {
+    padding: 1rem 1.25rem 3.5rem;
+}
+
+.torre-miolo {
+    display: grid;
+    gap: 2.25rem;
+    max-width: var(--largura-site);
+    margin: 0 auto;
+}
+
+.torre-texto {
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+}
+
+.fiada {
+    --cor: var(--terracota-queimada);
+    position: relative;
+    background-color: var(--cor);
+    background-image: var(--grao), var(--rolo);
+    border-radius: var(--raio-rolo);
+    color: var(--engobe);
+    border-bottom: 2px solid var(--junta);
+    box-shadow: 0 14px 24px -14px var(--sombra);
+}
+
+.fiada-nome {
+    --cor: var(--terracota);
+    padding: 0.85rem 1.25rem 0.75rem;
+    color: var(--argila-escura);
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: clamp(2.5rem, min(11vw, 12vh), 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    border-radius: 2.5rem;
+}
+
+.fiada-nome .carimbo {
+    display: block;
+    -webkit-mask: var(--falha);
+    mask: var(--falha);
+}
+
+.fiada-fina {
+    --cor: var(--umber);
+    background-image: var(--grao), var(--rolo-suave);
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    font-style: italic;
+    width: 96%;
+    margin-inline: auto;
+}
+
+.frentes {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.fiada-frente {
+    padding: 0.75rem 1.25rem 0.85rem;
+}
+
+.fiada-1 {
+    --cor: var(--terracota-queimada);
+}
+
+.fiada-2 {
+    --cor: var(--umber);
+    width: 96%;
+    margin-inline: auto;
+}
+
+.fiada-3 {
+    --cor: var(--terracota-queimada);
+    width: 92%;
+    margin-inline: auto;
+}
+
+.fiada-frente h2 {
+    margin-bottom: 0.2rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.fiada-frente p {
+    max-width: 52ch;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.junta-curriculo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.4rem;
+    min-height: 3.4rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: 999px;
+    background: var(--engobe);
+    background-image: var(--grao-leve), var(--rolo-claro);
+    color: var(--argila-escura);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1rem, 3.4vw, 1.3rem);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 14px 24px -12px var(--sombra);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.junta-curriculo::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: none;
+    background: currentColor;
+    mask: var(--seta-baixo) center / contain no-repeat;
+    -webkit-mask: var(--seta-baixo) center / contain no-repeat;
+}
+
+.retrato {
+    position: relative;
+    width: min(100%, 22rem);
+    justify-self: center;
+}
+
+.retrato > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 14%;
+    border: 6px solid var(--terracota-queimada);
+    border-radius: 999px 999px 1.75rem 1.75rem;
+    background: var(--umber);
+    box-shadow: 0 24px 36px -20px var(--sombra);
+}
+
+/* O ARCO: A PORTA DA TORRE, ENTRADA PARA A PUXA SACO */
+.arco-icone {
+    width: 2rem;
+    height: 2rem;
+}
+
+.arco-corpo {
+    fill: currentColor;
+}
+
+.arco-linhas {
+    fill: none;
+    stroke: var(--engobe);
+    stroke-width: 2.4;
+}
+
+.arco-porta {
+    fill: var(--argila-escura);
+}
+
+.arco-botao {
+    position: absolute;
+    left: -0.75rem;
+    bottom: -1.25rem;
+    display: grid;
+    justify-items: center;
+    align-content: end;
+    gap: 0.35rem;
+    width: 7.25rem;
+    height: 8.5rem;
+    padding: 0.9rem 0.5rem 0.8rem;
+    border: 3px solid var(--engobe);
+    border-radius: 999px 999px 1rem 1rem;
+    background: var(--argila-escura);
+    color: var(--terracota);
+    font-family: var(--fonte-texto);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 16px 26px -12px var(--sombra);
+    transition: transform 0.25s var(--ease);
+}
+
+.arco-botao span {
+    color: var(--engobe);
+}
+
+.arco-botao .arco-icone {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+
+/* FAIXAS (SEÇÕES) */
+.faixa {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) 1.25rem;
+}
+
+.faixa::before,
+.rodape::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 8px;
+    background-color: var(--engobe);
+    background-image: var(--grao-leve), var(--emenda);
+}
+
+.faixa-trajetoria {
+    background-color: var(--terracota-queimada);
+    background-image: var(--grao);
+}
+
+.faixa-especialidades {
+    background-color: var(--umber);
+    background-image: var(--grao);
+}
+
+.faixa-miolo {
+    max-width: var(--largura-site);
+    margin: 0 auto;
+}
+
+.faixa-estreita {
+    max-width: 46rem;
+}
+
+.faixa-cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 1.75rem;
+}
+
+.titulo {
+    -webkit-mask: var(--falha);
+    mask: var(--falha);
+    margin-bottom: 1.75rem;
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 6vw, 3.25rem);
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.faixa-cabecalho .titulo {
+    margin-bottom: 0;
+}
+
+.fiadas {
+    display: grid;
+    gap: 0.5rem;
+}
+
+/* TRAJETÓRIA */
+.fiada-cargo {
+    --largura: 100%;
+    width: var(--largura);
+    margin-inline: auto;
+    padding: 0;
+}
+
+.faixa-trajetoria .fiada-cargo {
+    --cor: var(--argila-umida);
+}
+
+.faixa-trajetoria .fiada-cargo:nth-child(even) {
+    --cor: var(--umber);
+}
+
+/* a fiada em andamento: argila úmida, com brilho de umidade que nenhuma outra tem */
+.faixa-trajetoria .fiada-cargo.em-andamento {
+    --cor: var(--argila-escura);
+    border: 3px solid var(--argila-crua);
+    background-image: var(--grao), linear-gradient(100deg, transparent 18%, rgb(255 238 220 / 0.14) 26%, transparent 34%), var(--rolo);
+}
+
+.fiada-cargo summary,
+.base-conteudo {
+    display: grid;
+    gap: 0.15rem 1.5rem;
+    padding: 1.15rem 3.5rem 1.15rem 1.75rem;
+}
+
+.cargo-empresa {
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+}
+
+.cargo-nome {
+    font-weight: 700;
+}
+
+.cargo-periodo {
+    color: var(--engobe-sombra);
+    font-size: 1rem;
+}
+
+.selo {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.7rem;
+    border-radius: 999px;
+    background: var(--argila-crua);
+    color: var(--argila-escura);
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.topicos {
+    display: grid;
+    gap: 0.45rem 2.5rem;
+    padding: 0 1.75rem 1.5rem;
+}
+
+.topicos li,
+.cursos li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 1.05rem;
+}
+
+.topicos li::before,
+.cursos li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--argila-crua);
+}
+
+.faixa-trajetoria .fiada-cargo.fiada-base {
+    --cor: var(--seca);
+    background-image: var(--grao-leve);
+    color: var(--argila-escura);
+}
+
+.fiada-base .cargo-periodo,
+.base-tcc {
+    color: var(--argila-escura);
+}
+
+.base-tcc {
+    margin-top: 0.5rem;
+    max-width: 62ch;
+    font-size: 1rem;
+}
+
+/* resumo clicável das fiadas que abrem (cargos, projetos, cursos) */
+summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.fiada summary {
+    position: relative;
+}
+
+.fiada summary::after,
+.cursos summary::after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 1.45rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    background:
+        linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat,
+        linear-gradient(currentColor, currentColor) center / 3px 100% no-repeat;
+    transition: background-size 0.25s var(--ease);
+}
+
+details[open] > summary::after {
+    background-size: 100% 3px, 0 0;
+}
+
+/* PROJETOS */
+.fiada-projeto {
+    border-radius: 2rem;
+}
+
+.fiada-projeto:nth-child(even) {
+    --cor: var(--umber);
+}
+
+.fiada-projeto summary {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1.15rem 3.5rem 1.15rem 1.75rem;
+}
+
+.projeto-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem 0.2rem 0.45rem;
+    border-radius: 0.5rem;
+    background: var(--argila-escura);
+    color: var(--engobe);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.projeto-corpo {
+    display: grid;
+    gap: 1.5rem;
+    padding: 0.25rem 1.75rem 1.75rem;
+}
+
+.projeto-imagem {
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 3px solid var(--argila-escura);
+    border-radius: 1.25rem;
+    background: var(--argila-escura);
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
+}
+
+.projeto-texto {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 1.25rem;
+}
+
+.projeto-descricao {
+    max-width: 62ch;
+    font-size: 1.075rem;
+}
+
+.formula {
+    display: block math;
+    margin: 0.6rem 0;
+    font-size: 1.25em;
+}
+
+/* ESPECIALIDADES */
+.fiada-especialidade {
+    display: grid;
+    gap: 0.6rem 2rem;
+    padding: 1.4rem 1.75rem;
+}
+
+.faixa-especialidades .fiada-especialidade {
+    --cor: var(--terracota-queimada);
+}
+
+.faixa-especialidades .fiada-especialidade:nth-child(even) {
+    --cor: var(--argila-umida);
+}
+
+.fiada-especialidade h3,
+.ferramentas h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+.fiada-especialidade p {
+    max-width: 58ch;
+}
+
+.ferramentas {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ferramentas h3 {
+    margin-bottom: 0.9rem;
+}
+
+.tijolos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tijolos li {
+    padding: 0.4rem 1rem;
+    border-radius: 0.6rem;
+    background-color: var(--umber);
+    background-image: var(--grao), var(--rolo);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.idiomas {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.cursos {
+    position: relative;
+    grid-column: 1 / -1;
+}
+
+.cursos summary {
+    display: block;
+    padding: 0.9rem 3.2rem 0.9rem 0;
+    border-top: 2px solid var(--umber);
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+}
+
+.cursos summary::after {
+    right: 0.25rem;
+    top: 1.1rem;
+}
+
+.cursos ul {
+    display: grid;
+    gap: 0.5rem 2.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* SOBRE E CONTATO */
+.faixa-sobre {
+    background-color: var(--terracota-queimada);
+    background-image: var(--grao);
+}
+
+.sobre-texto {
+    max-width: 62ch;
+    margin-bottom: 1.1rem;
+    font-size: 1.2rem;
+}
+
+.citacao {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 2px solid var(--engobe);
+}
+
+.citacao p {
+    font-size: clamp(1.25rem, 3.4vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.4;
+    text-wrap: balance;
+}
+
+.citacao footer {
+    margin-top: 0.75rem;
+    font-weight: 700;
+}
+
+.citacao footer::before {
+    content: "— ";
+}
+
+.faixa-contato {
+    background-color: var(--umber);
+    background-image: var(--grao);
+}
+
+.contato-texto {
+    max-width: 52ch;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.contato-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.faixa-contato .botao:not(.botao-claro) {
+    background-color: var(--argila-escura);
+}
+
+.redes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2.25rem;
+    font-weight: 700;
+}
+
+.redes a {
+    padding: 0.5rem 0;
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 2px;
+}
+
+/* RODAPÉ */
+.rodape {
+    position: relative;
+    padding: 2.25rem 1.25rem 6rem;
+    background: var(--argila-escura);
+    color: var(--seca);
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* ESTILO DO CHATBOT */
+.chat-button {
+    position: fixed;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    width: 3.9rem;
+    height: 4.6rem;
+    padding: 0;
+    border: 3px solid var(--engobe);
+    border-radius: 999px 999px 0.9rem 0.9rem;
+    background: var(--argila-escura);
+    color: var(--terracota);
+    cursor: pointer;
+    box-shadow: 0 16px 26px -10px var(--sombra);
+    transition: transform 0.25s var(--ease), opacity 0.25s var(--ease), visibility 0s;
+}
+
+.chat-button .arco-icone {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.chat-button.oculto {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.75rem);
+    transition: transform 0.25s var(--ease), opacity 0.25s var(--ease), visibility 0s linear 0.25s;
+}
+
+.chat-container {
+    position: fixed;
+    right: 0.75rem;
+    bottom: 6.5rem;
+    left: 0.75rem;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    height: min(34rem, calc(100dvh - 8rem));
+    overflow: hidden;
+    border: 3px solid var(--terracota-queimada);
+    border-radius: 3rem 3rem 1.25rem 1.25rem;
+    background: var(--argila-escura);
+    box-shadow: 0 24px 40px -16px var(--sombra);
+    /* começa escondido: visibility tira a janela do foco do teclado e dos leitores de tela */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px) scale(0.98);
+    transform-origin: bottom right;
+    transition: opacity 0.2s ease-out, transform 0.25s var(--ease), visibility 0s linear 0.25s;
+}
+
+.chat-container.aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+}
+
+.chat-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.25rem 0.75rem 1.75rem;
 }
 
 .chat-nome {
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--text-100);
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
 }
 
 .close-chat {
-    background: none;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--accent-100);
-    border-radius: 5px;
-    font-size: 24px;
+    position: relative;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    border: 2px solid var(--umber);
+    border-radius: 0.75rem;
+    background: transparent;
     cursor: pointer;
-    color: var(--text-100);
 }
 
-.close-chat:hover {
-    box-shadow: 0px 0px 8px var(--bg-200); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-    color: var(--accent-100);
+.close-chat::before,
+.close-chat::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.1rem;
+    height: 3px;
+    margin: -1.5px 0 0 -0.55rem;
+    border-radius: 2px;
+    background: var(--engobe);
 }
 
-/* --- CAIXA DE MENSAGENS --- */
+.close-chat::before {
+    transform: rotate(45deg);
+}
+
+.close-chat::after {
+    transform: rotate(-45deg);
+}
+
 .chat-box {
-    flex-grow: 1; /* Faz a caixa de mensagens ocupar todo o espaço disponível */
-    padding: 15px;
-    height: 385px;
-    overflow-y: auto; /* Adiciona scroll quando as mensagens ultrapassam o limite */
     display: flex;
+    flex: 1;
     flex-direction: column;
-    gap: 5px; /* Espaçamento entre as bolhas de mensagem */
-    background-color: var(--bg-200);
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .chat-message {
-    padding: 10px 15px;
-    border-radius: 20px;
-    max-width: 80%;
-    line-height: 1.4;
-    word-wrap: break-word; /* Garante que palavras longas quebrem a linha */
+    max-width: 88%;
+    padding: 0.65rem 1rem;
+    border-radius: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
 
-/* Bolha de mensagem do usuário (direita) */
-.user-message {
-    background-color: var(--primary-100);
-    color: var(--primary-300);
-    align-self: flex-end; /* Alinha à direita */
-    border-bottom-right-radius: 5px;
-}
-
-/* Bolha de mensagem do bot (esquerda) */
 .bot-message {
-    background-color: var(--bg-300);
-    color: var(--primary-300);
-    align-self: flex-start; /* Alinha à esquerda */
-    border-bottom-left-radius: 5px;
+    align-self: flex-start;
+    border-bottom-left-radius: 0.35rem;
+    background: var(--engobe);
+    color: var(--argila-escura);
 }
 
-/* --- ÁREA DE INPUT --- */
-.chat-input-area {
-    padding: 10px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-top: 2px solid var(--accent-100);
-    gap: 10px;
-    background-color: var(--bg-200);
+.user-message {
+    align-self: flex-end;
+    border-bottom-right-radius: 0.35rem;
+    background: var(--terracota-queimada);
+    color: var(--engobe);
 }
 
-.chat-input {
-    flex-grow: 1;
-    border: 1px solid var(--bg-300);
-    display: flex;
-    align-items: baseline;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 1em;
-}
-
-.chat-input:focus-visible {
-    outline: 2px solid var(--primary-200);
-    outline-offset: 0;
-    border-color: var(--primary-100);
-}
-
-.chat-button:focus-visible,
-.close-chat:focus-visible,
-.send-chat:focus-visible {
-    outline: 2px solid var(--primary-300);
-    outline-offset: 2px;
-}
-
-.send-chat {
-    background-color: var(--primary-100);
-    border: none;
-    border-radius: 45%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: var(--text-100);
-    transition: background-color 0.2s ease;
-}
-
-.send-chat:hover {
-    box-shadow: 0px 0px 4px var(--primary-100); /* Sombra com cor de destaque */
-    transform: scale(1.05);
-}
-
-.send-chat:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
-
-/* Mensagem "digitando…" enquanto o bot responde */
 .typing-message {
     font-style: italic;
     animation: digitando 1.2s ease-in-out infinite;
 }
 
+.error-message {
+    outline: 2px solid var(--argila-crua);
+}
+
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border-top: 2px solid var(--terracota-queimada);
+}
+
+.chat-input {
+    flex: 1;
+    min-width: 0;
+    min-height: 2.9rem;
+    padding: 0.5rem 1.1rem;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--engobe);
+    color: var(--argila-escura);
+    font: inherit;
+    font-size: 1rem;
+}
+
+.chat-input::placeholder {
+    color: var(--umber);
+}
+
+.send-chat {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--terracota-queimada);
+    color: var(--engobe);
+    cursor: pointer;
+}
+
+.send-chat:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* MOVIMENTO */
+@keyframes assentar {
+    from {
+        opacity: 0;
+        transform: translateY(-22px) scaleX(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes assentar-sem-sumir {
+    from {
+        transform: translateY(-14px);
+    }
+    to {
+        transform: none;
+    }
+}
+
 @keyframes digitando {
-    0%, 100% { opacity: 0.5; }
+    0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
 }
 
-/* Mensagem de erro do chat */
-.error-message {
-    border: 1px solid var(--accent-100);
+@media (prefers-reduced-motion: no-preference) {
+    .torre .fiada,
+    .torre .retrato {
+        animation: assentar 0.6s var(--ease) both;
+        animation-delay: calc(var(--i, 0) * 60ms);
+    }
+
+    .torre .junta-curriculo {
+        animation: assentar-sem-sumir 0.6s var(--ease) both;
+        animation-delay: calc(var(--i, 0) * 40ms);
+    }
+
+    .fiadas.reconstruir > .fiada {
+        animation: assentar var(--duracao) var(--ease) both;
+        animation-delay: calc(var(--i, 0) * 130ms);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .chat-container {
-        transition: none;
+    html {
+        scroll-behavior: auto;
     }
 
-    .typing-message {
-        animation: none;
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation: none !important;
+    }
+
+    .botao-construir {
+        display: none;
     }
 }
 
-@media screen and (max-width: 1020px) {
-    /* Clases Gerais */
-    .flex{
-        flex-direction: column;
+/* só onde existe hover de verdade (nada de hover grudado no celular) */
+@media (hover: hover) {
+    .botao:hover,
+    .junta-curriculo:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 22px -8px var(--sombra);
     }
 
-    h2.titulo{
-        font-size: 28px;
+    .arco-botao:hover,
+    .chat-button:hover {
+        transform: translateY(-4px);
     }
 
-    /* Cabeçalho */
-    .menu-desktop{
-        display: none;
+    .menu a:hover,
+    .redes a:hover {
+        color: var(--argila-crua);
     }
 
-    .btn-abrir-menu .btn-lista {
+    .fiada summary:hover {
+        background-image: var(--grao), var(--brilho);
+    }
+
+}
+
+/* TELAS MÉDIAS */
+@media (min-width: 40rem) {
+    .fiada-2 {
+        width: 94%;
+    }
+
+    .fiada-3 {
+        width: 88%;
+    }
+
+    .fiada-frente {
+        padding: 0.9rem 1.6rem 1rem;
+    }
+
+    .fiada-cargo summary,
+    .base-conteudo {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas: "empresa periodo" "cargo cargo" "tcc tcc";
+        align-items: baseline;
+    }
+
+    .cargo-empresa {
+        grid-area: empresa;
+    }
+
+    .cargo-nome {
+        grid-area: cargo;
+    }
+
+    .cargo-periodo {
+        grid-area: periodo;
+        text-align: right;
+    }
+
+    .base-tcc {
+        grid-area: tcc;
+    }
+
+    .topicos,
+    .cursos ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projeto-corpo {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: start;
+    }
+
+    .fiada-especialidade {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+        align-items: start;
+    }
+
+    .fiada-especialidade .tags {
+        grid-column: 2;
+    }
+
+    .ferramentas {
+        grid-template-columns: 1.4fr 1fr;
+    }
+
+    .chat-container {
+        left: auto;
+        right: 1.5rem;
+        width: 24rem;
+    }
+
+    .chat-button {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 64rem) {
+    .cabecalho {
+        padding-inline: max(1.25rem, calc((100vw - var(--largura-site)) / 2));
+    }
+
+    .menu {
         display: block;
     }
 
-    /* Topo do Site */
-    section.topo-do-site{
-        padding: 20px 8%;
-    }
-
-    section.topo-do-site .flex{
-        gap: 40px;
-    }
-
-    .topo-do-site .txt-topo-site h1{
-        color: var(--text-100);
-        font-size: 30px;
-    }
-
-    .topo-do-site .txt-topo-site h1 span{
-        color: var(--accent-100);
-        font-size: 3opx;
-    }
-
-    .topo-do-site .img-topo-site img{
-        width: 100%;
-    }
-
-    /* Especialidades */
-    section.especialidades{
-        padding: 20px 8%;
-    }
-
-    /* Sobre */
-    section.sobre-mim{
-        padding: 20px 8%;
-    }
-
-    .sobre-mim .txt-sobre-mim h2{
-        font-size: 32px;
-        line-height: 35px;
-        text-align: center;
-    }
-
-    .img-sobre-mim img{
-        width: 100%;
-    }
-
-    .rede-social{
-        text-align: center;
-    }
-
-    /* Portfólio */
-    section.portfolio{
-        padding: 20px 8%;
-    }
-
-    .project-card {
-        width: calc(100% - 20px);
-    }
-
-    .card-header {
+    .menu ul {
         display: flex;
-        flex-direction: column;
+        gap: 1.75rem;
     }
 
-    /* Etiqueta/Tag do projeto */
-    .project-tag {
-        display: inline-flex;
+    .menu a {
+        min-height: 0;
+        padding: 0.4rem 0;
+        border-bottom: 0;
+        font-weight: 700;
+    }
+
+    .menu-botao {
+        display: none;
+    }
+
+    .torre {
+        padding-top: 2.25rem;
+        padding-bottom: 5rem;
+    }
+
+    .torre-miolo {
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
         align-items: center;
+        gap: 3.5rem;
     }
 
-    .card-content {
-        display: flex;
-        flex-direction: column;
+    .retrato {
+        width: min(100%, 27rem);
     }
 
-    .card-image {
-        width: 200px;
-        height: 120px;
+    .fiada-cargo summary,
+    .base-conteudo {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr) auto;
+        grid-template-areas: "empresa cargo periodo" "tcc tcc tcc";
+    }
+
+    .fiada-cargo:nth-child(1) { --largura: 78%; }
+    .fiada-cargo:nth-child(2) { --largura: 83%; }
+    .fiada-cargo:nth-child(3) { --largura: 88%; }
+    .fiada-cargo:nth-child(4) { --largura: 93%; }
+    .fiada-cargo:nth-child(5) { --largura: 97%; }
+
+    .topicos,
+    .cursos ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chat-container {
+        bottom: 7rem;
+    }
+}
+
+/* CELULARES ESTREITOS: sem afunilar, para o texto das frentes ganhar largura */
+@media (max-width: 26rem) {
+    .fiada-2,
+    .fiada-3 {
+        width: 100%;
+    }
+}
+
+/* TELAS BAIXAS: a primeira tela segue inteira, com o currículo à vista */
+@media (max-width: 39.99rem) and (max-height: 720px) {
+    .torre {
+        padding-top: 0.6rem;
+    }
+
+    .fiada-fina {
+        padding-block: 0.35rem;
+        font-size: 0.95rem;
+    }
+
+    .fiada-frente {
+        padding-block: 0.55rem 0.65rem;
+    }
+
+    .fiada-frente h2 {
+        font-size: 0.95rem;
+    }
+
+    .fiada-frente p {
+        font-size: 0.95rem;
+        line-height: 1.35;
+    }
+
+    .junta-curriculo {
+        min-height: 3rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 64rem) and (max-height: 820px) {
+    .torre {
+        padding-top: 1.25rem;
+    }
+
+    .fiada-frente {
+        padding-block: 0.6rem 0.7rem;
+    }
+
+    .fiada-frente p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .retrato {
+        width: min(100%, 22rem);
     }
 }

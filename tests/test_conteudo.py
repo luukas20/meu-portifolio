@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -5,15 +6,20 @@ import conteudo
 import views
 from main import app
 
-PASTA_IMAGENS = Path(__file__).resolve().parent.parent / "static" / "images"
+RAIZ = Path(__file__).resolve().parent.parent
+PASTA_STATIC = RAIZ / "static"
+PASTA_IMAGENS = PASTA_STATIC / "images"
+
+
+def home():
+    return app.test_client().get("/").get_data(as_text=True)
 
 
 def imagens_referenciadas():
-    nomes = set()
+    nomes = {"lucas.webp"}
     for item in conteudo.ESPECIALIDADES + conteudo.PROJETOS:
         nomes.update(tag["icone"] for tag in item["tags"])
-        nomes.add(item.get("icone") or item["imagem"])
-    nomes.update(rede["icone"] for rede in conteudo.REDES)
+    nomes.update(projeto["imagem"] for projeto in conteudo.PROJETOS)
     return nomes
 
 
@@ -22,14 +28,29 @@ def test_imagens_do_conteudo_existem():
     assert faltando == []
 
 
+def test_fontes_hospedadas_existem():
+    css = (PASTA_STATIC / "style.css").read_text(encoding="utf-8")
+    fontes = re.findall(r'url\("(fonts/[^"]+)"\)', css)
+    assert fontes, "o CSS deveria carregar as fontes de static/fonts/"
+    assert [f for f in fontes if not (PASTA_STATIC / f).is_file()] == []
+
+
 def test_home_renderiza_todo_o_conteudo():
-    html = app.test_client().get("/").get_data(as_text=True)
+    html = home()
     for item in conteudo.ESPECIALIDADES + conteudo.PROJETOS:
         assert item["titulo"] in html
+    for frente in conteudo.FRENTES:
+        assert frente["titulo"] in html and frente["texto"] in html
+    for cargo in conteudo.TRAJETORIA:
+        assert cargo["empresa"] in html and cargo["cargo"] in html and cargo["periodo"] in html
+        assert all(topico in html for topico in cargo["topicos"])
     for rede in conteudo.REDES:
         assert rede["url"] in html
     for paragrafo in conteudo.SOBRE_MIM:
         assert paragrafo in html
+    for curso in conteudo.CURSOS:
+        assert curso in html
+    assert conteudo.TAGLINE in html and conteudo.CITACAO["autor"] in html
 
 
 def test_cada_projeto_tem_os_campos_obrigatorios():
@@ -40,11 +61,11 @@ def test_cada_projeto_tem_os_campos_obrigatorios():
 
 
 def test_curriculo_existe_e_tem_botao_de_download():
-    arquivo = PASTA_IMAGENS.parent / conteudo.CURRICULO["arquivo"]
+    arquivo = PASTA_STATIC / conteudo.CURRICULO["arquivo"]
     assert arquivo.is_file()
     assert arquivo.read_bytes().startswith(b"%PDF")
 
-    html = app.test_client().get("/").get_data(as_text=True)
+    html = home()
     assert f'/static/{conteudo.CURRICULO["arquivo"]}' in html
     assert f'download="{conteudo.CURRICULO["nome_download"]}"' in html
 
@@ -65,20 +86,46 @@ def test_chatbot_conhece_todos_os_projetos_da_pagina():
     assert faltando == [], f"Faltam em prompts/conhecimento.md: {faltando}"
 
 
-def test_projeto_sem_link_nao_tem_imagem_clicavel():
-    html = app.test_client().get("/").get_data(as_text=True)
+def test_chatbot_conhece_todas_as_empresas_da_trajetoria():
+    conhecimento = (views.PASTA_PROMPTS / "conhecimento.md").read_text(encoding="utf-8")
+    faltando = sorted({c["empresa"] for c in conteudo.TRAJETORIA if c["empresa"] not in conhecimento})
+    assert faltando == [], f"Faltam em prompts/conhecimento.md: {faltando}"
+
+
+def test_projeto_sem_link_nao_tem_botao_de_abrir():
+    html = home()
+    com_link = [p for p in conteudo.PROJETOS if p["link"]]
     sem_link = [p for p in conteudo.PROJETOS if not p["link"]]
     assert sem_link, "o teste espera ao menos um projeto sem link"
-    assert html.count("card-image sem-link") == len(sem_link)
+    assert html.count("Abrir o projeto") == len(com_link)
     assert 'href="#"' not in html
 
 
 def test_grafias_corrigidas_e_ano_automatico():
-    html = app.test_client().get("/").get_data(as_text=True)
-    for correto in ("Business Intelligence", "Início", "POWER AUTOMATE"):
+    html = home()
+    for correto in ("Business Intelligence", "POWER AUTOMATE"):
         assert correto in html
-    for errado in ("Busines Inteligence", "Inicio<", "ATOMATE", "&copy; 2025"):
+    for errado in ("Busines Inteligence", "ATOMATE", "&copy; 2025"):
         assert errado not in html
+    assert f"&copy; {datetime.now().year} " in html
     assert "portif" not in html.lower()
     assert 'id="portfolio"' in html and 'href="#portfolio"' in html
-    assert f"&copy; {datetime.now().year} " in html
+
+
+def test_pagina_sem_dependencias_externas():
+    html = home()
+    for externo in ("polyfill.io", "cdn.jsdelivr.net", "fonts.googleapis.com", "mathjax"):
+        assert externo not in html.lower()
+    assert "<script src=" in html and html.count("<script src=") == 1
+
+
+def test_estrutura_acessivel_basica():
+    html = home()
+    assert '<html lang="pt-BR">' in html
+    assert html.count("<h1") == 1
+    assert 'class="pular"' in html and 'id="principal"' in html
+    # toda imagem declara alt (vazio quando decorativa)
+    sem_alt = [tag for tag in re.findall(r"<img\b[^>]*>", html) if " alt=" not in tag]
+    assert sem_alt == []
+    # nenhum botão dentro de link (HTML inválido que existia antes)
+    assert not re.search(r"<a\b[^>]*>\s*<button", html)
