@@ -137,7 +137,7 @@ PROJETOS = [
 
 
 # --- TORRE: primeira tela, trajetória e ferramentas ---------------------------------------------
-# Textos do Lucas: frentes nas palavras dele (ajustadas só em pontuação e maiúsculas); trajetória, ferramentas,
+# Frentes: reescritas em out/2026 com fatos do currículo e dos projetos do Lucas (nada inventado); trajetória, ferramentas,
 # idiomas e cursos copiados do currículo atualizado (out/2026). Ordem da trajetória: do mais recente para a base.
 
 TAGLINE = "Transformando dados complexos em decisões estratégicas."
@@ -148,11 +148,20 @@ CITACAO = {
 }
 
 FRENTES = [
-    {"titulo": "Estatística e Machine Learning", "texto": "Consigo desenvolver bons modelos de Machine Learning."},
-    {"titulo": "BI", "texto": "Tenho forte conhecimento em ferramentas de BI como Power BI, SQL e Pentaho."},
+    {
+        "titulo": "Estatística e Machine Learning",
+        "texto": "Índice de Cobertura de 115% na perda esperada, 98% de acurácia em visão computacional e previsão de séries financeiras.",
+        "itens": ["Python", "R", "PD, LGD e EAD", "ARMA-GARCH", "Redes LSTM", "CNN"],
+    },
+    {
+        "titulo": "BI e dados",
+        "texto": "Dashboards em Power BI sobre dados modelados, integrados e automatizados.",
+        "itens": ["Power BI", "DAX", "SQL Server", "MySQL", "Oracle SQL", "Snowflake", "Pentaho", "Power Automate"],
+    },
     {
         "titulo": "Análise para decisão",
-        "texto": "Tenho muita experiência com análise de dados para tomada de decisão de forma rápida e precisa, trabalhando com Python, R e ferramentas de IA como o Claude.",
+        "texto": "Análises de CAPEX, OPEX e viabilidade de projetos que sustentam decisões rápidas e precisas.",
+        "itens": ["CAPEX e OPEX", "Viabilidade de projetos", "Indicadores de inadimplência", "Metas estratégicas", "Python", "R", "IA"],
     },
 ]
 

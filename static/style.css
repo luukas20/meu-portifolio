@@ -486,10 +486,28 @@ button {
 }
 
 .frentes p {
-    max-width: 52ch;
-    margin-top: 0.15rem;
+    max-width: 60ch;
+    margin-top: 0.2rem;
+    color: var(--tinta);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+}
+
+.frente-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.65rem;
+}
+
+.frente-itens li {
+    padding: 0.1rem 0.6rem;
+    border: 1px solid var(--linha);
+    border-radius: 999px;
+    background: var(--superficie);
     color: var(--tinta-suave);
-    font-size: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
     line-height: 1.5;
 }
 
@@ -1346,16 +1364,8 @@ button {
     }
 
     .abertura-miolo {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
         gap: 3.5rem;
-    }
-
-    .frentes {
-        order: 2;
-    }
-
-    .acoes {
-        order: 3;
     }
 
     .cargo-linha {

@@ -67,6 +67,11 @@
                         <li>
                             <strong class="frente-titulo">{{ frente.titulo }}</strong>
                             <p>{{ frente.texto }}</p>
+                            <ul class="frente-itens" aria-label="Ferramentas e temas">
+                                {%- for item in frente.itens %}
+                                <li>{{ item }}</li>
+                                {%- endfor %}
+                            </ul>
                         </li>
                         {%- endfor %}
                     </ul>

@@ -17,7 +17,7 @@ Portfólio pessoal de **Lucas Costa**, Estatístico (UFS, 2019/2024), hoje Anali
 
 ## Positioning
 
-Três frentes, nas palavras do Lucas:
+Três frentes, nas palavras do Lucas (no site, em out/2026, ganharam frases de impacto escritas com os fatos do currículo e dos projetos dele, mais as ferramentas em etiquetas):
 
 1. **Estatística e Machine Learning:** desenvolve bons modelos de Machine Learning.
 2. **BI:** forte conhecimento em ferramentas de BI (Power BI, SQL, Pentaho).
