@@ -170,3 +170,10 @@ def test_ordem_e_acessibilidade_da_primeira_tela():
     assert "<h2>" not in topo
     # cada link "Abrir o projeto" tem nome acessível próprio
     assert html.count('class="so-leitor">: ') == len([p for p in conteudo.PROJETOS if p["link"]])
+
+
+def test_previa_usa_https_atras_do_proxy():
+    cabecalhos = {"X-Forwarded-Proto": "https", "X-Forwarded-Host": "meu-site.example"}
+    html = app.test_client().get("/", headers=cabecalhos).get_data(as_text=True)
+    assert 'property="og:image" content="https://meu-site.example/static/images/og.jpg"' in html
+    assert 'property="og:url" content="https://meu-site.example/"' in html

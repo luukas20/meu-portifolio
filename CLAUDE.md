@@ -80,7 +80,7 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 - A foto (`static/images/lucas.webp`) vem de um original de 720 px de largura: fica um pouco mole em telas 2x. Se o Lucas tiver uma foto de 1000 px ou mais, trocar em `imagens-originais/` e rodar `tools/otimizar_imagens.py`.
 - A frase da meta description e da prévia de compartilhamento (`og.jpg`, feita a partir dos títulos das frentes) foi composta fora dos textos do Lucas e aguarda a aprovação dele. Para refazer a prévia, ver o HTML de origem no histórico do git ou recriar com Chrome `--screenshot` a 1200x630.
 - O texto do currículo e o do site citam o endereço no Render; se a hospedagem mudar, atualizar os dois.
-- O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1)` em `main.py`; sem proxy, o cabeçalho `X-Forwarded-For` pode ser forjado e burlar o limite.
+- O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1, x_proto=1, x_host=1)` em `main.py` (IP, https e host reais; a prévia de compartilhamento monta endereços absolutos a partir deles); sem proxy, os cabeçalhos `X-Forwarded-*` podem ser forjados (burla o limite do chat e muda os endereços da prévia).
 
 ## Skills
 
