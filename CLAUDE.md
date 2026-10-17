@@ -32,6 +32,8 @@ pytest                           # testes do chatbot (Gemini simulado, não gast
 ```
 main.py                  cria `app = Flask(__name__)` e faz `from views import *` no final
 views.py                 rotas, cliente Gemini (criado sob demanda), limite de uso e leitura dos prompts
+conteudo.py              conteúdo da homepage (especialidades, sobre-mim, redes, projetos); o template só percorre estas listas
+templates/macros.html    macros `tags` e `redes`, reutilizadas na homepage
 prompts/persona.md       persona e regras da "Puxa Saco" (instrução do sistema)
 prompts/conhecimento.md  base de conhecimento do bot (currículo, projetos); editar o .md e reiniciar o servidor
 templates/homepage.html  página única: topo, especialidades, sobre-mim, portifólio, contato, footer, widget do chat
@@ -56,11 +58,12 @@ tests/test_chat.py       testes do endpoint do chat (pytest, Gemini simulado)
 
 ## Manutenção do conteúdo (sincronização manual)
 
-Não existe fonte única de dados; o mesmo conteúdo vive em mais de um lugar:
+O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecimento.md` (editado à mão). Os dois precisam andar juntos:
 
-- **Novo projeto / cargo / habilidade**: atualizar (1) o card em `homepage.html`, (2) `prompts/conhecimento.md` (senão o chatbot responde que "não tem essa informação") e (3) o texto de "Sobre mim", se mudar.
-- **Novo card**: copiar um `.project-card` existente (header com título + `.project-tag` com ícone, `.card-image` com `background-image`, `.project-description`).
-- Links de redes sociais (LinkedIn, GitHub, e-mail) aparecem duas vezes em `homepage.html` (sobre-mim e contato).
+- **Novo projeto / cargo / habilidade**: atualizar (1) `conteudo.py` (o card aparece sozinho), (2) `prompts/conhecimento.md` (senão o chatbot responde que "não tem essa informação") e (3) `SOBRE_MIM` em `conteudo.py`, se o texto mudar.
+- **Novo card**: copiar um item de `PROJETOS` em `conteudo.py` (`titulo`, `tags` com `tag(icone, nome)`, `imagem`, `link`, `descricao` em HTML). Imagens são nomes de arquivo em `static/images/`.
+- Links de redes sociais (LinkedIn, GitHub, e-mail) ficam em `REDES` e aparecem sozinhos no sobre-mim e no contato.
+- `pytest` confere se as imagens citadas existem e se a home renderiza todo o conteúdo.
 - Texto profissional, persona e dados pessoais são conteúdo do Lucas: perguntar antes de reescrever ou "melhorar" o texto.
 
 ## Armadilhas conhecidas (revisar/remover conforme forem corrigidas)
