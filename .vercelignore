@@ -1,0 +1,13 @@
+# Nada disto vai para a Vercel (segredos e arquivos que o site não usa)
+.env
+.env.*
+.venv
+.git
+.claude
+.impeccable
+imagens-originais
+tests
+tools
+__pycache__
+*.pyc
+.pytest_cache

@@ -100,11 +100,30 @@ def test_resposta_ok_separa_instrucoes_da_mensagem(http, monkeypatch):
     assert "Onde o Lucas trabalha?" not in instrucoes
 
 
+def test_instrucoes_trazem_a_data_de_hoje_e_limitam_o_raciocinio(http, monkeypatch):
+    falso = usar_cliente(monkeypatch, ClienteFalso(texto="ok"))
+    http.post("/api/chat", json={"message": "Há quanto tempo ele trabalha na Iguá?"})
+
+    config = falso.chamadas[0]["config"]
+    assert "Data de hoje: " in config.system_instruction
+    # o raciocínio conta no limite de saída: precisa sobrar espaço para a resposta inteira
+    assert config.thinking_config.thinking_budget <= 512
+    assert config.max_output_tokens >= config.thinking_config.thinking_budget + 1024
+
+
 def test_resposta_vazia_devolve_mensagem_amigavel(http, monkeypatch):
-    usar_cliente(monkeypatch, ClienteFalso(texto=None))
+    falso = usar_cliente(monkeypatch, ClienteFalso(texto=None))
     resposta = http.post("/api/chat", json={"message": "oi"})
     assert resposta.status_code == 200
     assert resposta.get_json()["reply"]
+    assert len(falso.chamadas) == 2  # tentou de novo antes de desistir
+
+
+def test_resposta_vazia_na_primeira_tentativa_e_refeita(http, monkeypatch):
+    respostas = iter([RespostaFalsa(None), RespostaFalsa("Ele trabalha na Iguá.")])
+    monkeypatch.setattr(views, "gerar_resposta", lambda mensagem: next(respostas))
+    resposta = http.post("/api/chat", json={"message": "Onde o Lucas trabalha?"})
+    assert resposta.get_json() == {"reply": "Ele trabalha na Iguá."}
 
 
 def test_erro_do_gemini_retorna_500_amigavel(http, monkeypatch):

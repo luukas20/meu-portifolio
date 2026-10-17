@@ -27,3 +27,5 @@ __pycache__/
 .impeccable/mocks/
 .impeccable/review/
 .impeccable/build/
+.vercel
+.env*

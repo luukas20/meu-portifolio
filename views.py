@@ -1,7 +1,7 @@
 from main import app
 from flask import render_template, request, jsonify
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from pathlib import Path
 import os
@@ -20,6 +20,10 @@ MODELO_GEMINI = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 MODELO_RESERVA = os.getenv("GEMINI_MODEL_RESERVA", "gemini-3.5-flash-lite")
 CODIGOS_COM_RESERVA = {402, 404, 429, 500, 503}
 TAMANHO_MAXIMO_MENSAGEM = 500
+# O raciocínio do modelo conta no limite de saída: sem teto, a resposta sai cortada no meio
+ORCAMENTO_RACIOCINIO = 256
+LIMITE_TOKENS_RESPOSTA = 2048
+FUSO_BRASILIA = timezone(timedelta(hours=-3))
 PASTA_PROMPTS = Path(__file__).resolve().parent / "prompts"
 
 # Limite de uso do chat por IP (em memória; vale por instância do servidor)
@@ -62,10 +66,13 @@ def carregar_instrucoes():
     return f"{persona}\n\n--- DADOS PARA CONSULTA ---\n{conhecimento}\n--- FIM DOS DADOS ---"
 
 def gerar_resposta(mensagem):
-    # Persona e dados vão na instrução do sistema; o usuário só em `contents`
+    # Persona, dados e data de hoje (para calcular tempo de experiência) vão na instrução do sistema;
+    # o usuário só em `contents`
+    hoje = datetime.now(FUSO_BRASILIA).strftime("%d/%m/%Y")
     config = types.GenerateContentConfig(
-        system_instruction=carregar_instrucoes(),
-        max_output_tokens=1024,
+        system_instruction=f"{carregar_instrucoes()}\n\nData de hoje: {hoje}.",
+        max_output_tokens=LIMITE_TOKENS_RESPOSTA,
+        thinking_config=types.ThinkingConfig(thinking_budget=ORCAMENTO_RACIOCINIO),
     )
     modelos = [MODELO_GEMINI]
     if MODELO_RESERVA and MODELO_RESERVA != MODELO_GEMINI:
@@ -93,8 +100,12 @@ def chat():
         return jsonify({"error": f"A mensagem pode ter no máximo {TAMANHO_MAXIMO_MENSAGEM} caracteres."}), 400
 
     try:
-        resposta = gerar_resposta(mensagem)
-        texto = (resposta.text or "").strip()
+        # Resposta vazia (bloqueio ou raciocínio que consumiu o limite) costuma sumir na segunda tentativa
+        texto = ""
+        for _ in range(2):
+            texto = (gerar_resposta(mensagem).text or "").strip()
+            if texto:
+                break
         if not texto:
             # Resposta vazia (ex.: bloqueio de segurança do modelo)
             return jsonify({"reply": "Não consegui formular uma resposta para isso. Pode reformular a pergunta?"})

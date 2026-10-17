@@ -115,3 +115,10 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 4   Análise Multivariada: PCA, K-means, Agrupamentos 
 5   Controle Estatístico de Qualidade
 6   Econometria 
+
+## CONTATO
+•	LinkedIn: https://www.linkedin.com/in/luukas20/
+•	GitHub: https://github.com/luukas20
+•	E-mail: lucas.estatistico@outlook.com
+•	WhatsApp: botão "Manda Oi no Whats" na seção "Vamos conversar" deste site
+•	Currículo em PDF: botão "Currículo" no menu do site e na seção "Vamos conversar"
