@@ -1,21 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---------- Accordion para subseções ----------
-    document.querySelectorAll('.toggle').forEach(header => {
-        header.addEventListener('click', () => {
-            const flexDiv = header.nextElementSibling; // a div.flex abaixo do h3
-            
-            // alterna visibilidade da div
-            if(flexDiv.style.display === "flex"){
-                flexDiv.style.display = "none";
-                header.classList.remove('active'); // remove rotação
-            } else {
-                flexDiv.style.display = "flex";
-                header.classList.add('active'); // adiciona rotação
-            }
-        });
-    });
-
     // ---------- MENU MOBILE ----------
     let btnMenu = document.getElementById('btn-abrir-menu')
     let menu = document.getElementById('menu-mobile')
@@ -39,65 +23,106 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendChat = document.getElementById('send-chat');
     const chatInput = document.getElementById('chat-input');
     const chatBox = document.getElementById('chat-box');
-    
-    // Este botão agora abre E fecha o chat
+
+    // A URL aponta para o nosso próprio back-end
+    const API_URL = '/api/chat';
+    const TEMPO_LIMITE_MS = 30000; // desiste da resposta depois de 30 s
+    let isSending = false;
+
+    function openChat() {
+        chatContainer.classList.add('aberto');
+        chatButton.setAttribute('aria-expanded', 'true');
+        chatInput.focus({ preventScroll: true });
+    }
+
+    function closeChatWindow() {
+        const focoDentro = chatContainer.contains(document.activeElement);
+        chatContainer.classList.remove('aberto');
+        chatButton.setAttribute('aria-expanded', 'false');
+        // Devolve o foco ao botão para quem navega pelo teclado
+        if (focoDentro) chatButton.focus({ preventScroll: true });
+    }
+
+    // Este botão abre E fecha o chat
     chatButton.addEventListener('click', () => {
-        const isChatVisible = chatContainer.style.display === 'flex';
-        if (isChatVisible) {
-        chatContainer.style.display = 'none';
+        if (chatContainer.classList.contains('aberto')) {
+            closeChatWindow();
         } else {
-        chatContainer.style.display = 'flex';
+            openChat();
         }
     });
-    closeChat.addEventListener('click', () => chatContainer.style.display = 'none');
-    sendChat.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
+    closeChat.addEventListener('click', closeChatWindow);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && chatContainer.classList.contains('aberto')) closeChatWindow();
     });
 
-    // **MODIFICADO** A URL agora aponta para o nosso próprio back-end
-    const API_URL = '/api/chat'; 
-    
+    sendChat.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (e) => {
+        // isComposing evita enviar no meio de uma composição (acentos, IME)
+        if (e.key === 'Enter' && !e.isComposing) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    function setSending(value) {
+        isSending = value;
+        sendChat.disabled = value;
+        chatBox.setAttribute('aria-busy', String(value));
+    }
+
     async function sendMessage() {
         const userMessage = chatInput.value.trim();
-        if (!userMessage) return;
+        if (!userMessage || isSending) return;
 
         appendMessage(userMessage, 'user');
         chatInput.value = '';
-        
+        setSending(true);
+        const typing = appendMessage('Puxa Saco está digitando…', 'bot', 'typing-message');
+
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), TEMPO_LIMITE_MS);
+
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                // **MODIFICADO** Enviamos apenas a mensagem do usuário
-                body: JSON.stringify({ message: userMessage })
+                // Enviamos apenas a mensagem do usuário
+                body: JSON.stringify({ message: userMessage }),
+                signal: controller.signal
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            // O back-end responde {reply} ou {error}, inclusive nos erros 4xx/5xx
+            const data = await response.json().catch(() => ({}));
+            typing.remove();
 
-            const data = await response.json();
-            // **MODIFICADO** A resposta agora vem em 'data.reply'
-            const botMessage = data.reply;
-            appendMessage(botMessage, 'bot');
+            if (!response.ok || !data.reply) {
+                appendMessage(data.error || "Desculpe, não consegui responder agora. Tente novamente.", 'bot', 'error-message');
+                return;
+            }
+            appendMessage(data.reply, 'bot');
 
         } catch (error) {
             console.error("Erro ao contatar o back-end:", error);
-            appendMessage("Desculpe, estou com problemas para me conectar no momento. Tente novamente mais tarde.", 'bot');
+            typing.remove();
+            const texto = error.name === 'AbortError'
+                ? "A resposta demorou demais. Tente novamente."
+                : "Desculpe, estou com problemas para me conectar no momento. Tente novamente mais tarde.";
+            appendMessage(texto, 'bot', 'error-message');
+        } finally {
+            clearTimeout(timer);
+            setSending(false);
         }
     }
 
-    function appendMessage(message, sender) {
+    function appendMessage(message, sender, extraClass = '') {
         const messageDiv = document.createElement('div');
-        // Sanitize message to prevent HTML injection
+        // textContent (e não innerHTML) evita injeção de HTML vinda do modelo
         messageDiv.textContent = message;
-        messageDiv.className = `chat-message ${sender}-message`;
+        messageDiv.className = `chat-message ${sender}-message ${extraClass}`.trim();
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll
+        return messageDiv;
     }
-    
-    // ---------- Outras funções do site podem ir aqui ----------
-    // exemplo: sliders, modais, filtros, etc.
 
 });

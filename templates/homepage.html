@@ -304,23 +304,24 @@
 
     <!-- Botão e Janela do Chatbot -->
      <div class="interface">
-        <button  class="chat-button" id="chat-button">
-            <img src="{{ url_for('static', filename='images/ChartBot.png') }}">
+        <button type="button" class="chat-button" id="chat-button" aria-label="Abrir chat com a Puxa Saco" aria-expanded="false" aria-controls="chat-container">
+            <img src="{{ url_for('static', filename='images/ChartBot.png') }}" alt="">
         </button>
-        <div class="chat-container" id="chat-container" >
+        <div class="chat-container" id="chat-container" role="dialog" aria-labelledby="chat-titulo">
             <div class="chat-cabecalho">
-                <h3 class="chat-nome">Puxa Saco</h3>
-                <button class="close-chat" id="close-chat" >&times;</button>
+                <h3 class="chat-nome" id="chat-titulo">Puxa Saco</h3>
+                <button type="button" class="close-chat" id="close-chat" aria-label="Fechar chat">&times;</button>
             </div>
-            <div class="chat-box" id="chat-box">
+            <div class="chat-box" id="chat-box" role="log" aria-live="polite">
                  <div class="chat-message bot-message">
                     Olá, sou a Puxa Saco, uma IA criada pelo Lucas só pra tirar possíveis dúvidas que você possa ter sobre ele e até mesmo saber se o perfil dele se enquadra para o que você está buscando.
                  </div>
             </div>
             <div class="chat-input-area">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta...">
-                <button class="send-chat" id="send-chat">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <label for="chat-input" class="sr-only">Sua pergunta para a Puxa Saco</label>
+                <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua pergunta..." maxlength="500" autocomplete="off">
+                <button type="button" class="send-chat" id="send-chat" aria-label="Enviar mensagem">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
                         <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
                     </svg>
                 </button>
