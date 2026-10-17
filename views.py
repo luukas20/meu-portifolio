@@ -8,6 +8,7 @@ from google import genai
 from google.genai import errors, types
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from conteudo import ESPECIALIDADES, PROJETOS, REDES, SOBRE_MIM
 
 # 1. CONFIGURAÇÃO INICIAL
 load_dotenv() # Carrega as variáveis do arquivo .env
@@ -26,7 +27,13 @@ limiter = Limiter(get_remote_address, app=app, storage_uri="memory://")
 # Rotas
 @app.route('/', endpoint='pagina_home')
 def homepage():
-    return render_template("homepage.html")
+    return render_template(
+        "homepage.html",
+        especialidades=ESPECIALIDADES,
+        sobre_mim=SOBRE_MIM,
+        redes_sociais=REDES,
+        projetos=PROJETOS,
+    )
 
 # 2. CLIENTE DO GEMINI
 # Criado só na primeira mensagem: sem a chave, o site abre e só o chat falha

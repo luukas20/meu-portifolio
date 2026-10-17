@@ -1,3 +1,4 @@
+{% from "macros.html" import tags, redes -%}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -96,31 +97,14 @@
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
+{% for esp in especialidades %}
                     <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/Estatistica.png') }}" alt="" width="100" height="100">
-                        <h3>Data Science</h3>
-                        <p>Aplicando algoritmos de Machine Learning para solucionar desafios complexos e impulsionar a eficiência operacional.</p>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/R Core Team.png') }}"> R/RStudio</span>
+                        <img src="{{ url_for('static', filename='images/' ~ esp.icone) }}" alt="" width="100" height="100">
+                        <h3>{{ esp.titulo }}</h3>
+                        <p>{{ esp.descricao }}</p>
+                        {{ tags(esp.tags) }}
                     </div><!--especialidades-box-->
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/Busines Inteligence.png') }}" alt="" width="100" height="100">
-                        <h3>Busines Inteligence</h3>
-                        <p>Capacitando líderes com dashboards interativos e relatórios inteligentes para uma tomada de decisão baseada em dados.</p>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
-                    </div><!--especialidades-box-->
-                    <div class="especialidades-box">
-                        <img src="{{ url_for('static', filename='images/Serviços Financeiros.png') }}" alt="" width="100" height="100">
-                        <h3>Risco de Crédito</h3>
-                        <p>Desenvolvendo e validando modelos de score de crédito que garantem uma concessão de crédito mais segura e eficiente. Em conformidade com a CMN 4966/21.</p>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Estatística</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                        <span class="project-tag"> <img src="{{ url_for('static', filename='images/R Core Team.png') }}"> R/RStudio</span>
-                    </div><!--especialidades-box-->
+{% endfor %}
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--especialidades-->
@@ -133,13 +117,11 @@
                     </div><!--img-sobre-mim-->
                     <div class="txt-sobre-mim">
                         <h2>MUITO PRAZER, <span>SOU LUCAS COSTA</span></h2>
-                        <p>Profissional apaixonado por Ciência de Dados e Machine Learning , com uma formação em Estatística pela Universidade Federal de Sergipe. Atualmente, atuo como Analista de Transformação na Iguá Saneamento, onde aplico minha expertise em Data Science e Business Intelligence para otimizar a tomada de decisões estratégicas. 📊</p>
-                        <p>Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL Server, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes. 🎯</p>
-                        <p>Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência 🚀.</p>
+{% for paragrafo in sobre_mim %}
+                        <p>{{ paragrafo }}</p>
+{% endfor %}
                         <div class="rede-social">
-                            <a href="https://www.linkedin.com/in/luukas20/" target="_blank"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt=""></button></a>
-                            <a href="https://github.com/luukas20" target="_blank"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt=""></button></a>
-                            <a href="mailto:lucas.estatistico@outlook.com" target="_blank"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt=""></button></a>
+                            {{ redes(redes_sociais) }}
                         </div><!--rede-social-->
                     </div><!--txt-sobre-mim-->
                 </div><!--flex-->
@@ -152,125 +134,22 @@
                 <div class="project-container">
 
                     
+{% for projeto in projetos %}
                     <div class="project-card">
                         <div class="card-header">
-                            <h3 class="project-title">📊 Modelagem de Perda Esperada (PE)</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Data Science</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Serviços Financeiros.png') }}"> Risco de Crédito</span>
+                            <h3 class="project-title">{{ projeto.titulo }}</h3>
+                            {{ tags(projeto.tags) }}
                         </div>
                         <div class="card-content">
-                            <a href="#" target="_blank">
-                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Perda Esperada.png') }}');">
-                                    
+                            <a href="{{ projeto.link }}" target="_blank">
+                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/' ~ projeto.imagem) }}');">
+
                                 </div>
                             </a>
-                            <p  class="project-description"> Desenvolvi uma solução robusta para a estimativa da Perda Esperada em portfólios de cartão de crédito através da fórmula $$ PE = PD \times LGD \times EAD $$ <strong>• Probabilidade de Default (PD)</strong>; <br> <strong>• Loss Given Default (LGD)</strong>; <br> <strong>• Exposure at Default (EAD)</strong>. <br> Com essa abordagem de <i>Machine Learning</i>, alcancei um <strong>Índice de Cobertura de 115%</strong> ✅. Garantindo uma gestão de limites precisa e maior resiliência financeira para a carteira. 💰📈</p>
+                            <p class="project-description">{{ projeto.descricao|safe }}</p>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">🚀 Visão Computacional (Gatos vs. Cachorros)</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Estatistica.png') }}"> Data Science</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Rede LSTM.png') }}"> Rede CNN</span>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://github.com/luukas20/cnn-cat-vs-dog" target="_blank">
-                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Cat vs Dog.png') }}');">
-                                    
-                                </div>
-                            </a>
-                            <p class="project-description">Neste projeto, explorei a classificação de imagens usando Redes Neurais Convolucionais (CNNs) 🧠. Inicialmente, treinei uma CNN customizada do zero, que alcançou uma acurácia sólida de +85% 📈. Em seguida, utilizei <em>Transfer Learning</em> ✨ com a arquitetura <strong>ResNet50</strong> (pré-treinado pela Microsoft), atingindo impressionantes 98% de acurácia! 🚀</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">Faturamento vs Meta</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> Power Automate</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Data Base.png') }}"> SQL</span>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNDM5YTczNTUtNzkxYS00MzZjLTlkZmYtNjZmMDBhYWU4MTg0IiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                                <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Data Expert.png') }}');">
-                                    
-                                </div>
-                            </a>
-                            <p class="project-description">Acompanhando a performance comercial em tempo real! 📊🚀 Este painel compara o
-                                faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução
-                                mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket
-                                médio, notas emitidas e projeções de forecast para o fechamento anual. 💼✨</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">Previsão BOVA11</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/GARCH.png') }}"> ARMA-GARCH</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Rede LSTM.png') }}"> REDE LSTM</span>
-                        </div>
-                        
-                        <div class="card-content">
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlN2JmZGMtMjViOS00OGNiLWFlYzMtZjIzOGI1ODhmM2ZiIiwidCI6ImE3YmJlZjdmLTY1NzctNDA3Mi05YzhkLTk1ZDNmMWVmMWM1ZSJ9" target="_blank">
-                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Previsão BOVA11.png') }}');">
-                            
-                            </div>
-                        </a>
-                            <p class="project-description">Analisando o futuro financeiro com precisão! 📈✨ Este painel compara o poder da
-                                inteligência artificial, representada por uma rede neural LSTM, e da estatística,
-                                através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para
-                                treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de
-                                tecnologia e análise de dados. 💹🤖</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">Controle de Gastos Pessoais</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Power BI.png') }}"> Power BI</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> FORMS</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Microsoft.png') }}"> POWER ATOMATE</span>
-                        </div>
-                        
-                        <div class="card-content">
-                        <a href="#" target="_blank">
-                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Controle de Gastos.png') }}');">
-                                
-                            </div>
-                        </a>
-                            <p class="project-description">Controlando as finanças pessoais com clareza e inteligência! 💰📊 Este painel
-                                acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média
-                                mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre
-                                despesas por categoria, distribuição das transações e comparativos entre metas e
-                                valores realizados. Oferece uma visão completa para tomada de decisões financeiras
-                                mais conscientes e estratégicas. 📉✨</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="card-header">
-                            <h3 class="project-title">Previsão Ações Streamlit</h3>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Python.png') }}"> Python</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/Dev Streamlit.png') }}"> STREAMLIT</span>
-                            <span class="project-tag"> <img src="{{ url_for('static', filename='images/GARCH.png') }}"> ARMA-GARCH</span>
-                        </div>
-                        
-                        <div class="card-content">
-                        <a href="https://lucas-estatistico-acoes.streamlit.app/" target="_blank">
-                            <div class="card-image" style="background-image: url('{{ url_for('static', filename='images/Dashboard Streamlit.png') }}');">
-                                
-                            </div>
-                        </a>
-                        <p class="project-description">
-                            📈✨ Este painel interativo, desenvolvido com Streamlit, oferece uma análise aprofundada do desempenho de qualquer ação de sua escolha. Digite o ticker desejado para explorar dados históricos, visualizar gráficos de preços e acompanhar as previsões geradas pelo modelo ARMA-GARCH. Uma ferramenta poderosa e flexível para suas análises e projeções no mercado financeiro. 💹💻
-                        </p>
-                        </div>
-                    </div>
+{% endfor %}
                 </div>
             </div><!--interface-->
         </section><!--portifolio-->
@@ -284,9 +163,7 @@
                     <img src="{{ url_for('static', filename='images/WhatsApp.png') }}"> Manda "Oi" no Whats.</button>
                 </a>
                 <div class="rede-social">
-                    <a href="https://www.linkedin.com/in/luukas20/" target="_blank"><button><img src="{{ url_for('static', filename='images/Linkedin.png') }}" alt=""></button></a>
-                    <a href="https://github.com/luukas20" target="_blank"><button><img src="{{ url_for('static', filename='images/GitHub.png') }}" alt=""></button></a>
-                    <a href="mailto:lucas.estatistico@outlook.com" target="_blank"><button><img src="{{ url_for('static', filename='images/E-Mail.png') }}" alt=""></button></a>
+                    {{ redes(redes_sociais) }}
                 </div><!--rede-social-->
             </div>
                 

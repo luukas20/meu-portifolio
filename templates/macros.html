@@ -1,0 +1,15 @@
+{# Trechos repetidos da homepage #}
+
+{# Etiquetas com ícone (especialidades e projetos) #}
+{% macro tags(lista) %}
+{%- for tag in lista %}
+<span class="project-tag"> <img src="{{ url_for('static', filename='images/' ~ tag.icone) }}"> {{ tag.nome }}</span>
+{%- endfor %}
+{%- endmacro %}
+
+{# Botões de rede social (sobre-mim e contato) #}
+{% macro redes(lista) %}
+{%- for rede in lista %}
+<a href="{{ rede.url }}" target="_blank"><button><img src="{{ url_for('static', filename='images/' ~ rede.icone) }}" alt=""></button></a>
+{%- endfor %}
+{%- endmacro %}
