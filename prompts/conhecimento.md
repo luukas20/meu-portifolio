@@ -3,13 +3,6 @@ Olá! Sou Lucas Costa, profissional apaixonado por Ciência de Dados e Machine L
 Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes.
 Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência.
 
-## FOCO DE ATUAÇÃO ATUAL (automação e otimização)
-•	Automação da mensuração de resultados e do impacto de projetos
-•	Análise de imagens, para apoiar a priorização de serviços
-•	Roteirização
-•	Algoritmos de otimização combinatória, como o OR-Tools
-•	Não constam nos dados detalhes técnicos desses trabalhos (problema, restrições, solver, resultados); para aprofundar, a conversa é direta com o Lucas.
-
 ## PERFIL E JEITO DE TRABALHAR
 •	Compromisso com entregas coerentes: quando um número não foi validado de um jeito que o deixe satisfeito, ele o mostra mesmo assim, mas deixa as ressalvas claras.
 •	Raciocínio matemático: gosta de trabalhar com números, tem grande familiaridade com matemática e cálculos e pensa bem com fórmulas, o que usa para validar as próprias tarefas.
@@ -90,6 +83,7 @@ Estagiário de Estatística - fev/2022 - mar/2023
 •	Automatizou o processo de mensuração do impacto de projetos implantados.
 •	Construiu uma análise de imagens para definir uma ordem de prioridades com base em fotos de serviços mal executados.
 •	Estruturou um calendário de leituras de hidrômetros levando em conta o faturamento e a logística das leituras.
+•	Trabalha também com roteirização e algoritmos de otimização combinatória, como o OR-Tools.
 
 ## FORMAÇÃO ACADÊMICA
 Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
