@@ -51,7 +51,7 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 
 ## Evidence on Hand
 
-- Sete projetos publicados (imagens em `public/static/images/`, descrições em `conteudo.py`): Eleições ao Vivo 2026 (em destaque, código aberto no GitHub), Perda Esperada, Visão Computacional (Gatos vs. Cachorros), Faturamento vs Meta, Previsão BOVA11, Controle de Gastos Pessoais, Previsão Ações Streamlit.
+- Sete projetos publicados (imagens em `public/static/images/`, descrições em `conteudo.py`): Eleições ao Vivo 2026 (o mais recente, vai primeiro; código aberto no GitHub), Perda Esperada, Visão Computacional (Gatos vs. Cachorros), Faturamento vs Meta, Previsão BOVA11, Controle de Gastos Pessoais, Previsão Ações Streamlit.
 - **Pode mostrar métricas da Cencosud**, como o Índice de Cobertura de 115% do projeto de Perda Esperada.
 - Cat vs Dog: repositório público em `github.com/luukas20/cnn-cat-vs-dog` (notebooks lidos; conclusões aguardam confirmação do Lucas antes de irem para o site ou o chatbot).
 - Experiência: Iguá Saneamento, Cencosud, Hospital Primavera, TRE-SE. Formação e cursos em `prompts/conhecimento.md`.

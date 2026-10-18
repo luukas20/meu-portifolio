@@ -222,7 +222,7 @@ Cantos arredondados moderados: `raio` (12px) em botões, botão de menu e marca;
 - **Link com seta** (`link-seta`): texto `acento` 600, sem sublinhado; hover escurece e sublinha.
 
 ### Cards / Containers
-- **Cartão de projeto:** fundo branco, borda `linha`, canto 22px, imagem 16:10 no topo com filete embaixo, corpo com padding 1.4rem 1.5rem 1.5rem, título, tags, descrição e link com seta empurrado para o fim. Sombra de repouso mínima; sem elevação no hover. Variante `projeto-destaque` (um projeto por vez, `destaque: True` em `conteudo.py`): ocupa as duas colunas a partir de 48rem, com a imagem em cima; a partir de 80rem a imagem vai para a esquerda (60% da largura) e o texto à direita.
+- **Cartão de projeto:** fundo branco, borda `linha`, canto 22px, imagem 16:10 no topo com filete embaixo, corpo com padding 1.4rem 1.5rem 1.5rem, título, tags, descrição e link com seta empurrado para o fim. Sombra de repouso mínima; sem elevação no hover. Todos os cartões têm o mesmo tamanho e peso; o projeto mais recente vai primeiro, sem variante de destaque.
 - **Especialidade:** sem caixa; filete superior de `linha-forte` com um traço de acento de 2.75rem por 3px.
 - **Citação:** cartão branco, canto 22px, texto de título em Bricolage 500.
 

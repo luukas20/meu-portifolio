@@ -195,10 +195,11 @@ def test_configuracao_da_vercel_valida():
     assert (RAIZ / ".python-version").read_text(encoding="utf-8").strip() == "3.12"
 
 
-def test_um_unico_projeto_em_destaque_com_link_publico():
-    destaques = [p for p in conteudo.PROJETOS if p.get("destaque")]
-    assert len(destaques) == 1
-    assert destaques[0]["link"].startswith("https://github.com/luukas20/")
-    assert home().count("projeto-destaque") == 1
-    # o cartão em destaque abre a lista (mais recente e mais completo)
-    assert conteudo.PROJETOS[0] is destaques[0]
+def test_eleicoes_abre_a_lista_com_o_mesmo_formato_dos_demais():
+    primeiro = conteudo.PROJETOS[0]
+    assert primeiro["titulo"].startswith("Eleições ao Vivo")
+    assert primeiro["link"].startswith("https://github.com/luukas20/")
+    # nenhum cartão tem destaque: todos têm o mesmo tamanho
+    assert not any(p.get("destaque") for p in conteudo.PROJETOS)
+    assert "projeto-destaque" not in home()
+
