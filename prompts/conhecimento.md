@@ -3,11 +3,32 @@ Olá! Sou Lucas Costa, profissional apaixonado por Ciência de Dados e Machine L
 Minha trajetória é marcada por um profundo interesse em técnicas de Machine Learning, utilizando as linguagens R e Python para desenvolver soluções inovadoras. Além disso, possuo um sólido domínio em SQL, Power BI e DAX, ferramentas que me permitem transformar dados complexos em insights acionáveis e visualizações impactantes.
 Acredito que a combinação de estatística, programação e visualização é essencial para revelar insights valiosos a partir dos dados. Estou sempre em busca de aprimorar minhas habilidades técnicas e criativas, desafiando-me a alcançar novos patamares de excelência.
 
+## PERFIL E JEITO DE TRABALHAR
+•	Compromisso com entregas coerentes: quando um número não foi validado de um jeito que o deixe satisfeito, ele o mostra mesmo assim, mas deixa as ressalvas claras.
+•	Raciocínio matemático: gosta de trabalhar com números, tem grande familiaridade com matemática e cálculos e pensa bem com fórmulas, o que usa para validar as próprias tarefas.
+•	Traduz regras de negócio complexas em código para chegar ao número de que a empresa precisa para decidir certo.
+•	Alinhamento de prioridades: costuma conversar com os superiores para saber qual demanda é mais prioritária.
+•	Resiliência e visão positiva: leva as dificuldades como aprendizado que o fortalece e busca o lado positivo das situações.
+•	Trabalha muito bem em equipe, mas rende mais com foco individual, porque dados pedem concentração e tempo para pensar em soluções e validar. É mais reservado; quando a demanda exige falar com outras áreas, ele vai atrás e resolve.
+•	Perfil de especialista e consultor técnico; não se vê em cargos de gestão de pessoas.
+•	Inteligência artificial: atualmente trabalha bastante com o Claude e também usa Gemini e ChatGPT. Estuda boas práticas de IA (skills publicadas no GitHub, VS Code e estruturas de pastas e arquivos pensadas para trabalhar com IA).
+
+## O QUE O LUCAS PROCURA
+•	Está aberto a oportunidades em regime CLT, voltadas a dados, estatística e BI (Business Intelligence).
+•	Modelo de trabalho: prefere o remoto e trabalha bem no híbrido, que é o modelo que ele usa hoje. O presencial pesa na decisão dele, mas ele não descarta uma boa oportunidade só por isso.
+•	Mora em Aracaju (SE) e gosta muito da cidade. Para falar de mudança de cidade, proposta ou qualquer condição, o caminho é conversar diretamente com ele pelos contatos.
+•	Interesse por papéis de especialista ou consultoria em dados, e não por gestão de pessoas.
+
+## POR QUE ESTATÍSTICA
+•	O Lucas costuma dizer que a estatística o escolheu. Ele queria cursar Licenciatura em Matemática, mas não alcançou a nota de corte, então entrou em Estatística pensando em migrar para Matemática ao longo do curso. Ao conhecer melhor a área, se apaixonou: ela une a matemática e a computação, é uma área em crescimento e permite trabalhar com o que ele gosta, que é usar dados, medir e apresentar resultados.
+
 ## ORIGEM E HISTÓRIA PESSOAL
 •	Nasceu em abril de 2002, em Itapicuru, na Bahia. A família é de produtores rurais.
 •	Aos 17 anos (em 2019) mudou-se para Aracaju, em Sergipe, onde morou com colegas, para cursar Estatística na Universidade Federal de Sergipe (UFS), em que ingressou pelo SISU (Sistema de Seleção Unificada).
+•	A mudança para Aracaju foi um marco: sair da casa dos pais e se desenvolver sozinho, em um lugar novo, com poucos conhecidos. Viveu com recursos limitados, de auxílios da universidade e do pouco que os pais podiam ajudar, e acreditava que a educação traria um futuro melhor. Sem uma segunda opção, dedicou-se aos estudos ao máximo, o que aparece nos certificados de mérito acadêmico de 2019 a 2022. Os pais se esforçaram muito para que ele estivesse na universidade, e ele leva essa mesma dedicação e comprometimento para o trabalho.
+•	Fora do trabalho: gosta de assistir animes, relaxar com a família, fazer churrasco no fim de semana e ouvir música atual do Nordeste e MPB.
 •	A idade dele deve ser calculada a partir do mês e do ano de nascimento e da data de hoje.
-•	Não constam nos dados o endereço, a cidade onde mora hoje, o estado civil, hobbies nem outros detalhes da vida pessoal.
+•	Não constam nos dados o endereço completo, o estado civil nem outros detalhes da vida pessoal.
 
 ## EXPERIÊNCIA PROFISSIONAL
 1.	Iguá Saneamento
@@ -58,6 +79,11 @@ Estagiário de Estatística - fev/2022 - mar/2023
 •	Shiny App para Apuração de Votos em Tempo Real direto da API do TSE
 
 
+## DESTAQUES NA IGUÁ SANEAMENTO (descrever o trabalho, sem divulgar números)
+•	Automatizou o processo de mensuração do impacto dos projetos implantados que a área acompanha.
+•	Construiu uma análise de imagens para definir uma ordem de prioridades com base em fotos de serviços mal executados.
+•	Estruturou um calendário de leituras de hidrômetros levando em conta o faturamento e a logística das leituras.
+
 ## FORMAÇÃO ACADÊMICA
 Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 
@@ -87,6 +113,9 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 •	Curso - Organização Apresentação e Tratamento de Dados Científicos - UFS (4 h, 2019)
 •	Curso - Power BI Aplicado a Negócios - Grupo Voitto (24 h, 2023)
 •	Curso - Desvendando a Blockchain - SENAI-SP (20 h, 2021)
+•	Curso - Formação Ciência de Dados (R e Python)
+•	Curso - Machine Learning em R
+•	Evento - Evento Mercel (aulas de R)
 
 
 ## PRINCIPAIS HABILIDADES
@@ -102,12 +131,14 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 •	PowerPoint
 •	Power Automate
 •	Microsoft Forms
+•	LaTeX (escreveu o TCC em LaTeX)
 
 ## PRINCIPAIS PROJETOS DESENVOLVIDOS
 * Dashboard Power BI: 
 1   Acompanhando a performance comercial em tempo real! Este painel compara o faturamento realizado com as metas estabelecidas, trazendo insights sobre evolução mensal, desempenho por produto e ranking de vendedores. Além disso, destaca ticket médio, notas emitidas e projeções de forecast para o fechamento anual.
 2   Analisando o futuro financeiro com precisão! Este painel compara o poder da inteligência artificial, representada por uma rede neural LSTM, e da estatística, através do modelo GARCH, para prever a cotação do BOVA11. Utilizamos R e Python para treinar os modelos e o Power BI para visualizar os resultados. A junção perfeita de tecnologia e análise de dados.
 3   Controlando as finanças pessoais com clareza e inteligência! Este painel acompanha a carteira ao longo do tempo, destacando receitas, despesas e a média mensal, além de detalhar a variação do saldo acumulado. Também traz insights sobre despesas por categoria, distribuição das transações e comparativos entre metas e valores realizados. Oferece uma visão completa para tomada de decisões financeiras mais conscientes e estratégicas.
+4   Day Trand: projeto de estudo em Power BI que traz um pouco do estudo feito no TCC.
 
 
 * Dashboard Streamlit: 
@@ -117,6 +148,9 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 1   Modelagem de Perda Esperada (PE): Desenvolvi uma solução robusta para a estimativa da Perda Esperada em portfólios de cartão de crédito através da fórmula PE = PD x LGD x EAD: • Probabilidade de Default (PD); • Loss Given Default (LGD); • Exposure at Default (EAD). Com essa abordagem de Machine Learning, alcancei um Índice de Cobertura de 115%. Garantindo uma gestão de limites precisa e maior resiliência financeira para a carteira. Ferramenta: Python.
 2   Visão Computacional (Gatos vs. Cachorros): Neste projeto, explorei a classificação de imagens usando Redes Neurais Convolucionais (CNNs). Inicialmente, treinei uma CNN customizada do zero, que alcançou uma acurácia sólida de +85%. Em seguida, utilizei Transfer Learning com a arquitetura ResNet50 (pré-treinado pela Microsoft), atingindo impressionantes 98% de acurácia!
     Detalhes técnicos (código público em github.com/luukas20/cnn-cat-vs-dog): dataset Kaggle "Dog and Cat Classification" com 24.998 imagens, divididas em 80% para treino (19.998) e 20% para teste (5.000), em 224x224 pixels e com data augmentation (rotação, zoom, flip horizontal e shear). A CNN customizada tem 3 blocos de convolução com max pooling (16, 32 e 64 filtros), uma camada densa de 512 neurônios com Dropout de 0,5 e saída sigmoide, cerca de 25,7 milhões de parâmetros, treinada com Adam (learning rate 1e-4), batch de 16 e 15 épocas, chegando a 84,7% de acurácia no conjunto de teste (85,3% na melhor época). O modelo com Transfer Learning usa a ResNet50 com pesos do ImageNet (apenas as 5 primeiras camadas congeladas), GlobalAveragePooling, camadas densas de 256 e 128 neurônios com Dropout de 0,2 e saída sigmoide, também com Adam (1e-4) e batch de 16, e alcançou 98,24% de acurácia no conjunto de teste (loss de 0,049). Ferramentas: Python, TensorFlow/Keras, scikit-learn, pandas, matplotlib e seaborn.
+
+* TCC (Universidade Federal de Sergipe, nota 10, a nota máxima):
+1   Análise comparativa entre o modelo ARMA-GARCH e redes neurais LSTM para prever o preço de fechamento do BOVA11, com dados de 2018 a 2024 e teste em fevereiro de 2024. Os dois modelos tiveram ótimo desempenho, com erro percentual médio (MAPE) abaixo de 1%: 0,60% no ARMA(9,10)-GARCH(2,1) e 0,63% na LSTM, e ambos superaram a previsão ingênua (U-Theil de 0,55 e 0,57). O ARMA-GARCH ficou ligeiramente melhor. A LSTM final usou janela de 15 dias, três camadas ocultas (128, 64 e 32 neurônios), função de ativação Leaky ReLU, Dropout, otimizador Adam e 200 épocas, definidos depois de comparar otimizadores e funções de ativação. O trabalho também traz a parte matemática das redes neurais e um relatório em Power BI com as previsões. Ferramentas: R (modelos) e LaTeX (escrita do trabalho).
 
 * Painel Eleições ao Vivo 2026 (projeto em destaque no portfólio):
 1   Painel não oficial de acompanhamento ao vivo da apuração das eleições brasileiras de 2026, feito pelo Lucas em Python e Flask sobre os arquivos públicos de divulgação de resultados do TSE (resultados.tse.jus.br). É um projeto independente, sem vínculo com o TSE, com código aberto (licença MIT) em github.com/luukas20/eleicoes-ao-vivo.
@@ -149,7 +183,7 @@ Universidade Federal de Sergipe - UFS - Bacharelado em Estatística - 2019/2024
 6   Econometria 
 
 ## CONTATO
-•	LinkedIn: https://www.linkedin.com/in/luukas20/
+•	LinkedIn: https://www.linkedin.com/in/luukas20/ (as recomendações de colegas e gestores estão no LinkedIn dele)
 •	GitHub (código dos projetos): https://github.com/luukas20
 •	E-mail: lucas.estatistico@outlook.com
 •	WhatsApp: botão "Manda Oi no Whats" na seção "Vamos conversar" deste site
