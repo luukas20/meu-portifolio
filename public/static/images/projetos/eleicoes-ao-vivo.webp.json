@@ -1,4 +1,4 @@
 {
-  "prompt": "Origem: captura de tela do painel Eleições ao Vivo (github.com/luukas20/eleicoes-ao-vivo) rodando com os dados reais publicados pelo TSE no fim do primeiro turno de 2026, de 4 de outubro (imagens-originais/Eleições ao Vivo.png). Feita com Chrome headless, recortada para 1260x784 (proporção 16:10 dos cartões) e convertida para WebP em 900 px de largura por tools/otimizar_imagens.py.",
+  "prompt": "Origem: captura de tela do painel Eleições ao Vivo (github.com/luukas20/eleicoes-ao-vivo) rodando no tema claro com os dados reais publicados pelo TSE no fim do primeiro turno de 2026, de 4 de outubro (imagens-originais/Eleições ao Vivo.png). Feita com Chrome headless, recortada para 1260x784 (proporção 16:10 dos cartões) e convertida para WebP em 900 px de largura por tools/otimizar_imagens.py.",
   "createdAt": "2026-10-17T22:58:00.000Z"
 }

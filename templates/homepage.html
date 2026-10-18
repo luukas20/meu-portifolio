@@ -62,20 +62,7 @@
                     <h1 class="nome entra" id="nome" style="--i: 0">Lucas Costa</h1>
                     <p class="posicionamento entra" style="--i: 1">{{ tagline }}</p>
                     <p class="cargo-linha entra" style="--i: 1">{{ atual.cargo }} · {{ atual.empresa }}</p>
-                    <ul class="frentes entra" style="--i: 2">
-                        {%- for frente in frentes %}
-                        <li>
-                            <strong class="frente-titulo">{{ frente.titulo }}</strong>
-                            <p>{{ frente.texto }}</p>
-                            <ul class="frente-itens" aria-label="Ferramentas e temas">
-                                {%- for item in frente.itens %}
-                                <li>{{ item }}</li>
-                                {%- endfor %}
-                            </ul>
-                        </li>
-                        {%- endfor %}
-                    </ul>
-                    <div class="acoes entra" style="--i: 3">
+                    <div class="acoes entra" style="--i: 2">
                         <a class="botao botao-primario" href="#portfolio">Ver projetos {{ icone('direita') }}</a>
                         <a class="botao botao-contorno" href="#contato">Falar comigo</a>
                     </div>
@@ -90,6 +77,59 @@
                 </figure>
             </div><!--abertura-miolo-->
         </section><!--abertura-->
+
+        <!-- CITAÇÃO -->
+        <section class="secao-citacao" id="citacao" aria-label="Citação">
+            <div class="miolo">
+                <blockquote class="citacao">
+                    <p>“{{ citacao.texto }}”</p>
+                    <footer>{{ citacao.autor }}</footer>
+                </blockquote>
+            </div>
+        </section><!--citacao-->
+
+        <!-- ESPECIALIDADES E FERRAMENTAS -->
+        <section class="secao secao-suave" id="especialidades" aria-labelledby="titulo-especialidades">
+            <div class="miolo">
+                <h2 class="titulo" id="titulo-especialidades">Minhas especialidades</h2>
+                <div class="especialidades">
+                    {%- for esp in especialidades %}
+                    <article class="especialidade">
+                        <h3>{{ esp.titulo }}</h3>
+                        <p>{{ esp.descricao }}</p>
+                        {{ tags(esp.tags) }}
+                    </article>
+                    {%- endfor %}
+                </div>
+
+                <div class="ferramentas">
+                    <div>
+                        <h3>Habilidades técnicas</h3>
+                        <ul class="chips">
+                            {%- for item in ferramentas %}
+                            <li>{{ item }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Idiomas</h3>
+                        <ul class="idiomas">
+                            {%- for item in idiomas %}
+                            <li><strong>{{ item.idioma }}</strong> {{ item.nivel }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                    <details class="cursos">
+                        <summary>Cursos e experiências adicionais</summary>
+                        <ul>
+                            {%- for curso in cursos %}
+                            <li>{{ curso }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section><!--especialidades-->
 
         <!-- TRAJETÓRIA -->
         <section class="secao" id="trajetoria" aria-labelledby="titulo-trajetoria">
@@ -157,51 +197,8 @@
             </div>
         </section><!--portfolio-->
 
-        <!-- ESPECIALIDADES E FERRAMENTAS -->
-        <section class="secao" id="especialidades" aria-labelledby="titulo-especialidades">
-            <div class="miolo">
-                <h2 class="titulo" id="titulo-especialidades">Minhas especialidades</h2>
-                <div class="especialidades">
-                    {%- for esp in especialidades %}
-                    <article class="especialidade">
-                        <h3>{{ esp.titulo }}</h3>
-                        <p>{{ esp.descricao }}</p>
-                        {{ tags(esp.tags) }}
-                    </article>
-                    {%- endfor %}
-                </div>
-
-                <div class="ferramentas">
-                    <div>
-                        <h3>Habilidades técnicas</h3>
-                        <ul class="chips">
-                            {%- for item in ferramentas %}
-                            <li>{{ item }}</li>
-                            {%- endfor %}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Idiomas</h3>
-                        <ul class="idiomas">
-                            {%- for item in idiomas %}
-                            <li><strong>{{ item.idioma }}</strong> {{ item.nivel }}</li>
-                            {%- endfor %}
-                        </ul>
-                    </div>
-                    <details class="cursos">
-                        <summary>Cursos e experiências adicionais</summary>
-                        <ul>
-                            {%- for curso in cursos %}
-                            <li>{{ curso }}</li>
-                            {%- endfor %}
-                        </ul>
-                    </details>
-                </div>
-            </div>
-        </section><!--especialidades-->
-
         <!-- SOBRE -->
-        <section class="secao secao-suave" id="sobre" aria-labelledby="titulo-sobre">
+        <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
             <div class="miolo sobre">
                 <div class="sobre-texto">
                     <h2 class="titulo" id="titulo-sobre">Muito prazer, sou Lucas Costa</h2>
@@ -209,10 +206,6 @@
                     <p>{{ paragrafo }}</p>
                     {%- endfor %}
                 </div>
-                <blockquote class="citacao">
-                    <p>“{{ citacao.texto }}”</p>
-                    <footer>{{ citacao.autor }}</footer>
-                </blockquote>
             </div>
         </section><!--sobre-->
 

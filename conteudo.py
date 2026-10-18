@@ -151,8 +151,7 @@ PROJETOS = [
 
 
 # --- TORRE: primeira tela, trajetória e ferramentas ---------------------------------------------
-# Frentes: reescritas em out/2026 com fatos do currículo e dos projetos do Lucas (nada inventado); trajetória, ferramentas,
-# idiomas e cursos copiados do currículo atualizado (out/2026). Ordem da trajetória: do mais recente para a base.
+# Trajetória, ferramentas, idiomas e cursos copiados do currículo atualizado (out/2026). Ordem da trajetória: do mais recente para a base.
 
 TAGLINE = "Transformando dados complexos em decisões estratégicas."
 
@@ -160,24 +159,6 @@ CITACAO = {
     "texto": "O pensamento estatístico será um dia tão necessário para a cidadania eficiente quanto a capacidade de ler e escrever.",
     "autor": "H. G. Wells",
 }
-
-FRENTES = [
-    {
-        "titulo": "Estatística e Machine Learning",
-        "texto": "Índice de Cobertura de 115% na perda esperada, 98% de acurácia em visão computacional e previsão de séries financeiras.",
-        "itens": ["Python", "R", "PD, LGD e EAD", "ARMA-GARCH", "Redes LSTM", "CNN"],
-    },
-    {
-        "titulo": "BI e dados",
-        "texto": "Dashboards em Power BI sobre dados modelados, integrados e automatizados.",
-        "itens": ["Power BI", "DAX", "SQL Server", "MySQL", "Oracle SQL", "Snowflake", "Pentaho", "Power Automate"],
-    },
-    {
-        "titulo": "Análise para decisão",
-        "texto": "Análises de CAPEX, OPEX e viabilidade de projetos que sustentam decisões rápidas e precisas.",
-        "itens": ["CAPEX e OPEX", "Viabilidade de projetos", "Indicadores de inadimplência", "Metas estratégicas", "Python", "R", "IA"],
-    },
-]
 
 TRAJETORIA = [
     {
@@ -283,9 +264,9 @@ CURSOS = [
 ]
 
 NAVEGACAO = [
+    ("Especialidades", "#especialidades"),
     ("Trajetória", "#trajetoria"),
     ("Projetos", "#portfolio"),
-    ("Especialidades", "#especialidades"),
     ("Sobre", "#sobre"),
     ("Contato", "#contato"),
 ]

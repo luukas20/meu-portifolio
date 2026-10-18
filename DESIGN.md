@@ -130,7 +130,7 @@ components:
 
 **Creative North Star: "O Relatório Claro"**
 
-O site se comporta como um bom relatório executivo: fundo frio e arejado, superfícies brancas, tinta azul-grafite e um único acento verde-azulado que marca ação, estado atual e dados. O conteúdo real (nome, três frentes, trajetória, projetos) lidera; a interface recua. Foi feito para ser lido rápido, em geral no celular, por recrutadores e gestores.
+O site se comporta como um bom relatório executivo: fundo frio e arejado, superfícies brancas, tinta azul-grafite e um único acento verde-azulado que marca ação, estado atual e dados. O conteúdo real (nome, citação, especialidades, trajetória, projetos) lidera; a interface recua. Foi feito para ser lido rápido, em geral no celular, por recrutadores e gestores.
 
 A personalidade vem da tipografia (Bricolage Grotesque nos títulos, com tracking apertado, e Onest no texto), de filetes de 1px no lugar de molduras pesadas e de sombras suaves, de baixo contraste e com deslocamento vertical. A única assinatura é estatística: uma curva normal em traço fino no pé da primeira tela, mais o selo do cargo atual sobre a foto no desktop. Currículo é propositalmente discreto: botão de contorno no menu e botão secundário na faixa de contato.
 
@@ -180,7 +180,7 @@ Paleta fria e contida: neutros azulados, uma cor de ação verde-azulada e uma f
 ### Hierarchy
 - **Display** (700, `clamp(2.75rem, 7vw, 4.75rem)`, 1.02, -0.03em): o nome na primeira tela. Em desktop baixo (altura até 820px) escala por `7vh`, até 4.25rem.
 - **Headline** (650, `clamp(1.75rem, 3.6vw, 2.6rem)`, 1.1, -0.02em): títulos de seção.
-- **Title** (650, 1.2rem, 1.25, -0.015em): cartões de projeto, especialidades, empresas da trajetória (1.3rem), frentes (1.05rem).
+- **Title** (650, 1.2rem, 1.25, -0.015em): cartões de projeto, especialidades, empresas da trajetória (1.3rem).
 - **Lead** (Onest 400, `clamp(1.15rem, 2.2vw, 1.45rem)`, 1.4, máx. 30ch): frase de posicionamento.
 - **Body** (Onest 400, 1.0625rem, 1.65): texto corrido; parágrafos longos ficam entre 52ch e 62ch.
 - **Label** (Onest 500, 0.8125rem a 0.95rem): tags, chips, períodos. Sem caixa alta e sem espaçamento largo.
@@ -192,7 +192,7 @@ Paleta fria e contida: neutros azulados, uma cor de ação verde-azulada e uma f
 
 Coluna única centrada, `largura-site` de 72rem, com `gutter` fluido (1.25rem a 2rem) como respiro lateral. Seções têm padding vertical `clamp(3.5rem, 8vw, 6rem)` e alternam `fundo` com `superficie-suave` (com filetes acima e abaixo). Mobile primeiro, com quatro pontos de quebra: 40rem (chat mais largo, cursos em duas colunas), 48rem (curva aparece, cartões e especialidades em grade, trajetória em duas colunas, selo se desloca), 64rem (menu horizontal, primeira tela em duas colunas 1.1fr/0.9fr, selo do cargo sobre a foto, sobre em duas colunas) e desktop baixo (`min-width: 64rem` e `max-height: 820px`, que compacta a primeira tela para caber inteira).
 
-Primeira tela: no celular a ordem é nome, posicionamento, cargo atual em linha com marcador, botões, frentes (frase + etiquetas), foto; no desktop a linha do cargo some (o selo a substitui) e a ordem é a mesma, sem a linha do cargo: nome, posicionamento, botões, frentes. Cada frente tem o título, uma frase de impacto em tinta forte e as ferramentas e temas em etiquetas pequenas (`.frente-itens`). A trajetória é uma linha do tempo vertical de 2px com marcos circulares. Projetos: 1 coluna, 2 a partir de 48rem. Especialidades: 3 colunas a partir de 48rem. O rodapé reserva 5.5rem embaixo para o botão flutuante do chat.
+Primeira tela: no celular a ordem é nome, posicionamento, cargo atual em linha com marcador, botões, foto; no desktop a linha do cargo some (o selo a substitui) e o texto fica ao lado da foto. As três frentes (frase de impacto e etiquetas) saíram dela em out/2026 a pedido do Lucas. Ordem da página: primeira tela, citação do H. G. Wells (cartão branco centralizado, sem fundo de seção), especialidades (fundo suave), trajetória, portfólio (fundo suave), sobre e contato; os fundos alternam entre liso e suave. A trajetória é uma linha do tempo vertical de 2px com marcos circulares. Projetos: 1 coluna, 2 a partir de 48rem. Especialidades: 3 colunas a partir de 48rem. O rodapé reserva 5.5rem embaixo para o botão flutuante do chat.
 
 ## Elevation & Depth
 

@@ -34,13 +34,13 @@ pytest                           # testes (Gemini simulado, não gasta cota)
 main.py                  cria `app = Flask(__name__, static_folder="public/static", ...)` e faz `from views import *` no final
 vercel.json, .python-version  configuração da Vercel (duração máxima da função, arquivos excluídos do pacote, Python 3.12)
 views.py                 rotas, cliente Gemini (criado sob demanda), limite de uso e leitura dos prompts
-conteudo.py              conteúdo da homepage (frentes, trajetória, projetos, especialidades, ferramentas, sobre-mim, redes, currículo); o template só percorre estas listas
+conteudo.py              conteúdo da homepage (trajetória, projetos, especialidades, ferramentas, sobre-mim, redes, currículo); o template só percorre estas listas
 templates/macros.html    macros `tags` (etiquetas com logotipo) e `icone` (ícones SVG em traço único)
 PRODUCT.md, DESIGN.md    contexto de produto e sistema visual (Impeccable); `.impeccable/design.json` e `.impeccable/surfaces/` são o apoio
 imagens-originais/       imagens de origem (PNG/JPEG pesados), fora da pasta servida; o site usa só os WebP gerados
 prompts/persona.md       persona e regras da "Puxa Saco" (instrução do sistema)
 prompts/conhecimento.md  base de conhecimento do bot (currículo, projetos); editar o .md e reiniciar o servidor
-templates/homepage.html  página única: abertura (primeira tela), trajetória, portfólio, especialidades, sobre, contato, rodapé, chat
+templates/homepage.html  página única, nesta ordem: abertura (primeira tela, sem as antigas frentes), citação do H. G. Wells, especialidades, trajetória, portfólio, sobre, contato, rodapé, chat
 public/static/style.css  todo o CSS; tokens em :root; mobile-first com breakpoints em 40rem, 48rem e 64rem
 public/static/main.js   menu, seção atual no menu, chatbot (fetch POST /api/chat)
 public/static/fonts/   Bricolage Grotesque e Onest (woff2, licença OFL em LICENSE.txt)
@@ -80,7 +80,7 @@ O conteúdo da página vive em `conteudo.py`; o do chatbot, em `prompts/conhecim
 ## Armadilhas conhecidas (revisar/remover conforme forem corrigidas)
 
 - A foto (`public/static/images/lucas.webp`) vem de um original de 720 px de largura: fica um pouco mole em telas 2x. Se o Lucas tiver uma foto de 1000 px ou mais, trocar em `imagens-originais/` e rodar `tools/otimizar_imagens.py`.
-- A frase da meta description e da prévia de compartilhamento (`og.jpg`, feita a partir dos títulos das frentes) foi composta fora dos textos do Lucas e aguarda a aprovação dele. Para refazer a prévia, ver o HTML de origem no histórico do git ou recriar com Chrome `--screenshot` a 1200x630.
+- A frase da meta description e da prévia de compartilhamento (`og.jpg`, feita a partir dos títulos das antigas frentes, que saíram da primeira tela em out/2026) foi composta fora dos textos do Lucas e aguarda a aprovação dele. Para refazer a prévia, ver o HTML de origem no histórico do git ou recriar com Chrome `--screenshot` a 1200x630.
 - O raciocínio (thinking) do Gemini conta no `max_output_tokens`: sem teto a resposta saía cortada no meio. Por isso `views.py` usa `ORCAMENTO_RACIOCINIO = 256` e `LIMITE_TOKENS_RESPOSTA = 2048` (o `flash-lite` não aceita `thinking_budget=0` e às vezes pensa além do orçamento; resposta vazia é refeita uma vez). A data de hoje vai na instrução do sistema para o bot calcular tempo de experiência.
 - O limite de uso do chat é em memória e vale por instância do servidor (em hospedagem serverless é "melhor esforço"). Atrás de proxy usa `ProxyFix(x_for=1, x_proto=1, x_host=1)` em `main.py` (IP, https e host reais; a prévia de compartilhamento monta endereços absolutos a partir deles); sem proxy, os cabeçalhos `X-Forwarded-*` podem ser forjados (burla o limite do chat e muda os endereços da prévia).
 

@@ -17,7 +17,7 @@ Portfólio pessoal de **Lucas Costa**, Estatístico (UFS, 2019/2024), hoje Anali
 
 ## Positioning
 
-Três frentes, nas palavras do Lucas (no site, em out/2026, ganharam frases de impacto escritas com os fatos do currículo e dos projetos dele, mais as ferramentas em etiquetas):
+Três frentes, nas palavras do Lucas (em out/2026 elas chegaram a aparecer na primeira tela com frases de impacto e etiquetas, mas o Lucas pediu para tirar; hoje o conteúdo vive nas especialidades):
 
 1. **Estatística e Machine Learning:** desenvolve bons modelos de Machine Learning.
 2. **BI:** forte conhecimento em ferramentas de BI (Power BI, SQL, Pentaho).
@@ -62,7 +62,7 @@ Diferencial do site: um assistente de IA ("Puxa Saco") que responde sobre o perf
 ## Product Principles
 
 1. **Prova antes de promessa:** projetos reais, métricas autorizadas e recomendações com as palavras de quem as escreveu.
-2. **As três frentes ditas com clareza** logo no começo: estatística/ML, BI e análise para decisão.
+2. **O posicionamento dito com clareza** logo no começo (nome, frase de impacto e cargo atual); as três frentes (estatística/ML, BI e análise para decisão) saíram da primeira tela em out/2026 a pedido do Lucas e aparecem como especialidades, logo depois da citação.
 3. **Caminho curto até os projetos e o contato** para quem só passa o olho; o currículo está à mão, sem disputar atenção.
 4. **Profundidade para quem quer ver o método:** cada projeto leva ao código, ao painel ou ao estudo, quando existir.
 5. **O chatbot é parte do produto:** tem personalidade, só diz o que está na base e a base acompanha a página.

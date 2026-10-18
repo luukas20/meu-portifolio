@@ -40,8 +40,6 @@ def test_home_renderiza_todo_o_conteudo():
     html = home()
     for item in conteudo.ESPECIALIDADES + conteudo.PROJETOS:
         assert item["titulo"] in html
-    for frente in conteudo.FRENTES:
-        assert frente["titulo"] in html and frente["texto"] in html
     for cargo in conteudo.TRAJETORIA:
         assert cargo["empresa"] in html and cargo["cargo"] in html and cargo["periodo"] in html
         assert all(topico in html for topico in cargo["topicos"])
@@ -152,7 +150,7 @@ def test_curriculo_so_no_menu_e_no_contato():
 
 def test_cargo_atual_aparece_na_primeira_tela():
     html = home()
-    topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
+    topo = html.split('id="topo"')[1].split('id="citacao"')[0]
     atual = conteudo.TRAJETORIA[0]
     assert atual["cargo"] in topo and atual["empresa"] in topo
 
@@ -166,8 +164,8 @@ def test_previa_de_compartilhamento():
 
 def test_ordem_e_acessibilidade_da_primeira_tela():
     html = home()
-    topo = html.split('id="topo"')[1].split('id="trajetoria"')[0]
-    # as frentes não são títulos de seção (só o h1 e os h2 das seções entram no índice)
+    topo = html.split('id="topo"')[1].split('id="citacao"')[0]
+    # a primeira tela tem só o h1 (os h2 são das seções que vêm depois)
     assert "<h2>" not in topo
     # cada link "Abrir o projeto" tem nome acessível próprio
     assert html.count('class="so-leitor">: ') == len([p for p in conteudo.PROJETOS if p["link"]])
@@ -202,4 +200,19 @@ def test_eleicoes_abre_a_lista_com_o_mesmo_formato_dos_demais():
     # nenhum cartão tem destaque: todos têm o mesmo tamanho
     assert not any(p.get("destaque") for p in conteudo.PROJETOS)
     assert "projeto-destaque" not in home()
+
+
+def test_ordem_das_secoes_e_do_menu():
+    html = home()
+    ids = ["topo", "citacao", "especialidades", "trajetoria", "portfolio", "sobre", "contato"]
+    posicoes = [html.index(f'id="{i}"') for i in ids]
+    assert posicoes == sorted(posicoes)
+    # a citação é uma seção própria, logo depois da primeira tela, e não repete no "sobre"
+    assert html.count("<blockquote") == 1
+    assert html.index("<blockquote") < html.index('id="especialidades"')
+    # o menu segue a ordem da página
+    ancoras = [ancora for _, ancora in conteudo.NAVEGACAO]
+    assert ancoras == ["#especialidades", "#trajetoria", "#portfolio", "#sobre", "#contato"]
+    # as frentes saíram da primeira tela
+    assert "frente" not in html.lower()
 

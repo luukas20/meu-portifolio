@@ -36,7 +36,6 @@ def homepage():
         "homepage.html",
         tagline=conteudo.TAGLINE,
         citacao=conteudo.CITACAO,
-        frentes=conteudo.FRENTES,
         trajetoria=conteudo.TRAJETORIA,
         fundacao=conteudo.FUNDACAO,
         ferramentas=conteudo.FERRAMENTAS,

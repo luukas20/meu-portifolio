@@ -423,15 +423,6 @@ button {
     flex-direction: column;
 }
 
-/* no celular os botões vêm logo abaixo do posicionamento; no desktop, depois das frentes */
-.acoes {
-    order: 2;
-}
-
-.frentes {
-    order: 3;
-}
-
 .cargo-linha {
     display: flex;
     align-items: center;
@@ -465,50 +456,6 @@ button {
     font-size: clamp(1.15rem, 2.2vw, 1.45rem);
     line-height: 1.4;
     text-wrap: balance;
-}
-
-.frentes {
-    margin-top: 1.75rem;
-    border-top: 1px solid var(--linha-forte);
-}
-
-.frentes li {
-    padding: 0.95rem 0;
-    border-bottom: 1px solid var(--linha);
-}
-
-.frente-titulo {
-    display: block;
-    font-family: var(--fonte-titulo);
-    font-size: 1.05rem;
-    font-weight: 650;
-    letter-spacing: -0.01em;
-}
-
-.frentes p {
-    max-width: 60ch;
-    margin-top: 0.2rem;
-    color: var(--tinta);
-    font-size: 1.0625rem;
-    line-height: 1.5;
-}
-
-.frente-itens {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.65rem;
-}
-
-.frente-itens li {
-    padding: 0.1rem 0.6rem;
-    border: 1px solid var(--linha);
-    border-radius: 999px;
-    background: var(--superficie);
-    color: var(--tinta-suave);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    line-height: 1.5;
 }
 
 .acoes {
@@ -940,8 +887,15 @@ button {
     line-height: 1.7;
 }
 
+.secao-citacao {
+    padding: 0 0 clamp(3rem, 7vw, 5rem);
+}
+
 .citacao {
-    padding: clamp(1.5rem, 4vw, 2.25rem);
+    max-width: 54rem;
+    margin-inline: auto;
+    text-align: center;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     border: 1px solid var(--linha);
     border-radius: var(--raio-grande);
     background: var(--superficie);
@@ -1376,12 +1330,6 @@ button {
         display: grid;
     }
 
-    .sobre {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-        gap: 5rem;
-        align-items: start;
-    }
-
     .chat-container {
         bottom: 6rem;
     }
@@ -1392,14 +1340,6 @@ button {
     .abertura {
         padding-top: 2.75rem;
         padding-bottom: 8rem;
-    }
-
-    .frentes {
-        margin-top: 1.5rem;
-    }
-
-    .frentes li {
-        padding-block: 0.7rem;
     }
 
     .nome {
