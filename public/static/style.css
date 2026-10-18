@@ -31,6 +31,7 @@
     --acento: #0b7a75;
     --acento-forte: #075e5a;
     --acento-suave: #e3f3f2;
+    --sobre-acento: #ffffff;
 
     /* faixa escura (contato e rodapé) */
     --escuro: #0e1726;
@@ -42,6 +43,7 @@
     --erro: #b42318;
     --sombra-suave: rgb(14 23 38 / 0.08);
     --sombra-media: rgb(14 23 38 / 0.18);
+    --filtro-icone: none;
 
     /* tipografia */
     --fonte-titulo: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
@@ -53,6 +55,52 @@
     --raio: 12px;
     --raio-grande: 22px;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* TEMA ESCURO: segue o sistema (prefers-color-scheme) ou a escolha do botão do cabeçalho (data-tema no <html>).
+   Os dois blocos abaixo têm de ficar idênticos; toda cor nova entra aqui e em :root. */
+:root[data-tema="escuro"] {
+    --fundo: #0a101a;
+    --superficie: #141d2e;
+    --superficie-suave: #0e1623;
+    --linha: #222d3f;
+    --linha-forte: #3f4f6a;
+    --tinta: #e9eef6;
+    --tinta-suave: #b4c0d1;
+    --tinta-fraca: #8e9bb0;
+    --acento: #3dd6c8;
+    --acento-forte: #7ae8de;
+    --acento-suave: #10302f;
+    --sobre-acento: #04201e;
+    --escuro: #05090f;
+    --erro: #ff8f84;
+    --sombra-suave: rgb(0 0 0 / 0.35);
+    --sombra-media: rgb(0 0 0 / 0.55);
+    --filtro-icone: brightness(1.7) saturate(1.2);
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-tema="claro"]) {
+        --fundo: #0a101a;
+        --superficie: #141d2e;
+        --superficie-suave: #0e1623;
+        --linha: #222d3f;
+        --linha-forte: #3f4f6a;
+        --tinta: #e9eef6;
+        --tinta-suave: #b4c0d1;
+        --tinta-fraca: #8e9bb0;
+        --acento: #3dd6c8;
+        --acento-forte: #7ae8de;
+        --acento-suave: #10302f;
+        --sobre-acento: #04201e;
+        --escuro: #05090f;
+        --erro: #ff8f84;
+        --sombra-suave: rgb(0 0 0 / 0.35);
+        --sombra-media: rgb(0 0 0 / 0.55);
+        --filtro-icone: brightness(1.7) saturate(1.2);
+        color-scheme: dark;
+    }
 }
 
 /* BASE */
@@ -154,7 +202,7 @@ button {
     padding: 0.75rem 1.25rem;
     border-radius: var(--raio);
     background: var(--tinta);
-    color: var(--texto-escuro);
+    color: var(--fundo);
     font-weight: 600;
     transition: top 0.2s var(--ease);
 }
@@ -206,7 +254,7 @@ button {
 
 .botao-primario {
     background: var(--acento);
-    color: var(--superficie);
+    color: var(--sobre-acento);
     box-shadow: 0 6px 14px -8px var(--sombra-media);
 }
 
@@ -262,6 +310,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     max-width: var(--largura-site);
     min-height: 4rem;
     margin: 0 auto;
@@ -281,6 +330,53 @@ button {
 
 .marca img {
     border-radius: 8px;
+}
+
+.cabecalho-acoes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tema-botao {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--linha-forte);
+    border-radius: var(--raio);
+    background: var(--superficie);
+    color: var(--tinta);
+    cursor: pointer;
+}
+
+.tema-botao .icone {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+/* no claro aparece a lua (vai para o escuro); no escuro, o sol */
+.tema-botao .icone-sol {
+    display: none;
+}
+
+:root[data-tema="escuro"] .tema-botao .icone-lua {
+    display: none;
+}
+
+:root[data-tema="escuro"] .tema-botao .icone-sol {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-tema="claro"]) .tema-botao .icone-lua {
+        display: none;
+    }
+
+    :root:not([data-tema="claro"]) .tema-botao .icone-sol {
+        display: block;
+    }
 }
 
 .menu {
@@ -753,6 +849,10 @@ button {
     line-height: 1.4;
 }
 
+.tag img {
+    filter: var(--filtro-icone);
+}
+
 /* ESPECIALIDADES */
 .especialidades {
     display: grid;
@@ -986,7 +1086,7 @@ button {
     border: 0;
     border-radius: 999px;
     background: var(--acento);
-    color: var(--superficie);
+    color: var(--sobre-acento);
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 16px 28px -10px var(--sombra-media), 0 2px 6px var(--sombra-suave);
@@ -1096,7 +1196,7 @@ button {
     align-self: flex-end;
     border-bottom-right-radius: 5px;
     background: var(--acento);
-    color: var(--superficie);
+    color: var(--sobre-acento);
 }
 
 .typing-message {
@@ -1145,7 +1245,7 @@ button {
     border: 0;
     border-radius: 50%;
     background: var(--acento);
-    color: var(--superficie);
+    color: var(--sobre-acento);
     cursor: pointer;
 }
 
@@ -1291,6 +1391,7 @@ button {
 @media (min-width: 64rem) {
     .menu {
         display: block;
+        margin-left: auto;
     }
 
     .menu ul {
@@ -1348,5 +1449,12 @@ button {
 
     .retrato {
         width: min(100%, 21rem);
+    }
+}
+
+@media (hover: hover) {
+    .tema-botao:hover {
+        border-color: var(--acento);
+        color: var(--acento);
     }
 }

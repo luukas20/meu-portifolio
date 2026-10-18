@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lucas Costa | Portfólio de Dados</title>
     <meta name="description" content="Lucas Costa, estatístico: Machine Learning, BI e análise para decisão. Projetos, trajetória profissional e currículo em PDF.">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141d2e" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="Lucas Costa | Portfólio de Dados">
@@ -17,6 +18,20 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <script>
+        /* aplica o tema escolhido antes da primeira pintura, para a página não piscar */
+        (function () {
+            try {
+                var tema = localStorage.getItem('tema');
+                if (tema === 'claro' || tema === 'escuro') {
+                    document.documentElement.setAttribute('data-tema', tema);
+                    var cor = tema === 'escuro' ? '#141d2e' : '#ffffff';
+                    var metas = document.querySelectorAll('meta[name="theme-color"]');
+                    for (var i = 0; i < metas.length; i++) { metas[i].setAttribute('content', cor); }
+                }
+            } catch (erro) { /* sem armazenamento: segue o tema do sistema */ }
+        })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/bricolage-grotesque.woff2') }}" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="{{ url_for('static', filename='fonts/onest.woff2') }}" crossorigin>
@@ -24,7 +39,7 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Lucas da Silva Costa","alternateName":"Lucas Costa","jobTitle":"Analista de Transformação","worksFor":{"@type":"Organization","name":"Iguá Saneamento"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Universidade Federal de Sergipe"},"sameAs":["https://www.linkedin.com/in/luukas20/","https://github.com/luukas20"],"knowsAbout":["Estatística","Machine Learning","Business Intelligence","Power BI","Python","R","SQL"]}
     </script>
-    <noscript><style>.menu-botao{display:none}.cabecalho .menu{display:flex!important;position:static}</style></noscript>
+    <noscript><style>.menu-botao,.tema-botao{display:none}.cabecalho .menu{display:flex!important;position:static}</style></noscript>
 </head>
 <body>
     <a class="pular" href="#principal">Pular para o conteúdo</a>
@@ -42,10 +57,15 @@
                     {%- endif %}
                 </ul>
             </nav>
-            <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
-                <span class="menu-botao-barras" aria-hidden="true"></span>
-                <span class="so-leitor">Abrir menu</span>
-            </button>
+            <div class="cabecalho-acoes">
+                <button class="tema-botao" id="tema-botao" type="button" aria-label="Mudar para o tema escuro">
+                    {{ icone('lua') }}{{ icone('sol') }}
+                </button>
+                <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+                    <span class="menu-botao-barras" aria-hidden="true"></span>
+                    <span class="so-leitor">Abrir menu</span>
+                </button>
+            </div>
         </div>
     </header>
 

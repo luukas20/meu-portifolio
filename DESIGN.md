@@ -269,3 +269,14 @@ Botão flutuante em pílula `acento` (só ícone no celular, ícone e texto a pa
 
 - A foto da primeira tela (`lucas.webp`) tem 720 px de largura e fica mole em telas 2x.
 - A frase da meta description ainda aguarda aprovação do Lucas.
+
+## Tema escuro (out/2026)
+
+Segue o sistema (`prefers-color-scheme: dark`) e pode ser trocado no botão lua/sol do cabeçalho, ao lado do menu; a escolha fica guardada no navegador (`localStorage`, chave `tema`). Sem JavaScript vale o tema do sistema.
+
+- **Superfícies:** fundo `#0a101a`, seção suave `#0e1623`, cartões `#141d2e`, linhas `#222d3f` e `#3f4f6a`. A faixa de contato e o rodapé ficam mais escuros que a página (`#05090f`) para continuar separando o fim.
+- **Texto:** tinta `#e9eef6`, suave `#b4c0d1`, fraca `#8e9bb0`.
+- **Acento:** o mesmo verde-azulado, mais claro (`#3dd6c8`; hover `#7ae8de`; fundo suave `#10302f`). Texto sobre o acento é quase preto (`--sobre-acento: #04201e`).
+- **Contraste (WCAG):** tinta 16:1 no fundo, tinta suave 10:1, tinta fraca 6,8:1, acento como texto 10,6:1, texto sobre o acento 9,5:1, selo "Atual" 7,8:1.
+- **Imagens:** os logotipos das etiquetas (recoloridos no acento claro) ganham `filter: var(--filtro-icone)` para não sumirem; capturas de projetos ficam como estão (algumas são claras, de propósito, como a do Eleições ao Vivo).
+- **Botão de tema:** 2,75rem, mesmo desenho do botão de menu; mostra a lua no claro e o sol no escuro; o nome acessível muda ("Mudar para o tema escuro" / "Mudar para o tema claro"). Hover só em `@media (hover: hover)`.

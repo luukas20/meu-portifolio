@@ -1,5 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ---------- TEMA CLARO / ESCURO ----------
+    // O tema começa pelo sistema (prefers-color-scheme) ou pela escolha guardada; o botão alterna e guarda a escolha.
+    const temaBotao = document.getElementById('tema-botao');
+    const raiz = document.documentElement;
+    const sistemaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
+    const COR_BARRA = { claro: '#ffffff', escuro: '#141d2e' }; // fundo do cabeçalho em cada tema
+
+    function temaAtual() {
+        const escolhido = raiz.getAttribute('data-tema');
+        if (escolhido === 'claro' || escolhido === 'escuro') return escolhido;
+        return sistemaEscuro.matches ? 'escuro' : 'claro';
+    }
+
+    function atualizarBotaoTema() {
+        if (!temaBotao) return;
+        const escuro = temaAtual() === 'escuro';
+        temaBotao.setAttribute('aria-label', escuro ? 'Mudar para o tema claro' : 'Mudar para o tema escuro');
+    }
+
+    function aplicarTema(tema) {
+        raiz.setAttribute('data-tema', tema);
+        try {
+            localStorage.setItem('tema', tema);
+        } catch (erro) { /* sem armazenamento: vale só nesta visita */ }
+        document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => meta.setAttribute('content', COR_BARRA[tema]));
+        atualizarBotaoTema();
+    }
+
+    if (temaBotao) {
+        temaBotao.addEventListener('click', () => aplicarTema(temaAtual() === 'escuro' ? 'claro' : 'escuro'));
+        sistemaEscuro.addEventListener('change', atualizarBotaoTema);
+        atualizarBotaoTema();
+    }
+
     // ---------- MENU MOBILE ----------
     const menuBotao = document.getElementById('menu-botao');
     const menu = document.getElementById('menu');

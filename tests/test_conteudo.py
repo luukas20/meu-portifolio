@@ -216,3 +216,34 @@ def test_ordem_das_secoes_e_do_menu():
     # as frentes saíram da primeira tela
     assert "frente" not in html.lower()
 
+
+def test_botao_de_tema_no_cabecalho_e_escolha_aplicada_antes_da_pintura():
+    html = home()
+    cabecalho = html.split('<header class="cabecalho"')[1].split("</header>")[0]
+    assert 'id="tema-botao"' in cabecalho and 'aria-label="Mudar para o tema escuro"' in cabecalho
+    # a escolha guardada é aplicada no <head>, antes da folha de estilo (a página não pisca)
+    head = html.split("</head>")[0]
+    assert "localStorage.getItem('tema')" in head
+    assert head.index("localStorage.getItem('tema')") < head.index('rel="stylesheet"')
+    assert html.count('<meta name="theme-color"') == 2
+    js = (PASTA_STATIC / "main.js").read_text(encoding="utf-8")
+    assert "localStorage.setItem('tema'" in js and "data-tema" in js
+
+
+def test_tema_escuro_tem_os_mesmos_tokens_nos_dois_gatilhos():
+    css = (PASTA_STATIC / "style.css").read_text(encoding="utf-8")
+
+    def tokens(bloco):
+        return dict(re.findall(r"(--[\w-]+):\s*([^;]+);", bloco))
+
+    claro = tokens(css.split(":root {")[1].split("}")[0])
+    manual = tokens(css.split(':root[data-tema="escuro"] {')[1].split("}")[0])
+    automatico = tokens(css.split(':root:not([data-tema="claro"]) {')[1].split("}")[0])
+    # escolha manual e preferência do sistema têm de ser idênticas
+    assert manual == automatico
+    # todo token escuro existe no claro, e as cores essenciais foram redefinidas
+    assert set(manual) <= set(claro)
+    assert {"--fundo", "--superficie", "--tinta", "--acento", "--sobre-acento"} <= set(manual)
+    # texto sobre o acento precisa de contraste nos dois temas
+    assert manual["--sobre-acento"] != claro["--sobre-acento"]
+
