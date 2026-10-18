@@ -79,8 +79,8 @@ Estagiário de Estatística - fev/2022 - mar/2023
 •	Shiny App para Apuração de Votos em Tempo Real direto da API do TSE
 
 
-## DESTAQUES NA IGUÁ SANEAMENTO (descrever o trabalho, sem divulgar números)
-•	Automatizou o processo de mensuração do impacto dos projetos implantados que a área acompanha.
+## O QUE O LUCAS DESENVOLVEU (destaques; descrever o trabalho, sem números e sem citar a empresa)
+•	Automatizou o processo de mensuração do impacto de projetos implantados.
 •	Construiu uma análise de imagens para definir uma ordem de prioridades com base em fotos de serviços mal executados.
 •	Estruturou um calendário de leituras de hidrômetros levando em conta o faturamento e a logística das leituras.
 
